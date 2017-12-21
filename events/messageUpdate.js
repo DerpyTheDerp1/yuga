@@ -48,17 +48,17 @@ exports.run = async(client, old, msg) => {
         //Logger
     }
     //Prefix Checker #4: Mention edited
-    if (msg.content.split(' ').first().includes(client.user.id) && !msg.mentions.everyone) {
+    if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
 
         content = msg.content.split(' ');
-        console.log(content)
+        console.log(content);
 
 
-        command = content[1]
-        leftovers = content.slice(2)
-        args = []
+        command = content[1];
+        leftovers = content.slice(2);
+        args = [];
         for (i in leftovers) {
-            args.push(leftovers[i])
+            args.push(leftovers[i]);
         }
 
         console.log('Command running, Handler: 4');
