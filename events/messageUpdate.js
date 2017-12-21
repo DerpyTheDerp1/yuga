@@ -48,7 +48,7 @@ exports.run = async (client, old, msg) => {
         //Logger
     }
     //Prefix Checker #4: Mention edited
-    if (msg.mentions.users.has(client.user.id, {
+    if (msg.mentions.users.first().has(client.user.id, {
             ignoreEveryone: true
         })) {
 
