@@ -1,11 +1,16 @@
-const db = require('quick.db');
+const prefixes = require('../events/ready.js');
 
-exports.run = (client, msg, args) => {
+exports.run = async(client, msg, args) => {
     const prefix = args.join(' ');
-    if (msg.author.id !== msg.guild.owner.user.id) return;
-    else {
-        db.updateText(msg.guild.id, prefix).then(p => {
-            msg.channel.send(`Updated prefix for this server to: ${p.text}`);
-        });
-    }
+    prefixes.sync();
+
+    await prefixes.update({
+        prefix: prefix
+    }, {
+        where: {
+            guildID: msg.guild.id
+        }
+    });
+
+    msg.reply(`Prefix for this server set to: ${prefix}`);
 };
