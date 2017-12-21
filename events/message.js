@@ -62,7 +62,7 @@ exports.run = async(client, msg) => {
     }
 
     //Prefix checker #3: Mentions
-    if (msg.content.split(' ').first().includes(client.user.id) && !msg.mentions.everyone) {
+    if (msg.content.split(' ').first().includes(`<@${client.user.id}>`) && !msg.mentions.everyone) {
 
         content = msg.content.split(' ');
         command = content[1];
