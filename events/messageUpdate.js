@@ -48,7 +48,7 @@ exports.run = async (client, old, msg) => {
         //Logger
     }
     //Prefix Checker #4: Mention edited
-    if (msg.mentions.users.first().includes(client.user.id) {
+    if (msg.mentions.users.first().includes(client.user.id) && !msg.mentions.everyone) {
 
         content = msg.content.split(' ');
         console.log(content)
