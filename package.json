@@ -18,7 +18,7 @@
     "opusscript": "^0.0.3",
     "quick.db": "3.0.3",
     "sequelize": "^4.28.6",
-    "sqlite": "2.9.0",
+    "sqlite3": "3.1.13",
     "superagent": "3.8.2",
     "urban.js": "2.4.3",
     "uws": "^8.14.1",
