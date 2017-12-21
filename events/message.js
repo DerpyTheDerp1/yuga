@@ -61,8 +61,8 @@ exports.run = async(client, msg) => {
         //Logger    
     }
 
-    //Prefix checker 3: Mentions
-    if (msg.mentions.users.has(client.user.id, {
+    //Prefix checker #3: Mentions
+    if (msg.mentions.users.first().has(client.user.id, {
             ignoreEveryone: true
         })) {
 
