@@ -1,4 +1,5 @@
-const prefixes = require('../events/ready.js');
+const ready = require('../events/ready');
+const prefixes = ready.prefixes;
 
 exports.run = async(client, msg, args) => {
     const prefix = args.join(' ');

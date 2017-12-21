@@ -1,7 +1,6 @@
 const prefix = 'y!';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
-const sequelize = require('sequelize');
 const ready = require('../events/ready');
 const prefixes = ready.prefixes;
 
