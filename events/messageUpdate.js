@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const color = require('../db/db.json').color;
 const db = require('quick.db');
 
-exports.run = async (client, old, msg) => {
+exports.run = async(client, old, msg) => {
     function error(err) {
         const errorembed = new Discord.MessageEmbed()
             .setColor(color)
@@ -48,7 +48,7 @@ exports.run = async (client, old, msg) => {
         //Logger
     }
     //Prefix Checker #4: Mention edited
-    if (msg.mentions.users.first().includes(client.user.id) && !msg.mentions.everyone) {
+    if (msg.content.split(' ').first().includes(client.user.id) && !msg.mentions.everyone) {
 
         content = msg.content.split(' ');
         console.log(content)
@@ -93,7 +93,7 @@ exports.run = async (client, old, msg) => {
     if (!p.text) return;
 
     //Command Handler #6: Custom Prefixes
-     if (msg.content.startsWith(p.text)) {
+    if (msg.content.startsWith(p.text)) {
         command = command.slice(p.text.length);
         console.log('Command running, Handler: 6');
         msg.channel.startTyping();
