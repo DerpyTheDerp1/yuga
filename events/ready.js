@@ -1,12 +1,12 @@
 const superagent = require('superagent');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('prefixes', 'Striker', null, {
+const sequelize = new Sequelize({
   host: 'localhost',
   dialect: 'sqlite',
   logging: false,
   // SQLite only
-  storage: './db/prefixes.sqlite',
+  storage: '../db/prefixes.sqlite',
   operatorsAliases: false
 });
 
