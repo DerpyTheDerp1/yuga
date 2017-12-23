@@ -6,7 +6,7 @@ const sequelize = new Sequelize({
   dialect: 'sqlite',
   logging: false,
   // SQLite only
-  storage: '../db/prefixes.sqlite',
+  storage: '../db/prefixes.sqlite3',
   operatorsAliases: false
 });
 
