@@ -1,12 +1,13 @@
 const superagent = require('superagent');
 const Sequelize = require('sequelize');
+const path = require('path');
 
 const sequelize = new Sequelize({
   host: 'localhost',
   dialect: 'sqlite',
   logging: false,
   // SQLite only
-  storage: '../db/prefixes.sqlite',
+  storage: path.join(__dirname, 'db', 'prefixes.sqlite'),
   operatorsAliases: false
 });
 
