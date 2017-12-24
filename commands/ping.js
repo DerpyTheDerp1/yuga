@@ -23,6 +23,6 @@ exports.run = async(client, msg) => {
         embed: pingembed
     });
     console.log('Pinged by ' + author);
-};
 
-module.exports.recentPings = recentpings;
+    module.exports.recentPings = recentpings;
+};
