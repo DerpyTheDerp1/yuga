@@ -1,35 +1,6 @@
 const superagent = require('superagent');
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://yeyjvmpsmswzsj:3ddbc47a64bcc6ff89ccd25d5d634b7cf4720cad32849cdeb3d845284ae0d68a@ec2-54-163-233-103.compute-1.amazonaws.com:5432/def8s59bi50pk5');
-
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection to database has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-const prefixes = sequelize.define('prefixes', {
-  GuildID: {
-    type: Sequelize.STRING
-  },
-  prefix: {
-    type: Sequelize.STRING
-  }
-});
 
 exports.run = async(client) => {
-  prefixes.sync();
-  console.log('Synced prefixes');
-  client.guilds.forEach(guild => {
-    prefixes.create({
-      GuildID: guild.id,
-      prefix: ''
-    });
-  });
-
   superagent.post('https://discordbots.org/api/bots/stats')
     .set('Authorization', process.env.DBTOKEN)
     .send({
@@ -50,5 +21,3 @@ exports.run = async(client) => {
   });
 
 };
-
-module.exports.prefixes = prefixes;
