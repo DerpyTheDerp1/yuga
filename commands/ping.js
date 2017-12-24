@@ -13,7 +13,7 @@ exports.run = async (client, msg) => {
         .setTimestamp()
         .setThumbnail(client.user.avatarURL())
         .setColor(`${db.color}`);
-    message.edit({
+    m1.edit({
         embed: pingembed
     });
     console.log('Pinged by ' + author);
