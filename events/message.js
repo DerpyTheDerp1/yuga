@@ -1,8 +1,6 @@
 const prefix = 'y!';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
-const ready = require('../events/ready');
-const prefixes = ready.prefixes;
 
 exports.run = async(client, msg) => {
     //Custom error catcher function

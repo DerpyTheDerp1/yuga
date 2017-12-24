@@ -22,5 +22,3 @@ exports.run = async(client) => {
   });
 
 };
-
-module.exports.prefixes = prefixes;
