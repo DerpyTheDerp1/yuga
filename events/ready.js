@@ -1,41 +1,7 @@
 const superagent = require('superagent');
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize({
-  host: 'localhost',
-  dialect: 'sqlite',
-  logging: false,
-  // SQLite only
-  storage: '../db/prefixes.sqlite3',
-  operatorsAliases: false
-});
-
-const prefixes = sequelize.define('prefixes', {
-  guildID: {
-    type: Sequelize.STRING,
-    unique: true,
-  },
-  prefix: {
-    type: Sequelize.STRING,
-    unique: false
-  }
-});
-
 exports.run = async(client) => {
-  try {
-    client.guilds.forEach(async g => {
-      await prefixes.create({
-        guildID: g.id,
-        prefix: ''
-      });
-      console.log('Prefixes created for new guilds!');
-    });
-  } catch (e) {
-    if (e.name === 'SequelizeUniqueConstraintError') {
-      return console.error;
-    } else return console.error;
-  }
-
   superagent.post('https://discordbots.org/api/bots/stats')
     .set('Authorization', process.env.DBTOKEN)
     .send({
