@@ -8,10 +8,6 @@ exports.run = async(client, msg) => {
     const message = await msg.channel.send('Pinging');
     const endTime = Date.now();
     const ping = Math.round(endTime - startTime);
-    const time = new Date();
-    const timeNow = ('0' + time.getHours()).slice(-2) + ':' + ('0' + time.getMinutes()).slice(-2) + ':' + ('0' + time.getSeconds()).slice(-2);
-    const recentpings = [];
-    recentpings.push(`Ping: ${ping}ms | Time: ${timeNow}`);
 
     const roundedping = ping / 1000;
     const pingembed = new Discord.MessageEmbed()
@@ -23,6 +19,4 @@ exports.run = async(client, msg) => {
         embed: pingembed
     });
     console.log('Pinged by ' + author);
-
-    module.exports.recentPings = recentpings;
 };
