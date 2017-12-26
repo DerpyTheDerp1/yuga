@@ -1,7 +1,7 @@
 const superagent = require('superagent')
 
 exports.run = async (client, guild) => {
-  await client.user.setActivity(`for y!help | ${client.guilds.size} servers`, {
+  await client.user.setActivity(`for yt!help | ${client.guilds.size} servers`, {
     type: 'WATCHING'
   });
   guild.owner.send('Hi! We see you kicked our bot. Could you explain briefly to Striker#7250 why, and we can consider improvements and such. Thanks!');
