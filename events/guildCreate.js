@@ -33,7 +33,7 @@ exports.run = async (client, guild) => {
         .setTimestamp();
 
     console.log('Setting game...');
-    client.user.setActivity(`for y!help | ${client.guilds.size} servers`, {
+    client.user.setActivity(`for yt!help | ${client.guilds.size} servers`, {
         type: 'WATCHING'
     });
     console.log('Game set!');
