@@ -4,7 +4,7 @@ exports.run = async (client, msg, args) => {
     .setTitle('ACCESS DENIED')
     .setAuthor(msg.author.tag)
     .setColor('#FF0000')
-    .setDescription('You do not have the permissions needed to use this command. Missing perms: MANAGE_msgS')
+    .setDescription('You do not have the permissions needed to use this command. Missing perms: MANAGE_MESSAGES')
     .setThumbnail(client.user.avatarURL())
     .setTimestamp();
 
