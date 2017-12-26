@@ -2,7 +2,7 @@ const superagent = require('superagent');
 
 exports.run = async(client) => {
   const guilds = client.guilds.size;
-  client.user.setActivity(`for y!help | ${guilds} servers`, {
+  client.user.setActivity(`for yt!help | ${guilds} servers`, {
     type: 'WATCHING'
   });
   console.log('Yuga is connected to the Discord WebSocket');
