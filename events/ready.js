@@ -5,7 +5,7 @@ exports.run = async(client) => {
   
 if (client.user.username == 'Yuga Testing') prefix = 'yt!'
 
-if (client.user.username == 'Yuga!') prefix == 'yt!'
+if (client.user.username == 'Yuga!') prefix == 'y!'
   client.user.setActivity(`for ${prefix}help | ${guilds} servers`, {
     type: 'WATCHING'
   });
