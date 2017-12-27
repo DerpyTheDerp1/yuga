@@ -1,4 +1,4 @@
-const prefix = 'y!';
+let prefix = '';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
 
@@ -13,10 +13,14 @@ exports.run = async(client, old, msg) => {
             embed: errorembed
         });
     }
-
+    
+    if (client.user.username == 'Yuga Testing') prefix = 'yt!';
+    if (client.user.username == 'Yuga!') prefix = 'y!';
     let args = msg.content.split(' ').slice(1);
     let command = msg.content.split(' ')[0];
     command = command.slice(prefix.length);
+
+    if (msg.author.bot) return;
     //Prefix checker #2: Edited command messages
     if (msg.content.startsWith(prefix)) {
         console.log('Command running, Handler: 2');

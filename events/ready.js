@@ -1,8 +1,12 @@
 const superagent = require('superagent');
-
+let prefix = ''
 exports.run = async(client) => {
   const guilds = client.guilds.size;
-  client.user.setActivity(`for y!help | ${guilds} servers`, {
+  
+if (client.user.username == 'Yuga Testing') prefix = 'yt!'
+
+if (client.user.username == 'Yuga!') prefix == 'y!'
+  client.user.setActivity(`for ${prefix}help | ${guilds} servers`, {
     type: 'WATCHING'
   });
   console.log('Yuga is connected to the Discord WebSocket');

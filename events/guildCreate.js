@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-
+let prefix = ''
 exports.run = async (client, guild) => {
  console.log('Yuga has been added to a new server!');
     console.log('Finding server...');
@@ -32,8 +32,11 @@ exports.run = async (client, guild) => {
         .addField('Need to contact us?', 'You can always join the official server and ask for help there!\nWe are English speaking, but we can speak some foreign languages too.\nJoin here: https://discord.gg/vJBrsY6')
         .setTimestamp();
 
+    if (client.user.username == 'Yuga Testing') prefix = 'yt!'
+
+   if (client.user.username == 'Yuga!') prefix = 'y!'
     console.log('Setting game...');
-    client.user.setActivity(`for y!help | ${client.guilds.size} servers`, {
+    client.user.setActivity(`for ${prefix}help | ${client.guilds.size} servers`, {
         type: 'WATCHING'
     });
     console.log('Game set!');

@@ -1,7 +1,11 @@
 const superagent = require('superagent')
-
+let prefix = ''
 exports.run = async (client, guild) => {
-  await client.user.setActivity(`for y!help | ${client.guilds.size} servers`, {
+if (client.user.username == 'Yuga Testing') prefix = 'yt!'
+
+if (client.user.username == 'Yuga!') prefix = 'y!'
+
+  await client.user.setActivity(`for ${prefix}help | ${client.guilds.size} servers`, {
     type: 'WATCHING'
   });
   guild.owner.send('Hi! We see you kicked our bot. Could you explain briefly to Striker#7250 why, and we can consider improvements and such. Thanks!');
