@@ -17,6 +17,8 @@ exports.run = async(client, old, msg) => {
     let args = msg.content.split(' ').slice(1);
     let command = msg.content.split(' ')[0];
     command = command.slice(prefix.length);
+
+    if (msg.author.bot) return;
     //Prefix checker #2: Edited command messages
     if (msg.content.startsWith(prefix)) {
         console.log('Command running, Handler: 2');
