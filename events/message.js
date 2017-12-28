@@ -1,4 +1,4 @@
-const prefix = 'y!';
+let prefix = '';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
 const error = require('../yuga.js').error;
@@ -6,7 +6,8 @@ const error = require('../yuga.js').error;
 exports.run = async(client, msg) => {
     let args = msg.content.split(' ').slice(1);
     let command = msg.content.split(' ')[0];
-
+    if (client.user.username == 'Yuga Testing') prefix = 'yt!';
+    if (client.user.username == 'Yuga!') prefix = 'y!';
     //Checking if it's a bot speaking & ignores it
     if (msg.author.bot) return;
 
