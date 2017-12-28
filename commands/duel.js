@@ -15,6 +15,8 @@ exports.run = async(client, msg) => {
     if (!user2) return msg.channel.send({
         embed: duelhelp
     });
+
+    if (user1 == user2) return msg.reply('You can\'t duel yourself!');
     const users = [];
     await users.push(user1);
     await users.push(user2);
