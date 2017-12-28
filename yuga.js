@@ -7,7 +7,17 @@ const client = new Discord.Client({
 });
 
 const fs = require('fs');
-
+//Custom error catcher function
+function error(err) {
+  const errorembed = new Discord.MessageEmbed()
+    .setColor(color)
+    .setTitle('New Error Caught!')
+    .setTimestamp()
+    .setDescription(`\`\`\`xl\n${err.stack}\`\`\``);
+  client.channels.get('385485532458778626').send({
+    embed: errorembed
+  });
+}
 //Event Handler
 fs.readdir('./events/', (err, files) => {
   if (err) return console.error(err);
@@ -19,3 +29,4 @@ fs.readdir('./events/', (err, files) => {
 });
 
 client.login(process.env.TOKEN);
+module.exports.error = error;

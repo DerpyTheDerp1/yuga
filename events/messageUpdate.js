@@ -1,19 +1,9 @@
 let prefix = '';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
+const error = require('../yuga.js').error;
 
 exports.run = async(client, old, msg) => {
-    function error(err) {
-        const errorembed = new Discord.MessageEmbed()
-            .setColor(color)
-            .setTitle('New Error Caught!')
-            .setTimestamp()
-            .setDescription(`\`\`\`xl\n${err.stack}\`\`\``);
-        client.channels.get('385485532458778626').send({
-            embed: errorembed
-        });
-    }
-    
     if (client.user.username == 'Yuga Testing') prefix = 'yt!';
     if (client.user.username == 'Yuga!') prefix = 'y!';
     let args = msg.content.split(' ').slice(1);
