@@ -13,7 +13,7 @@ exports.run = async (client, msg) => {
     .setThumbnail(client.user.avatarURL())
     .setTimestamp();
 
-  msg.channel.send(`${msg.author}, I have sent it to your DMs!\nI'll also send it here, and pin it.`);
+  msg.channel.send(`${msg.author}, I have sent it to your DMs!\nI'll also send it here.`);
   await msg.author.send({
     embed
   });
