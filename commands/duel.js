@@ -15,7 +15,8 @@ exports.run = async(client, msg) => {
     if (!user2) return msg.channel.send({
         embed: duelhelp
     });
-    const users = [].push(user1, user2);
+    const array = [];
+    const users = array.push(user1, user2);
     const winner = users[Math.floor(Math.random() * users.length)];
     message = await msg.channel.send(`${user1} is dueling ${user2}!`);
     await message.edit('⚔ Dueling');
