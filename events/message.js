@@ -5,6 +5,23 @@ const error = require('../yuga.js').error;
 const fs = require('fs');
 
 exports.run = async(client, msg) => {
+    function runCommand(cmd) {
+        fs.readdir('../commands', (err, CommandsFolder) => {
+            if (err) console.error;
+            for (const group of CommandsFolder) {
+                fs.readdir('../commands/' + group, (err, commands) => {
+                    if (err) console.error;
+                    for (const command of commands) {
+                        if (command.slice(0, -3) === cmd) {
+                            commandFile = require('../commands/' + group + '/' + command)
+                            commandFile.run(client, msg, args)
+                        }
+
+                    }
+                });
+            }
+        });
+    }
     let args = msg.content.split(' ').slice(1);
     let command = msg.content.split(' ')[0];
     if (client.user.username == 'Yuga Testing') prefix = 'yt!';
@@ -35,81 +52,61 @@ exports.run = async(client, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        function findCommand(cmd) {
-            fs.readdir('../commands', (error, CommandsFolder) => {
-                if (error) console.error
-                for (let group of CommandsFolder) {
-                    fs.readdir('../commands/' + group, (error, commands) => {
-                        if (error) console.error
-                        for (let command of commands) {
-                            if (command.slice(0, -3) === cmd) {
-                                commandFile = require('../commands/' + group + '/' + command)
-                                commandFile.run(client, msg, args)
-                            }
-                                
-                        }
-                    })
-                }
-            })
+        runCommand(command);
+        //End Running Commands
+
+        //Logger
+        client.channels.get('308545302615293953').send({
+            embed: log
+        }).then(msg.channel.stopTyping());
+        //Logger 
+    }
+
+    //Prefix checker #3: Mentions
+    if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
+
+        content = msg.content.split(' ');
+        command = content[1];
+        leftovers = content.slice(2);
+        args = [];
+        for (i in leftovers) {
+            args.push(leftovers[i]);
         }
-        findCommand(command)
-    }
 
-    //End Running Commands
+        console.log('Command running, Handler: 3');
+        msg.channel.startTyping();
+        const log = new Discord.MessageEmbed()
+            .setTitle('**__LOG__**')
+            .setColor(color)
+            .addField('User', `${msg.author.tag} ID: ${msg.author.id}`)
+            .addField('Command', `${msg.content}`)
+            .addField('Server', `${msg.guild.name} ID: ${msg.guild.id}`)
+            .setTimestamp()
+            .setThumbnail(client.user.avatarURL());
+        //Running Commands
+        try {
+            let commandFile = require(`../commands/Exclusive/${command}.js`);
+            commandFile.run(client, msg, args);
+        } catch (err) {
+            if (!commandFile) return commandFile = require(`../commands/Fun/${command}.js`);
+            commandFile.run(client, msg, args);
+            if (!commandFile) return commandFile = require(`../commands/Main/${command}.js`);
+            commandFile.run(client, msg, args);
+            if (!commandFile) return commandFile = require(`../commands/Moderation/${command}.js`);
+            commandFile.run(client, msg, args);
+            if (!commandFile) return commandFile = require(`../commands/Utility/${command}.js`);
+            commandFile.run(client, msg, args);
+            msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
+            error(err);
+            msg.channel.stopTyping();
+        }
+        //End Running Commands
 
-    //Logger
-    client.channels.get('308545302615293953').send({
-        embed: log
-    }).then(msg.channel.stopTyping());
-    //Logger    
-}
-
-
-//Prefix checker #3: Mentions
-if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
-
-    content = msg.content.split(' ');
-    command = content[1];
-    leftovers = content.slice(2);
-    args = [];
-    for (i in leftovers) {
-        args.push(leftovers[i]);
-    }
-
-    console.log('Command running, Handler: 3');
-    msg.channel.startTyping();
-    const log = new Discord.MessageEmbed()
-        .setTitle('**__LOG__**')
-        .setColor(color)
-        .addField('User', `${msg.author.tag} ID: ${msg.author.id}`)
-        .addField('Command', `${msg.content}`)
-        .addField('Server', `${msg.guild.name} ID: ${msg.guild.id}`)
-        .setTimestamp()
-        .setThumbnail(client.user.avatarURL());
-    //Running Commands
-    try {
-        let commandFile = require(`../commands/Exclusive/${command}.js`);
-        commandFile.run(client, msg, args);
-    } catch (err) {
-        if (!commandFile) return commandFile = require(`../commands/Fun/${command}.js`);
-        commandFile.run(client, msg, args);
-        if (!commandFile) return commandFile = require(`../commands/Main/${command}.js`);
-        commandFile.run(client, msg, args);
-        if (!commandFile) return commandFile = require(`../commands/Moderation/${command}.js`);
-        commandFile.run(client, msg, args);
-        if (!commandFile) return commandFile = require(`../commands/Utility/${command}.js`);
-        commandFile.run(client, msg, args);
-        msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
-        error(err);
-        msg.channel.stopTyping();
-    }
-    //End Running Commands
-
-    //Logger
-    client.channels.get('308545302615293953').send({
-        embed: log
-    }).then(msg.channel.stopTyping());
-    //Logger
-} else return;
-//Code to do nothing if there is no prefix. All other messages are ignored thus.
+        //Logger
+        client.channels.get('308545302615293953').send({
+            embed: log
+        }).then(msg.channel.stopTyping());
+        //Logger
+    } else return;
+    //Code to do nothing if there is no prefix. All other messages are ignored thus.
 };
