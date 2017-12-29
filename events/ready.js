@@ -9,13 +9,9 @@ exports.run = async(client) => {
   client.user.setActivity(`for ${prefix}help | ${guilds} servers`, {
     type: 'WATCHING'
   });
-  console.log('Yuga is connected to the Discord WebSocket');
-  const channel = client.channels.get('308278703283240960');
-  if (!channel) {
-    const otherChannel = client.channels.get('395355797716074509');
-    if (otherChannel) otherChannel.send('Yuga is now online!');
-  }
-  if (channel) channel.send('Yuga is now online!');
+  console.log(`${client.user.username} is connected to the Discord WebSocket`);
+  const channel = client.channels.get('396346743157030952');
+  if (channel) channel.send(`${client.user.username} is now online!`);
   if (process.env.DBENABLED == 'no') return;
   else {
     superagent.post('https://discordbots.org/api/bots/stats')
