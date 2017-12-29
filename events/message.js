@@ -10,7 +10,7 @@ exports.run = async(client, msg) => {
             const CommandsFolder = fs.readdirSync('./commands');
             for (const group of CommandsFolder) {
                 try {
-                    commands = fs.readdirSync('../commands/' + group);
+                    commands = fs.readdirSync('./commands/' + group);
                     for (const command of commands) {
                         if (command.slice(0, -3) === cmd) {
                             commandFile = require('./commands/' + group + '/' + command);
