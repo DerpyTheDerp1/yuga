@@ -21,13 +21,13 @@ exports.run = async(client, msg, args) => {
       embed: help
     });
   } else {
-    let commands = [];
+    const commands = [];
    const files = fs.readdirSync(__dirname);
       files.forEach(file => {
         commands.push(file.split('.')[0]);
       });
-    commands = commands.toString();
-    commands = commands.split(' ');
+    cmds = commands.toString();
+    cmds.split('\n');
     const embed = new Discord.MessageEmbed()
       .setTitle('Help Command')
       .setAuthor(client.user.username)
