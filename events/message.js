@@ -7,7 +7,7 @@ const fs = require('fs');
 exports.run = async(client, msg) => {
     function runCommand(cmd) {
         try {
-            const CommandsFolder = fs.readdirSync('../commands');
+            const CommandsFolder = fs.readdirSync('./commands');
             for (const group of CommandsFolder) {
                 try {
                     commands = fs.readdirSync('./commands/' + group);
