@@ -88,22 +88,7 @@ exports.run = async(client, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        try {
-            let commandFile = require(`../commands/Exclusive/${command}.js`);
-            commandFile.run(client, msg, args);
-        } catch (err) {
-            if (!commandFile) return commandFile = require(`../commands/Fun/${command}.js`);
-            commandFile.run(client, msg, args);
-            if (!commandFile) return commandFile = require(`../commands/Main/${command}.js`);
-            commandFile.run(client, msg, args);
-            if (!commandFile) return commandFile = require(`../commands/Moderation/${command}.js`);
-            commandFile.run(client, msg, args);
-            if (!commandFile) return commandFile = require(`../commands/Utility/${command}.js`);
-            commandFile.run(client, msg, args);
-            msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
-            error(err);
-            msg.channel.stopTyping();
-        }
+       await runCommand(command);
         //End Running Commands
 
         //Logger
