@@ -3,7 +3,7 @@ let prefix = ''
 exports.run = async(client) => {
   const guilds = client.guilds.size;
   
-if (client.user.username == 'Yuga!') prefix == 'y!'
+if (client.user.username == 'Yuga!') prefix = 'y!'
 if (client.user.username == 'Yuga Testing') prefix = 'yt!'
 
   client.user.setActivity(`for ${prefix}help | ${guilds} servers`, {
