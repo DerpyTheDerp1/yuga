@@ -6,22 +6,27 @@ const fs = require('fs');
 
 exports.run = async(client, msg) => {
     function runCommand(cmd) {
-        fs.readdir('../commands', (err, CommandsFolder) => {
-            if (err) console.error;
+        try {
+            const CommandsFolder = fs.readdirSync('../commands')
             for (const group of CommandsFolder) {
-                fs.readdir('../commands/' + group, (err, commands) => {
-                    if (err) console.error;
+                try {
+                    commands = fs.readdirSync('../commands/' + group)
                     for (const command of commands) {
                         if (command.slice(0, -3) === cmd) {
-                            commandFile = require('../commands/' + group + '/' + command)
-                            commandFile.run(client, msg, args)
+                            commandFile = require('../commands/' + group + '/' + command);
+                            commandFile.run(client, msg, args);
                         }
-
                     }
-                });
+                } catch (err) {
+                    console.error;
+                }
+
             }
-        });
+        } catch (err) {
+            console.error;
+        }
     }
+
     let args = msg.content.split(' ').slice(1);
     let command = msg.content.split(' ')[0];
     if (client.user.username == 'Yuga Testing') prefix = 'yt!';
