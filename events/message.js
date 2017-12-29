@@ -18,7 +18,7 @@ exports.run = async(client, msg) => {
                         }
                     }
                 } catch (err) {
-                    console.error(err);
+                    msg.reply(`An error occured!\n${err.message}\nPlease check spelling of command, otherwise contact Striker#7250!`)
                 }
             }
         } catch (err) {
