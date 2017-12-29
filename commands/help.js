@@ -9,10 +9,9 @@ exports.run = async(client, msg, args) => {
       .setColor('#32CD32')
       .setThumbnail(client.user.avatarURL())
       .setTimestamp()
-      .addField('Description', cmdHelp.description, true)
-      .addField('Usage', cmdHelp.usage, true)
-      .addField('Required Perms', cmdHelp.requiredPerms, true);
-
+      .addField('Description', cmdHelp.descriptione)
+      .addField('Usage', cmdHelp.usage)
+      .addField('Required Perms', cmdHelp.requiredPerms);
     msg.channel.send({
       embed: help
     });
