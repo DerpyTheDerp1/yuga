@@ -22,7 +22,7 @@ exports.run = async(client, msg, args) => {
     });
   } else {
     let commands = [];
-    fs.readdir('./', (err, files) => {
+    fs.readdir(__dirname, (err, files) => {
       if (err) return console.error(err);
       files.forEach(file => {
         commands.push(`${prefix}` + file);
