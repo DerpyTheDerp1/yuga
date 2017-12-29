@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs');
+const path = require('path');
 
 exports.run = async(client, msg, args) => {
   let prefix = '';
@@ -21,13 +22,7 @@ exports.run = async(client, msg, args) => {
       embed: help
     });
   } else {
-    const commands = [];
-   const files = fs.readdirSync(__dirname);
-      files.forEach(file => {
-        commands.push(file.split('.')[0]);
-      });
-    cmds = commands.toString();
-    cmds.split('\n');
+    const commands = fs.readdirSync(__dirname).map(file => path.basename(file, path.extname(file)));
     const embed = new Discord.MessageEmbed()
       .setTitle('Help Command')
       .setAuthor(client.user.username)
