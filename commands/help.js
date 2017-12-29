@@ -1,11 +1,15 @@
+const Discord = require('discord.js');
+
 exports.run = async(client, msg, args) => {
-  const Discord = require('discord.js');
+  let prefix = '';
+  if (client.user.username == 'Yuga!') prefix = 'y!';
+  if (client.user.username == 'Yuga Testing') prefix == 'yt!';
   const cmdName = args.join(' ');
   if (cmdName) {
     const cmdHelp = require(`./${cmdName}.js`)['help'];
     const help = new Discord.MessageEmbed()
-      .setAuthor('Yuga')
-      .setTitle(`Help for **${cmdHelp.name}**`)
+      .setAuthor(client.user.username)
+      .setTitle(`__Help for ${cmdHelp.name}__`)
       .setColor('#32CD32')
       .setThumbnail(client.user.avatarURL())
       .setTimestamp()
@@ -15,27 +19,28 @@ exports.run = async(client, msg, args) => {
     msg.channel.send({
       embed: help
     });
-  }
-
-  else {
+  } else {
+    let commands = [];
+    fs.readdir('./', (err, files) => {
+      if (err) return console.error(err);
+      files.forEach(file => {
+        commands.push(`${prefix}` + file);
+      });
+    });
+    commands = commands.toString();
+    commands = commands.split('\n');
     const embed = new Discord.MessageEmbed()
       .setTitle('Help Command')
-      .setAuthor('Yuga')
+      .setAuthor(client.user.username)
       .setColor('#32CD32')
       .setDescription('Yuga is a Discord Bot with many features!\nIf you wish to know the features, look down below!')
-      .addField('Commands', 'y!achievement y!avatar\ny!ban y!createInvite\ny!embed y!help\ny!hug y!invite\ny!joke y!kick\ny!lenny y!memeuser \ny!middlefinger y!ping\ny!purge y!rate\ny!say y!server\ny!slap y!slots\ny!stab y!unimpressed\ny!uptime y!warn', true)
-      .addField('More info', 'To find out to command usage of each command, run the command without any arguments.\nE.g y!ban <user>\n(User being the argument)\nThis method only works for commands listed as "takes arguments", the other commands return a static response.', true)
-      .addField('Commands that take arguments', 'y!achievement y!avatar\ny!ban y!createInvite\ny!embed y!hug\ny!kick y!memeuser \ny!middlefinger y!purge\ny!rate y!say\ny!slap y!stab\ny!unimpressed\ny!warn', true)
-      .addField('Commands that take no arguments', 'y!help y!invite\ny!joke y!lenny\ny!ping y!server\ny!slots y!uptime', true)
+      .addField('Commands', commands, true)
+      .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it. `, true)
       .setThumbnail(client.user.avatarURL())
       .setTimestamp();
 
-    msg.channel.send(`${msg.author}, I have sent it to your DMs!\nI'll also send it here.`);
+    msg.reply('I have sent it to your DMs!');
     await msg.author.send({
-      embed
-    });
-
-    await msg.channel.send({
       embed
     });
   }
