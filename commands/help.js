@@ -25,7 +25,7 @@ exports.run = async(client, msg, args) => {
     fs.readdir(__dirname, (err, files) => {
       if (err) return console.error(err);
       files.forEach(file => {
-        commands.push(`${prefix}` + file);
+        commands.push(file);
       });
     });
     commands = commands.toString();
