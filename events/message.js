@@ -35,7 +35,11 @@ exports.run = async(client, msg) => {
             .setThumbnail(client.user.avatarURL());
         //Running Commands
         try {
-            const commandFile = require(`../commands/${command}.js`);
+            let commandFile = require(`../commands/Exclusive/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Fun/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Main/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Moderation/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Utility/${command}.js`);
             commandFile.run(client, msg, args);
         } catch (err) {
             msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
@@ -75,7 +79,11 @@ exports.run = async(client, msg) => {
             .setThumbnail(client.user.avatarURL());
         //Running Commands
         try {
-            const commandFile = require(`../commands/${command}.js`);
+            let commandFile = require(`../commands/Exclusive/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Fun/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Main/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Moderation/${command}.js`);
+            if (!commandFile) commandFile = require(`../commands/Utility/${command}.js`);
             commandFile.run(client, msg, args);
         } catch (err) {
             msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
