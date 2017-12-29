@@ -1,6 +1,16 @@
-exports.run = async (client, msg) => {
+exports.run = async(client, msg, args) => {
   const Discord = require('discord.js');
+  const commandName = args.join(' ');
+  if (commandName) {
+    const commandHelp = require(`./${commandName}.js`)['help'];
+    const help = new Discord.MessageEmbed()
+      .setAuthor('Yuga')
+      .setTitle(`Help for ${commandHelp.name}`)
 
+    msg.channel.send({
+      embed: help
+    });
+  }
   const embed = new Discord.MessageEmbed()
     .setTitle('Help Command')
     .setAuthor('Yuga')
