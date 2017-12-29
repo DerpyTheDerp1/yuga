@@ -13,7 +13,7 @@ exports.run = async(client, msg) => {
                     commands = fs.readdirSync('./commands/' + group);
                     for (const command of commands) {
                         if (command.slice(0, -3) === cmd) {
-                            commandFile = require('./commands/' + group + '/' + command);
+                            commandFile = require('../commands/' + group + '/' + command);
                             commandFile.run(client, msg, args);
                         }
                     }
