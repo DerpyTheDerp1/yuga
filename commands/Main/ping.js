@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const db = require('../../db/db.json');
+const color = require('../../db/db.json').color;
 
 exports.run = async(client, msg) => {
     const author = msg.author.tag;
@@ -14,7 +14,7 @@ exports.run = async(client, msg) => {
         .addField('PING', `**${ping}** milliseconds\n**${roundedping}** seconds`)
         .setTimestamp()
         .setThumbnail(client.user.avatarURL())
-        .setColor(`${db.color}`);
+        .setColor(`${color}`);
     message.edit({
         embed: pingembed
     });
