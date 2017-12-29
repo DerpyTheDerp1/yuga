@@ -1,6 +1,6 @@
 urban = require('urban.js');
 const Discord = require('discord.js')
-const color = require('../db/db.json').color;
+const color = require('../../db/db.json').color;
 
 exports.run = async (client, msg, args) => {
     let guild = msg.guild

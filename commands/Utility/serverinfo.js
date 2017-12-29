@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const color = require('../db/db.json').color;
+const color = require('../../db/db.json').color;
 
 exports.run = (client, msg) => {
 

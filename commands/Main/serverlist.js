@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const color = require('../db/db.json').color;
+const color = require('../../db/db.json').color;
 
 /*
 ...store the guilds to display in an array
