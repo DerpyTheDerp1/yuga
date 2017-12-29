@@ -20,7 +20,6 @@ exports.run = async(client, msg) => {
                 } catch (err) {
                     console.error;
                 }
-
             }
         } catch (err) {
             console.error;
@@ -57,7 +56,7 @@ exports.run = async(client, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        runCommand(command);
+      await runCommand(command);
         //End Running Commands
 
         //Logger
