@@ -11,11 +11,11 @@ exports.run = async(client) => {
   });
   console.log('Yuga is connected to the Discord WebSocket');
   const channel = client.channels.get('308278703283240960');
-  if (channel) channel.send('Yuga is now online!');
   if (!channel) {
     const otherChannel = client.channels.get('395355797716074509');
     if (otherChannel) otherChannel.send('Yuga is now online!');
   }
+  if (channel) channel.send('Yuga is now online!');
   if (process.env.DBENABLED == 'no') return;
   else {
     superagent.post('https://discordbots.org/api/bots/stats')
