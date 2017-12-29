@@ -12,7 +12,7 @@ exports.run = (client, msg, args) => {
 module.exports = {
     'help': {
         name: '8ball',
-        desc: 'Answers the world\'s biggest questions',
+        description: 'Answers the world\'s biggest questions',
         usage: 'y!8ball <question>',
         requiredPerms: 'none'
     }
