@@ -22,12 +22,10 @@ exports.run = async(client, msg, args) => {
     });
   } else {
     let commands = [];
-    fs.readdir(__dirname, (err, files) => {
-      if (err) return console.error(err);
+   const files = fs.readdirSync(__dirname);
       files.forEach(file => {
         commands.push(file);
       });
-    });
     commands = commands.toString();
     commands = commands.split('\n');
     const embed = new Discord.MessageEmbed()
