@@ -18,11 +18,11 @@ exports.run = async(client, msg) => {
                         }
                     }
                 } catch (err) {
-                    console.error;
+                    console.error(err);
                 }
             }
         } catch (err) {
-            console.error;
+            console.error(err);
         }
     }
 
