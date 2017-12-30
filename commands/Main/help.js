@@ -35,7 +35,7 @@ exports.run = async(client, msg, args) => {
       .setColor('#32CD32')
       .setThumbnail(client.user.avatarURL())
       .setTimestamp()
-      .addField('Description', cmdHelp.descriptione)
+      .addField('Description', cmdHelp.description)
       .addField('Usage', cmdHelp.usage)
       .addField('Required Perms', cmdHelp.requiredPerms);
     msg.channel.send({
