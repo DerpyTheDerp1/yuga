@@ -5,13 +5,13 @@ const path = require('path');
 exports.run = async(client, msg, args) => {
   function findCommand(cmd) {
     try {
-        const CommandsFolder = fs.readdirSync('../commands');
+        const CommandsFolder = fs.readdirSync('./commands');
             for (const group of CommandsFolder) {
                 try {
-                    commands = fs.readdirSync('../commands/' + group);
+                    commands = fs.readdirSync('./commands/' + group);
                     for (const command of commands) {
                         if (command.slice(0, -3) === cmd) {
-                            commandFile = require('../commands/' + group + '/' + command);
+                            commandFile = require('./commands/' + group + '/' + command);
                             commandFile.run(client, msg, args);
                         }
                     }
