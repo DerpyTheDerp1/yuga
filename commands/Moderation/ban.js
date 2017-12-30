@@ -1,37 +1,33 @@
-exports.run = (client, msg, args) => {
-  const user = args.join(' ');
-
+exports.run = (client, msg) => {
   const Discord = require('discord.js');
-  const embed = new Discord.MessageEmbed()
+  const denied = new Discord.MessageEmbed()
     .setTitle('ACCESS DENIED')
     .setAuthor(msg.author.tag)
     .setColor(0xFF0000)
     .setDescription('You do not have the permissions needed to use this command. Missing perms: BAN_MEMBERS')
     .setThumbnail(client.user.avatarURL())
     .setTimestamp();
-  const banhelp = new Discord.MessageEmbed()
-    .setTitle('Ban Usage')
-    .setAuthor('Yuga')
-    .setColor(0x32CD32)
-    .addField('About', 'Bans a user', false)
-    .addField('Usage', 'y!ban <tag user>', false)
-    .addField('Perms required', 'Ban members')
-    .setThumbnail(client.user.avatarURL())
-    .setTimestamp();
 
-  if (!user) return msg.channel.send({
-    embed: banhelp
-  });
+  if (!msg.mentions.users.first()) return msg.reply('Must specify a user!');
 
   const hasban = 'BAN_MEMBERS';
-
   if (msg.member.hasPermission(hasban)) {
-    msg.guild.member(user).ban();
-    msg.reply(`The ban hammer :hammer: has struck on ${user}!`);
+    msg.guild.member(msg.mentions.users.first()).ban();
+    msg.reply(`The ban hammer :hammer: has struck on **${msg.mentions.users.first().username}**!`);
   } else {
     msg.channel.send({
-      embed
+      embed: denied
     });
   }
 
+};
+
+exports.help = {
+  'help': {
+    name: 'Ban',
+    description: 'Bans a member',
+    category: 'Moderation',
+    usage: 'y!ban <tag member>',
+    requiredPerms: 'Ban Members'
+  }
 };
