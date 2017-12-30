@@ -3,13 +3,13 @@ const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '�
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-const slot1 = slotOptions[randomInt(0, 9)];
+const slot1 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot1);
 
-const slot2 = slotOptions[randomInt(0, 9)];
+const slot2 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot2);
 
-const slot3 = slotOptions[randomInt(0, 9)];
+const slot3 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot3);
 
 exports.run = async(client, msg) => {
