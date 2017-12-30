@@ -1,21 +1,5 @@
-exports.run = (client, msg, args) => {
+exports.run = (client, msg) => {
 	const Discord = require('discord.js');
-	const stabhelp = new Discord.MessageEmbed()
-		.setTitle('stab Usage')
-		.setAuthor('Yuga')
-		.setColor(0x32CD32)
-		.addField('About', 'Ouch...', false)
-		.addField('Usage', 'y!stab <tag user>', false)
-		.addField('Perms required', 'None')
-		.setThumbnail(client.user.avatarURL())
-		.setTimestamp();
-	const arg = args.join(' ');
-
-	if (!arg) {
-		msg.channel.send({
-			embed: stabhelp
-		});
-	}
 	const stab = 'https://media.giphy.com/media/xUySTCy0JHxUxw4fao/giphy.gif';
 	const author = msg.author.username;
 
@@ -30,4 +14,14 @@ exports.run = (client, msg, args) => {
 	msg.channel.send({
 		embed: stabbed
 	});
+};
+
+exports.help = {
+	'help': {
+		name: 'Stab',
+		description: 'OOF!',
+		category: 'Fun',
+		usage: 'y!stab <tag user>',
+		requiredPerms: 'None'
+	}
 };

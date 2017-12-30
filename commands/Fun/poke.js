@@ -1,21 +1,5 @@
-exports.run = (client, msg, args) => {
+exports.run = (client, msg) => {
 	const Discord = require('discord.js');
-	const pokehelp = new Discord.MessageEmbed()
-		.setTitle('Poke Usage')
-		.setAuthor('Yuga')
-		.setColor(0x32CD32)
-		.addField('About', 'When you want attention', false)
-		.addField('Usage', 'y!poke <tag user>', false)
-		.addField('Perms required', 'None')
-		.setThumbnail(client.user.avatarURL())
-		.setTimestamp();
-	const arg = args.join(' ');
-
-	if (!arg) {
-		msg.channel.send({
-			embed: pokehelp
-		});
-	}
 	const poke = 'https://media.giphy.com/media/jCENc3aA4fLJm/giphy.gif';
 	const author = msg.author.username;
 
@@ -30,4 +14,14 @@ exports.run = (client, msg, args) => {
 	msg.channel.send({
 		embed: poked
 	});
+};
+
+exports.help = {
+	'help': {
+		name: 'Poke',
+		description: 'Poke anyone!',
+		category: 'Fun',
+		usage: 'y!poke <tag user>',
+		requiredPerms: 'None'
+	}
 };

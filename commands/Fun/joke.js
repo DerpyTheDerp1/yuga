@@ -4,3 +4,13 @@ exports.run = (client, msg) => {
     JSON.stringify(joke);
     msg.channel.send(joke);
 };
+
+exports.help = {
+    'help': {
+        name: 'Joke',
+        description: 'Gives one of our hilarious jokes',
+        category: 'Fun',
+        usage: 'y!joke',
+        requiredPerms: 'None'
+    }
+};

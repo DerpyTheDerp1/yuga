@@ -1,20 +1,8 @@
 exports.run = (client, msg, args) => {
     const Discord = require('discord.js');
-    const memeusrhelp = new Discord.MessageEmbed()
-        .setTitle('Warn Usage')
-        .setAuthor('Yuga')
-        .setColor(0x32CD32)
-        .addField('About', 'Memes a user\'s avatar', false)
-        .addField('Usage', 'y!memeuser <tag user> | <top text> | <bottom text>', false)
-        .addField('Perms required', 'None')
-        .setThumbnail(client.user.avatarURL())
-        .setTimestamp();
-
     const [usr, top, bottom] = args.join(' ').split(' | ');
     const user = msg.mentions.users.first();
-    if (!usr && !top && !bottom) return msg.channel.send({
-        embed: memeusrhelp
-    });
+    if (!usr && !top && !bottom) return msg.reply('Command cannot be ran like this, problem between keyboard and chair.');
     if (!usr) return msg.reply('Invalid, no user defined.');
     if (!top) return msg.reply('Invalid, top text missing.');
     if (!bottom) return msg.reply('Invalid, bottom text missing.');
@@ -28,4 +16,14 @@ exports.run = (client, msg, args) => {
     msg.channel.send({
         embed: meme
     });
+};
+
+exports.help = {
+    'help': {
+        name: 'Memeuser',
+        description: 'Makes a meme out of a user\'s profile picture',
+        category: 'Fun',
+        usage: 'y!memeuser <tag user> | <top text> | <bottom text>',
+        requiredPerms: 'None'
+    }
 };

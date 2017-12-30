@@ -28,3 +28,13 @@ exports.run = (client, msg, args) => {
     embed: hugged
   });
 };
+
+exports.help = {
+  'help': {
+    name: 'Hug',
+    description: 'Hug someone!',
+    category: 'Fun',
+    usage: 'y!hug <tag user>',
+    requiredPerms: 'None'
+  }
+};

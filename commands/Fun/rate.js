@@ -1,14 +1,15 @@
 exports.run = (client, msg, args) => {
-  var argresult = args.join(' ');
+  const thing = args.join(' ');
+  const digit = ((Math.floor(Math.random() * (500 - 1 + 1))) + 1);
+  msg.channel.send(`I would rate ${thing} a \n \n ${digit}/500`);
+};
 
-  if (argresult == "Ireland") {
-    msg.channel.send(`I would rate ${argresult} a \n \n 500/500`)
+exports.help = {
+  'help': {
+    name: 'Rate',
+    description: 'Rates absolutely anything',
+    category: 'Fun',
+    usage: 'y!rate <anything>',
+    requiredPerms: 'None'
   }
-
-  if (argresult == "Striker") {
-    msg.channel.send(`I would rate ${argresult} a \n \n 500/500`)
-  }
-  var digit = ((Math.floor(Math.random() * (500 - 1 + 1))) + 1)
-  var decimal = ((Math.floor(Math.random() * (99 - 0 + 1))) + 0)
-  msg.channel.send(`I would rate ${argresult} a \n \n ${digit}.${decimal}/500`)
-}
+};
