@@ -5,22 +5,23 @@ const path = require('path');
 exports.run = async(client, msg, args) => {
   function findCommand(cmd) {
     try {
-      const CommandsFolder = fs.readdirSync('../commands');
-      for (const group of CommandsFolder) {
-        try {
-          commands = fs.readdirSync('../commands/' + group);
-          for (const command of commands) {
-            if (command.slice(0, -3) === cmd) {
-              require('../commands/' + group + '/' + command);
+        const CommandsFolder = fs.readdirSync('../commands');
+            for (const group of CommandsFolder) {
+                try {
+                    commands = fs.readdirSync('../commands/' + group);
+                    for (const command of commands) {
+                        if (command.slice(0, -3) === cmd) {
+                            commandFile = require('../commands/' + group + '/' + command);
+                            commandFile.run(client, msg, args);
+                        }
+                    }
+                } catch (err) {
+                    msg.reply(`An error occured!\n${err.message}\nPlease check spelling of command, otherwise contact Striker#7250!`)
+                }
             }
-          }
         } catch (err) {
-          console.error;
+            console.error(err);
         }
-      }
-    } catch (err) {
-      console.error;
-    }
   }
 
   let prefix = '';
