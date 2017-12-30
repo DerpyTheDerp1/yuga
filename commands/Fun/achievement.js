@@ -1,24 +1,7 @@
 const snekfetch = require('snekfetch');
-const Discord = require('discord.js');
 
 exports.run = (client, msg, args) => {
-
-  const achievementhelp = new Discord.MessageEmbed()
-    .setTitle('Achievement Usage')
-    .setAuthor('Yuga')
-    .setColor(0x32CD32)
-    .addField('About', 'Makes a Minecraft achievement box', false)
-    .addField('Usage', 'y!achievement <title> | <text>\ny!achievement <text>', false)
-    .addField('Perms required', 'None')
-    .setThumbnail(client.user.avatarURL())
-    .setTimestamp();
-
   let [title, contents] = args.join(' ').split(' | ');
-
-  if (!title) return msg.channel.send({
-    embed: achievementhelp
-  });
-
   if (!contents) {
     [title, contents] = ['Achievement Get!', title];
   }
@@ -39,4 +22,14 @@ exports.run = (client, msg, args) => {
     }));
   msg.delete();
 
+};
+
+module.exports = {
+  'help': {
+    name: 'Achievement',
+    description: 'Creates a Minecraft achievement from input text',
+    category: 'Fun',
+    usage: 'y!achievement <title> | <text>\ny!achievement <text>',
+    requiredPerms: 'none'
+  }
 };
