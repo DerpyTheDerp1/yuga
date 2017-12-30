@@ -15,16 +15,16 @@ JSON.stringify(slot2);
 let slot3 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot3);
   slotMessage = await msg.channel.send(`**${msg.author.username}** rolled the slots!`);
-  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n`);
-  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n`);
-  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1}`);
-  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2}`);
-  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} |`);
-  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}`);
+ slotMessage.edit(`**${msg.author.username}** rolled the slots!\n`);
+ slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n`);
+  slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1}`);
+  slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2}`);
+  slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} |`);
+  slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}`);
   if (slot1 == slot2 && slot1 == slot3 && slot2 == slot3) {
-    await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou won!`);
+    slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou won!`);
   } else {
-    await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou lost!\nBetter luck next time.`);
+    slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou lost!\nBetter luck next time.`);
   }
 };
 
