@@ -5,22 +5,22 @@ const path = require('path');
 exports.run = async(client, msg, args) => {
   function findCommand(cmd) {
     try {
-        const CommandsFolder = fs.readdirSync('./commands');
-            for (const group of CommandsFolder) {
-                try {
-                    commands = fs.readdirSync('./commands/' + group);
-                    for (const command of commands) {
-                        if (command.slice(0, -3) === cmd) {
-                            return require('../' + group + '/' + command);
-                        }
-                    }
-                } catch (err) {
-                    msg.reply(`An error occured!\n${err.message}\nPlease check spelling of command, otherwise contact Striker#7250!`)
-                }
+      const CommandsFolder = fs.readdirSync('./commands');
+      for (const group of CommandsFolder) {
+        try {
+          commands = fs.readdirSync('./commands/' + group);
+          for (const command of commands) {
+            if (command.slice(0, -3) === cmd) {
+              return require('../' + group + '/' + command);
             }
+          }
         } catch (err) {
-            console.error(err);
+          console.error(err);
         }
+      }
+    } catch (err) {
+      msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#7250!`);
+    }
   }
 
   let prefix = '';
@@ -57,7 +57,7 @@ exports.run = async(client, msg, args) => {
       .addField('Moderation Commands', ModerationCommands, true)
       .addField('Utility Commands', UtilityCommands, true)
       .addField('Exclusive Commands', ExclusiveCommands, true)
-      .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it. `, true)
+      .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it.`, true)
       .setThumbnail(client.user.avatarURL())
       .setTimestamp();
 
@@ -66,5 +66,4 @@ exports.run = async(client, msg, args) => {
       embed
     });
   }
-
 };

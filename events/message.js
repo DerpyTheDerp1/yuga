@@ -18,11 +18,11 @@ exports.run = async(client, msg) => {
                         }
                     }
                 } catch (err) {
-                    msg.reply(`An error occured!\n${err.message}\nPlease check spelling of command, otherwise contact Striker#7250!`)
+                    console.error(err);
                 }
             }
         } catch (err) {
-            console.error(err);
+            msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#7250!`);
         }
     }
 
@@ -56,7 +56,7 @@ exports.run = async(client, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-      await runCommand(command);
+        await runCommand(command);
         //End Running Commands
 
         //Logger
@@ -88,7 +88,7 @@ exports.run = async(client, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-       await runCommand(command);
+        await runCommand(command);
         //End Running Commands
 
         //Logger

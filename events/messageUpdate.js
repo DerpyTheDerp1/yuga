@@ -1,7 +1,6 @@
 let prefix = '';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
-const error = require('../yuga.js').error;
 const fs = require('fs');
 
 exports.run = async(client, old, msg) => {
@@ -18,11 +17,11 @@ exports.run = async(client, old, msg) => {
                         }
                     }
                 } catch (err) {
-                   msg.reply(`An error occured!\n${err.message}\nPlease check spelling of command, otherwise contact Striker#7250!`)
+                    console.error(err);
                 }
             }
         } catch (err) {
-            console.error(err);
+            msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#7250!`);
         }
     }
 
