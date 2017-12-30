@@ -28,6 +28,6 @@ exports.help = {
     description: 'Kicks a member',
     category: 'Moderation',
     usage: 'y!kick <tag user>',
-    requiredPerms: 'None'
+    requiredPerms: 'Kick Members'
   }
 };

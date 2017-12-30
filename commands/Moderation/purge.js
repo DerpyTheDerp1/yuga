@@ -1,32 +1,12 @@
-exports.run = async (client, msg, args) => {
+exports.run = async(client, msg) => {
   const Discord = require('discord.js');
-  const embed = new Discord.MessageEmbed()
+  const denied = new Discord.MessageEmbed()
     .setTitle('ACCESS DENIED')
     .setAuthor(msg.author.tag)
     .setColor('#FF0000')
     .setDescription('You do not have the permissions needed to use this command. Missing perms: MANAGE_MESSAGES')
     .setThumbnail(client.user.avatarURL())
     .setTimestamp();
-
-  const purgeHelp = new Discord.MessageEmbed()
-    .setTitle('Purge Usage')
-    .setAuthor('Yuga')
-    .setColor(0x32CD32)
-    .addField('About', 'Removes a specified amount of messages from the server, even from a certain user.', false)
-    .addField('Usage', 'y!purge <amount>\ny!purge <tag user> <amount>', false)
-    .addField('Perms required', 'Manage Messages')
-    .addField('Note', 'Due to Discord API limitations, bots cannot delete messages older than 14 days.\nHowever, we have no limit as to how many we can delete (as of now) so purge away!')
-    .setThumbnail(client.user.avatarURL())
-    .setTimestamp();
-
-  const arg = args.join(' ');
-
-  if (!arg) {
-    msg.channel.send({
-      embed: purgeHelp
-    });
-    return;
-  }
 
   const managemsgs = 'MANAGE_MESSAGES';
 
@@ -63,14 +43,24 @@ exports.run = async (client, msg, args) => {
       }
       msg.channel.bulkDelete(msgs).catch(error => console.log(error.stack));
       const purge = await msg.channel.send(`${msg.author} purged ${amount} messages!`);
-      setTimeout(function() {
+      setTimeout(function () {
         purge.delete();
       }, 5000);
     }
   } else {
     msg.channel.send({
-      embed
+      embed: denied
     });
   }
 
+};
+
+exports.help = {
+  'help': {
+    name: 'Purge',
+    description: 'Deletes a specified amount of messages quickly',
+    category: 'Moderation',
+    usage: 'y!purge <amount>',
+    requiredPerms: 'Manage Messages'
+  }
 };
