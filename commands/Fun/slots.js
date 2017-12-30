@@ -1,10 +1,11 @@
-const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '🍋', '🍪'];
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-for (const i in slotOptions) {
+exports.run = async(client, msg) => {
+const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '🍋', '🍪'];
+
 let slot1 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot1);
 
@@ -13,9 +14,6 @@ JSON.stringify(slot2);
 
 let slot3 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot3);
-}
-
-exports.run = async(client, msg) => {
   slotMessage = await msg.channel.send(`**${msg.author.username}** rolled the slots!`);
   await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n`);
   await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n`);
