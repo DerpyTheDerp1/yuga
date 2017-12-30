@@ -36,6 +36,7 @@ exports.run = async(client, msg, args) => {
       .setThumbnail(client.user.avatarURL())
       .setTimestamp()
       .addField('Description', cmdHelp.description)
+      .addField('Category', cmdHelp.category)
       .addField('Usage', cmdHelp.usage)
       .addField('Required Perms', cmdHelp.requiredPerms);
     msg.channel.send({
@@ -51,7 +52,6 @@ exports.run = async(client, msg, args) => {
       .setTitle('Help Command')
       .setAuthor(client.user.username)
       .setColor('#32CD32')
-      .setDescription('Yuga is a Discord Bot with many features!\nIf you wish to know the features, look down below!')
       .addField('Main Commands', MainCommands, true)
       .addField('Fun Commands', FunCommands, true)
       .addField('Moderation Commands', ModerationCommands, true)
