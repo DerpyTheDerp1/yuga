@@ -44,7 +44,7 @@ exports.run = async(client, msg, args) => {
     });
   } else {
     const ExclusiveCommands = fs.readdirSync('./commands/Exclusive').map(file => path.basename(file, path.extname(file)));
-    const FunCommands = fs.readdirSync('.commands/Fun').map(file => path.basename(file, path.extname(file)));
+    const FunCommands = fs.readdirSync('./commands/Fun').map(file => path.basename(file, path.extname(file)));
     const MainCommands = fs.readdirSync('./commands/Main').map(file => path.basename(file, path.extname(file)));
     const ModerationCommands = fs.readdirSync('./commands/Moderation').map(file => path.basename(file, path.extname(file)));
     const UtilityCommands = fs.readdirSync('./commands/Utility').map(file => path.basename(file, path.extname(file)));
