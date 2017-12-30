@@ -43,11 +43,11 @@ exports.run = async(client, msg, args) => {
       embed: help
     });
   } else {
-    const ExclusiveCommands = fs.readdirSync('../Exclusive').map(file => path.basename(file, path.extname(file)));
-    const FunCommands = fs.readdirSync('../Fun').map(file => path.basename(file, path.extname(file)));
-    const MainCommands = fs.readdirSync('../Main').map(file => path.basename(file, path.extname(file)));
-    const ModerationCommands = fs.readdirSync('../Moderation').map(file => path.basename(file, path.extname(file)));
-    const UtilityCommands = fs.readdirSync('../Utility').map(file => path.basename(file, path.extname(file)));
+    const ExclusiveCommands = fs.readdirSync('./Exclusive').map(file => path.basename(file, path.extname(file)));
+    const FunCommands = fs.readdirSync('./Fun').map(file => path.basename(file, path.extname(file)));
+    const MainCommands = fs.readdirSync('./Main').map(file => path.basename(file, path.extname(file)));
+    const ModerationCommands = fs.readdirSync('./Moderation').map(file => path.basename(file, path.extname(file)));
+    const UtilityCommands = fs.readdirSync('./Utility').map(file => path.basename(file, path.extname(file)));
     const embed = new Discord.MessageEmbed()
       .setTitle('Help Command')
       .setAuthor(client.user.username)
