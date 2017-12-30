@@ -3,10 +3,10 @@ const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '�
 const slot1 = slotOptions[Math.floor(Math.random() * slotOptions.length)];
 JSON.stringify(slot1);
 
-const slot2 = slotOptions[Math.floor(Math.random() * slotOptions.length)];
+const slot2 = slotOptions[Math.floor(Math.random() * slotOptions.length / 9)];
 JSON.stringify(slot2);
 
-const slot3 = slotOptions[Math.floor(Math.random() * slotOptions.length)];
+const slot3 = slotOptions[Math.floor(Math.random() * slotOptions.length / 3)];
 JSON.stringify(slot3);
 
 exports.run = async(client, msg) => {
