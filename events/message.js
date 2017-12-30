@@ -1,7 +1,6 @@
 let prefix = '';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
-const error = require('../yuga.js').error;
 const fs = require('fs');
 
 exports.run = async(client, msg) => {
