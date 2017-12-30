@@ -15,6 +15,6 @@ exports.help = {
         description: 'Answers the world\'s biggest questions',
         category: 'Fun',
         usage: 'y!8ball <question>',
-        requiredPerms: 'none'
+        requiredPerms: 'None'
     }
 };

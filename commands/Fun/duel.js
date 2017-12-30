@@ -28,3 +28,13 @@ exports.run = async(client, msg) => {
     await message.edit('⚔ Dueling...');
     await message.edit(`${winner} has won!`);
 };
+
+exports.help = {
+    'help': {
+        name: 'Duel',
+        description: 'Fight with another user!',
+        category: 'Fun',
+        usage: 'y!duel',
+        requiredPerms: 'None'
+    }
+};

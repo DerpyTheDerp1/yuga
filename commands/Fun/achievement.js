@@ -30,6 +30,6 @@ exports.help = {
     description: 'Creates a Minecraft achievement from input text',
     category: 'Fun',
     usage: 'y!achievement <title> | <text>\ny!achievement <text>',
-    requiredPerms: 'none'
+    requiredPerms: 'None'
   }
 };

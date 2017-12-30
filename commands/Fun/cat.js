@@ -9,3 +9,13 @@ exports.run = (client, msg) => {
         });
     });
 };
+
+exports.help = {
+    'help': {
+        name: 'Cat',
+        description: 'Returns a randomized image of a cat =D',
+        category: 'Fun',
+        usage: 'y!cat',
+        requiredPerms: 'None'
+    }
+};
