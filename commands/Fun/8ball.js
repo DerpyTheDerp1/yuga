@@ -9,7 +9,7 @@ exports.run = (client, msg, args) => {
 
 };
 
-module.exports = {
+exports.help = {
     'help': {
         name: '8ball',
         description: 'Answers the world\'s biggest questions',

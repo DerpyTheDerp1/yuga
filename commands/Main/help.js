@@ -28,7 +28,7 @@ exports.run = async(client, msg, args) => {
   if (client.user.username == 'Yuga Testing') prefix == 'yt!';
   const cmdName = args.join(' ');
   if (cmdName) {
-    const cmdHelp = findCommand(cmdName)['help'];
+    const cmdHelp = findCommand(cmdName).help['help'];
     const help = new Discord.MessageEmbed()
       .setAuthor(client.user.username)
       .setTitle(`__Help for ${cmdHelp.name}__`)

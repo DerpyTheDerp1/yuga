@@ -24,7 +24,7 @@ exports.run = (client, msg, args) => {
 
 };
 
-module.exports = {
+exports.help = {
   'help': {
     name: 'Achievement',
     description: 'Creates a Minecraft achievement from input text',
