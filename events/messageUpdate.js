@@ -2,8 +2,30 @@ let prefix = '';
 const Discord = require('discord.js');
 const color = require('../db/db.json').color;
 const error = require('../yuga.js').error;
+const fs = require('fs');
 
 exports.run = async(client, old, msg) => {
+    function runCommand(cmd) {
+        try {
+            const CommandsFolder = fs.readdirSync('./commands');
+            for (const group of CommandsFolder) {
+                try {
+                    commands = fs.readdirSync('./commands/' + group);
+                    for (const command of commands) {
+                        if (command.slice(0, -3) === cmd) {
+                            commandFile = require('../commands/' + group + '/' + command);
+                            commandFile.run(client, msg, args);
+                        }
+                    }
+                } catch (err) {
+                   msg.reply(`An error occured!\n${err.message}\nPlease check spelling of command, otherwise contact Striker#7250!`)
+                }
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
     if (client.user.username == 'Yuga Testing') prefix = 'yt!';
     if (client.user.username == 'Yuga!') prefix = 'y!';
     let args = msg.content.split(' ').slice(1);
@@ -24,14 +46,7 @@ exports.run = async(client, old, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        try {
-            const commandFile = require(`../commands/${command}.js`);
-            commandFile.run(client, msg, args);
-        } catch (err) {
-            error(err);
-            msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
-            msg.channel.stopTyping();
-        }
+        await runCommand(command)
         //End Running Commands
 
         //Logger
@@ -65,14 +80,7 @@ exports.run = async(client, old, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        try {
-            const commandFile = require(`../commands/${command}.js`);
-            commandFile.run(client, msg, args);
-        } catch (err) {
-            msg.reply(`Command execution failed!\n Error: ${err.message}\nCheck spelling of command, edit your message if you can.\nIf the error seems unusual, message @Striker#7250, or join the server and ask for help.\nPlease, post your error so we know what we're dealing with here :)`);
-            error(err);
-            msg.channel.stopTyping();
-        }
+        await runCommand(command)
         //End Running Commands
 
         //Logger
