@@ -1,25 +1,35 @@
-var slot1 = [":pear:", ":taco:", ":grape:", ":apple:", ":tomato:", ":strawberry:", ":watermelon:", ":lemon:", ":cookie:"];
-var slott1 = slot1;
-var slot1a = slott1[Math.floor(Math.random() * slott1.length)]
-console.log(slot1a + ' generated')
-JSON.stringify(slot1a)
+const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '🍋', '🍪'];
 
+const slot1 = slotOptions[Math.floor(Math.random() * slotOptions.length)];
+JSON.stringify(slot1);
 
-var prefix = "y!"
+const slot2 = slotOptions[Math.floor(Math.random() * slotOptions.length)];
+JSON.stringify(slot2);
 
-var slot2 = [":pear:", ":taco:", ":grape:", ":apple:", ":tomato:", ":strawberry:", ":watermelon:", ":lemon:", ":cookie:"];
-var slott2 = slot2;
-var slot2a = slott2[Math.floor(Math.random() * slott2.length)]
-console.log(slot2a + ' generated')
-JSON.stringify(slot2a)
+const slot3 = slotOptions[Math.floor(Math.random() * slotOptions.length)];
+JSON.stringify(slot3);
 
-var slot3 = [":pear:", ":taco:", ":grape:", ":apple:", ":tomato:", ":strawberry:", ":watermelon:", ":lemon:", ":cookie:"];
-var slott3 = slot3;
-var slot3a = slott3[Math.floor(Math.random() * slott3.length)]
-console.log(slot3a + ' generated')
-JSON.stringify(slot3a)
+exports.run = async(client, msg) => {
+  slotMessage = await msg.channel.send(`**${msg.author.username}** rolled the slots!`);
+  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n`);
+  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n`);
+  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1}`);
+  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2}`);
+  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} |`);
+  await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}`);
+  if (slot1 == slot2 && slot1 == slot3 && slot2 == slot3) {
+    await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou won!`);
+  } else {
+    await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou lost!\nBetter luck next time.`);
+  }
+};
 
-exports.run = (client, msg, args) => {
-  if (!msg.content.startsWith(prefix)) return;
-  msg.channel.send("**" + msg.author + "**" + " rolled the slots... \n \n" + slot1a + "|" + slot2a + "|" + slot3a)
-}
+exports.help = {
+  'help': {
+    name: 'Slots',
+    description: 'Play a game of slots!',
+    category: 'Fun',
+    usage: 'y!slots',
+    requiredPerms: 'None'
+  }
+};
