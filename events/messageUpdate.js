@@ -45,7 +45,7 @@ exports.run = async(client, old, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        await runCommand(command)
+        await runCommand(command);
         //End Running Commands
 
         //Logger
@@ -79,7 +79,7 @@ exports.run = async(client, old, msg) => {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL());
         //Running Commands
-        await runCommand(command)
+        await runCommand(command);
         //End Running Commands
 
         //Logger
