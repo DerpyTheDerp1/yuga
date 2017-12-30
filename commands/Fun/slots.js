@@ -25,6 +25,9 @@ exports.run = async(client, msg) => {
   } else {
     await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou lost!\nBetter luck next time.`);
   }
+await delete slot1
+await delete slot2
+await delete slot3
 };
 
 exports.help = {
