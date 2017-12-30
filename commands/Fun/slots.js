@@ -3,13 +3,13 @@ const slotOptions = ['🍐', '🌮', '🍇', '🍎', '🍅', '🍓', '🍉', '�
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-const slot1 = slotOptions[randomInt(0, 8)];
+let slot1 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot1);
 
-const slot2 = slotOptions[randomInt(0, 8)];
+let slot2 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot2);
 
-const slot3 = slotOptions[randomInt(0, 8)];
+let slot3 = slotOptions[randomInt(0, 8)];
 JSON.stringify(slot3);
 
 exports.run = async(client, msg) => {
@@ -25,9 +25,9 @@ exports.run = async(client, msg) => {
   } else {
     await slotMessage.edit(`**${msg.author.username}** rolled the slots!\n\n${slot1} | ${slot2} | ${slot3}\n\nYou lost!\nBetter luck next time.`);
   }
-await delete slot1
-await delete slot2
-await delete slot3
+ slot1 = ''
+ slot2 = ''
+ slot3 = ''
 };
 
 exports.help = {
