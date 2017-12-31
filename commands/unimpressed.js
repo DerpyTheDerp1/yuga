@@ -1,1 +1,0 @@
-exports.run = (client, msg) => msg.reply('( ͡ಠ ʖ̯ ͡ಠ)');
