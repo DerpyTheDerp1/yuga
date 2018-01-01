@@ -5,20 +5,35 @@ exports.run = async(client, msg, args) => {
     if (musicCommand) {
         if (musicCommand == 'play' || musicCommand == 'p') {
             if (!song) return msg.reply('Please input a song!');
-            const voiceChannel = msg.member.voiceChannel;
+            voiceChannel = msg.member.voiceChannel;
             if (!voiceChannel) {
                 return msg.reply('Please be in a voice channel first!');
             }
-            const connection = await voiceChannel.join();
-            const stream = yt(song, {
-                audioonly: true
-            });
-            dispatcher = connection.playStream(stream);
-            dispatcher.on('end', () => {
+            if (voiceChannel) {
                 voiceChannel.leave();
-            });
-            dispatcher.setVolumeLogarithmic(1);
-            msg.channel.send(`Now playing: ${song}`);
+                const connection = await voiceChannel.join();
+                const stream = yt(song, {
+                    audioonly: true
+                });
+
+                dispatcher = connection.playStream(stream);
+                dispatcher.on('end', () => {
+                    voiceChannel.leave();
+                });
+            }
+
+            else {
+                const connection = await voiceChannel.join();
+                const stream = yt(song, {
+                    audioonly: true
+                });
+                dispatcher = connection.playStream(stream);
+                dispatcher.on('end', () => {
+                    voiceChannel.leave();
+                });
+                dispatcher.setVolumeLogarithmic(1);
+                msg.channel.send(`Now playing: ${song}`);
+            }
         }
 
         if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
@@ -30,6 +45,10 @@ exports.run = async(client, msg, args) => {
             const voiceChannel = msg.member.voiceChannel;
             voiceChannel.leave();
             msg.channel.send('Ended playing');
+        }
+
+        if (musicCommand == 'join' || musicCommand == 'summon') {
+            voiceChannel.join();
         }
     } else return msg.reply('You must specify the music command you wish to use!');
 };
