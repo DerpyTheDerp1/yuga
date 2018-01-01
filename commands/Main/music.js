@@ -18,6 +18,7 @@ exports.run = (client, message, args) => {
                     dispatcher.on('end', () => {
                         voiceChannel.leave();
                     });
+                    dispatcher.setVolumeLogarithmic(5 / 5);
                 });
         }
     } else return msg.reply('You must specify the music command you wish to use!');
