@@ -1,10 +1,9 @@
-const Discord = require('discord.js');
 const yt = require('ytdl-core');
 
 exports.run = async(client, msg, args) => {
     const [musicCommand, song] = args.join(' ').split(' ');
     if (musicCommand) {
-        if (musicCommand == 'play') {
+        if (musicCommand == 'play' || musicCommand == 'p') {
             if (!song) return msg.reply('Please input a song!');
             const voiceChannel = msg.member.voiceChannel;
             if (!voiceChannel) {
@@ -15,17 +14,15 @@ exports.run = async(client, msg, args) => {
                 audioonly: true
             });
             dispatcher = connection.playStream(stream);
-            console.log(dispatcher);
             dispatcher.on('end', () => {
                 voiceChannel.leave();
             });
-            dispatcher.setVolumeLogarithmic(5 / 5);
+            dispatcher.setVolumeLogarithmic(1);
             msg.channel.send(`Now playing: ${song}`);
         }
 
-        if (musicCommand == 'setVolume') {
+        if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
             volumeLevel = song;
-            console.log(dispatcher);
             dispatcher.setVolumeLogarithmic(volumeLevel);
         }
 
