@@ -22,7 +22,8 @@
     "uws": "^8.14.1",
     "ytdl-core": "0.18.5",
     "zlib-sync": "0.1.4",
-    "ffmpeg-binaries": "3.2.2-3"
+    "ffmpeg-binaries": "3.2.2-3",
+    "youtube-search": "1.0.10"
   },
   "devDependencies": {},
   "scripts": {

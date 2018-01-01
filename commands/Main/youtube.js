@@ -35,4 +35,4 @@ exports.help = {
         usage: 'y!youtube <search term>',
         requiredPerms: 'None'
     }
-}
+};
