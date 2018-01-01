@@ -10,16 +10,15 @@ exports.run = (client, msg, args) => {
     const searchTerm = args.join(' ');
     if (!searchTerm) return msg.reply('Must specify a search term!');
     else {
-        search(searchTerm, opts, function (err, result) {
+        search(searchTerm, opts, function (err, results) {
             if (err) msg.reply(`An error ocurred!\n\n\`\`\`${err.message}\`\`\``);
-            const video = result[0];
             const resultEmbed = new Discord.MessageEmbed()
-                .setAuthor(`[${video.channelTitle}](https://www.youtube.com/channel/${encodeURIComponent(video.channelId)})`)
-                .setTitle(video.title)
-                .setThumbnail(video.thumbnails.default.url)
-                .setDescription(video.description)
-                .setTimestamp(video.publishedAt)
-                .setURL(video.link);
+                .setAuthor(`[${results[0].channelTitle}](https://www.youtube.com/channel/${encodeURIComponent(results[0].channelId)})`)
+                .setTitle(results[0].title)
+                .setThumbnail(results[0].thumbnails.default.url)
+                .setDescription(results[0].description)
+                .setTimestamp(results[0].publishedAt)
+                .setURL(results[0].link);
             msg.channel.send({
                 embed: resultEmbed
             });
