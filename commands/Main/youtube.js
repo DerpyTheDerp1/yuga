@@ -6,11 +6,11 @@ const opts = {
     key: process.env.YTKEY
 };
 
-exports.run = (client, msg, args) => {
+exports.run = async (client, msg, args) => {
     const searchTerm = args.join(' ');
     if (!searchTerm) return msg.reply('Must specify a search term!');
     else {
-        search(searchTerm, opts, function (err, results) {
+        await search(searchTerm, opts, function (err, results) {
             if (err) msg.reply(`An error ocurred!\n\n\`\`\`${err.message}\`\`\``);
             const resultEmbed = new Discord.MessageEmbed()
                 .setAuthor(`[${results[0].channelTitle}](https://www.youtube.com/channel/${encodeURIComponent(results[0].channelId)})`)
