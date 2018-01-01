@@ -1,20 +1,21 @@
 const Discord = require('discord.js');
 const yt = require('ytdl-core');
 
-exports.run = async(client, message, args) => {
+exports.run = async(client, msg, args) => {
     let [musicCommand, song] = args.join(' ').split(', ');
     if (musicCommand) {
         if (musicCommand == 'play') {
             if (!song) return msg.reply('Please input a song!');
-            const voiceChannel = message.member.voiceChannel;
+            const voiceChannel = msg.member.voiceChannel;
             if (!voiceChannel) {
-                return message.reply('Please be in a voice channel first!');
+                return msg.reply('Please be in a voice channel first!');
             }
             const connection = await voiceChannel.join();
             const stream = yt(song, {
                 audioonly: true
             });
             const dispatcher = connection.playStream(stream);
+            console.log(dispatcher);
             dispatcher.on('end', () => {
                 voiceChannel.leave();
             });
@@ -24,7 +25,14 @@ exports.run = async(client, message, args) => {
 
         if (musicCommand == 'setVolume') {
             volumeLevel = song;
+            console.log(dispatcher);
             dispatcher.setVolumeLogarithmic(volumeLevel);
+        }
+
+        if (musicCommand == 'stop' || musicCommand == 'leave') {
+            const voiceChannel = msg.member.voiceChannel;
+            voiceChannel.leave();
+            msg.channel.send('Ended playing');
         }
     } else return msg.reply('You must specify the music command you wish to use!');
 };
