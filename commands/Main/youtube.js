@@ -10,7 +10,7 @@ exports.run = (client, msg, args) => {
     const searchTerm = args.join(' ');
     if (!searchTerm) return msg.reply('Must specify a search term!');
     else {
-        search(searchTerm, opts, (err, result) => {
+        search(searchTerm, opts, function (err, result) {
             if (err) msg.reply(`An error ocurred!\n\n\`\`\`${err.message}\`\`\``);
             const video = result[0];
             const resultEmbed = new Discord.MessageEmbed()
