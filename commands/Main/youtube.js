@@ -11,11 +11,12 @@ exports.run = async(client, msg, args) => {
             .then(results => {
                 const video = results[0];
                 const resultEmbed = new Discord.MessageEmbed()
-                    .setAuthor(`[${video.channel.title}](https://www.youtube.com/channel/${encodeURIComponent(video.channel.id)})`)
+                    .setAuthor(video.channel.title)
                     .setTitle(video.title)
                     .setDescription(video.description)
                     .setTimestamp(video.publishedAt)
                     .setThumbnail(video.thumbnails.default.url)
+                    .setURL(video.channel.url)
                     .addField('Click on the link down below to watch the video!', `[Here!](${video.url})`);
                 msg.channel.send({
                     embed: resultEmbed
