@@ -16,12 +16,13 @@
     "libsodium-wrappers": "^0.5.2",
     "moment": "2.19.4",
     "moment-duration-format": "2.0.1",
-    "opusscript": "^0.0.3",
+    "opusscript": "0.0.6",
     "superagent": "3.8.2",
     "urban.js": "2.4.3",
     "uws": "^8.14.1",
-    "ytdl-core": "^0.18.1",
-    "zlib-sync": "0.1.4"
+    "ytdl-core": "0.18.5",
+    "zlib-sync": "0.1.4",
+    "ffmpeg-binaries": "3.2.2-3"
   },
   "devDependencies": {},
   "scripts": {
