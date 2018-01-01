@@ -53,6 +53,7 @@ exports.run = async(client, msg, args) => {
         }
 
         if (musicCommand == 'join' || musicCommand == 'summon') {
+            const voiceChannel = msg.member.voiceChannel;
             voiceChannel.join();
         }
     } else return msg.reply('You must specify the music command you wish to use!');
