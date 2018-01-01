@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const yt = require('ytdl-core');
 
 exports.run = async(client, msg, args) => {
-    let [musicCommand, song] = args.join(' ').split(', ');
+    const [musicCommand, song] = args.join(' ').split(' ');
     if (musicCommand) {
         if (musicCommand == 'play') {
             if (!song) return msg.reply('Please input a song!');
@@ -14,7 +14,7 @@ exports.run = async(client, msg, args) => {
             const stream = yt(song, {
                 audioonly: true
             });
-            const dispatcher = connection.playStream(stream);
+            dispatcher = connection.playStream(stream);
             console.log(dispatcher);
             dispatcher.on('end', () => {
                 voiceChannel.leave();
