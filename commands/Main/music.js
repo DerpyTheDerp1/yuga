@@ -1,12 +1,25 @@
 const yt = require('ytdl-core');
+const YouTube = require('simple-youtube-api');
+const youtube = new YouTube(process.env.YTKEY);
 
 exports.run = async(client, msg, args) => {
-    const [musicCommand, song] = args.join(' ').split(' ');
+    let [musicCommand, song] = args.join(' ').split(' ');
     if (musicCommand) {
 
         if (musicCommand == 'play' || musicCommand == 'p') {
             if (!song) return msg.reply('Please input a song!');
             voiceChannel = msg.member.voiceChannel;
+
+            if (song.includes('https://' == false)) {
+                youtube.searchVideos(searchTerm, 1)
+                    .then(results => {
+                        const video = results[0];
+                        song = video.url;
+                    })
+                    .catch(err => {
+                        msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
+                    });
+            }
 
             if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
@@ -26,6 +39,7 @@ exports.run = async(client, msg, args) => {
                     voiceChannel.leave();
                 });
                 dispatcher.setVolumeLogarithmic(1);
+                msg.channel.send(`Now playing: ${song}`);
 
             } else {
                 const connection = await voiceChannel.join();
@@ -49,7 +63,7 @@ exports.run = async(client, msg, args) => {
         if (musicCommand == 'stop' || musicCommand == 'leave') {
             const voiceChannel = msg.member.voiceChannel;
             voiceChannel.leave();
-            msg.channel.send('Ended playing');
+            msg.channel.send('Ended playing.');
         }
 
         if (musicCommand == 'join' || musicCommand == 'summon') {
@@ -64,7 +78,7 @@ exports.help = {
         name: 'Music',
         description: 'Music shoved into one command =D',
         category: 'Main',
-        usage: 'y!music play OR p <url>\ny!music setVolume OR volume OR v <volume level*>\ny!music stop OR leave\ny!music join OR summon\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9',
+        usage: 'y!music play OR p <url or search term>\ny!music setVolume OR volume OR v <volume level*>\ny!music stop OR leave\ny!music join OR summon\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9',
         requiredPerms: 'Connect to voice channel'
     }
 };
