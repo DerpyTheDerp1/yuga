@@ -15,6 +15,7 @@
     "google-translate-api": "2.3.0",
     "libsodium-wrappers": "^0.5.2",
     "moment": "2.19.4",
+    "pg":"latest",
     "moment-duration-format": "2.0.1",
     "opusscript": "0.0.6",
     "superagent": "3.8.2",
