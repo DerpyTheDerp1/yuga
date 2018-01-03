@@ -11,6 +11,7 @@ exports.run = async(client, msg, args) => {
             voiceChannel = msg.member.voiceChannel;
 
             if (song.includes('https://' == false)) {
+                searchTerm = song;
                 youtube.searchVideos(searchTerm, 1)
                     .then(results => {
                         const video = results[0];
