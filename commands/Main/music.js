@@ -9,19 +9,7 @@ exports.run = async(client, msg, args) => {
         if (musicCommand == 'play' || musicCommand == 'p') {
             if (!song) return msg.reply('Please input a song!');
             voiceChannel = msg.member.voiceChannel;
-
-            if (song.includes('https://' == false)) {
-                searchTerm = song;
-                youtube.searchVideos(searchTerm, 1)
-                    .then(results => {
-                        const video = results[0];
-                        return song = video.url;
-                    })
-                    .catch(err => {
-                        msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
-                    });
-            }
-
+            
             if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
             if (voiceChannel.permissionsFor(msg.guild.me).has('CONNECT') == false) return msg.reply('I cannot connect to this voice channel.');
@@ -79,7 +67,7 @@ exports.help = {
         name: 'Music',
         description: 'Music shoved into one command =D',
         category: 'Main',
-        usage: 'y!music play OR p, <url or search term>\ny!music setVolume OR volume OR v, <volume level*>\ny!music stop OR leave\ny!music join OR summon\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9',
+        usage: 'y!music play OR p, <url>\ny!music setVolume OR volume OR v, <volume level*>\ny!music stop OR leave\ny!music join OR summon\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9\n\nNOTE: Music is very laggy and experimental as of now',
         requiredPerms: 'Connect to voice channel'
     }
 };
