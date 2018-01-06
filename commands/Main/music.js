@@ -9,7 +9,7 @@ exports.run = async(client, msg, args) => {
         if (musicCommand == 'play' || musicCommand == 'p') {
             if (!song) return msg.reply('Please input a song!');
             voiceChannel = msg.member.voiceChannel;
-            
+
             if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
             if (voiceChannel.permissionsFor(msg.guild.me).has('CONNECT') == false) return msg.reply('I cannot connect to this voice channel.');
@@ -58,6 +58,15 @@ exports.run = async(client, msg, args) => {
         if (musicCommand == 'join' || musicCommand == 'summon') {
             const voiceChannel = msg.member.voiceChannel;
             voiceChannel.join();
+        }
+
+        if (musicCommand == 'search' || musicCommand == 's') {
+            searchTerm = song;
+            youtube.searchVideos(searchTerm, 1)
+                .then(results => {
+                    const video = results[0];
+                    msg.reply(`URL: ${video.url}`)
+                })
         }
     } else return msg.reply('You must specify the music command you wish to use!');
 };
