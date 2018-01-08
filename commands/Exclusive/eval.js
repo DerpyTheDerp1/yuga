@@ -52,3 +52,13 @@ exports.run = async (client, msg, args) => {
 
   } else return;
 };
+
+exports.help = {
+'help': {
+  name: 'Eval',
+  description: 'Evaluates JavaScript code',
+  category: 'Exclusive',
+  usage: 'y!eval <code>',
+  requiredPerms: 'To be Striker... duh.'
+ }
+};
