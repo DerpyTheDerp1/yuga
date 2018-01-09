@@ -1,7 +1,6 @@
 exports.run = (client, msg, args) => {
     let guild = client.guilds.get(msg.guild.id)
-    const db = require('../../db/db.json')
-    const ids = db.ids
+    const { ids } = require('db');
     const Discord = require('discord.js')
     const error = new Discord.MessageEmbed()
         .setTitle('ACCESS DENIED')

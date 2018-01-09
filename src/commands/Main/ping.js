@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const color = require('../../db/db.json').color;
+const { color } = require('db');
 
 exports.run = async(client, msg) => {
     const author = msg.author.tag;

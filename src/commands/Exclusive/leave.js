@@ -1,4 +1,4 @@
-const ids = require('../db/db.json').ids;
+const { ids } = require('db');
 
 exports.run = (client, msg, args) => {
    if (ids.indexOf(msg.author.id)) {
