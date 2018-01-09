@@ -1,2 +1,2 @@
-web: node yuga.js
-worker: node yuga.js
+web: node index.js
+worker: node index.js
