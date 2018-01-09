@@ -1,0 +1,17 @@
+#Node Modles 
+node_modules
+
+#Eslint config file
+.eslintrc.json
+
+#Bot profile picture
+pfp.png
+
+#Vscode folder
+.vscode
+
+#Env variables
+.env
+
+#Testing folder
+test

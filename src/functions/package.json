@@ -1,0 +1,16 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "Yuga functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "Funcs",
+    "nodejs",
+    "custom"
+  ],
+  "author": "Striker",
+  "license": "MIT"
+}
