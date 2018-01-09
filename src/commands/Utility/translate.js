@@ -14,7 +14,6 @@ exports.run = (client, msg, args) => {
         .setThumbnail(client.user.avatarURL())
         .setTimestamp();
     let [text, lang] = args.join(' ').split(', ');
-
     if (!lang) lang = 'English';
     if (!text && lang) {
         msg.channel.send({
@@ -38,4 +37,4 @@ exports.run = (client, msg, args) => {
     }).catch(err => {
         console.error(err);
     });
-}
+};

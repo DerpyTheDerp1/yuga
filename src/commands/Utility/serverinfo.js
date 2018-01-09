@@ -35,7 +35,7 @@ exports.run = (client, msg) => {
     let verificationLevel = msg.guild.verificationLevel;
     const indexes = ['0', '1', '2', '3', '4'];
     const levels = ['None', 'Low', 'Medium', '(╯°□°）╯︵ ┻━┻ ', '┻━┻ ﾐヽ(ಠ益ಠ)ノ彡┻━┻'];
-    for (i in indexes) {
+    for (const i in indexes) {
         verificationLevel = levels[i];
     }
 
@@ -52,7 +52,7 @@ exports.run = (client, msg) => {
         .addField('Roles', roles, true)
         .addField('Users', userCount, true)
         .addField('Bots', botCount, true)
-        .addField('Verification level', verificationLevel, true)
+        .addField('Verification level', verificationLevel, true);
 
     msg.channel.send({
         embed: serverinfo

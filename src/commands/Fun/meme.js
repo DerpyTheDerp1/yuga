@@ -18,4 +18,4 @@ exports.help = {
         usage: 'y!meme',
         requiredPerms: 'None'
     }
-}
+};
