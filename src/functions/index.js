@@ -1,9 +1,7 @@
 const test = console.log('test success');
 const fs = require('fs');
 const Discord = require('discord.js');
-const {
-    color
-} = require('../db/db.json');
+const color = require('../db/db.json').color;
 
 const runCommand = (client, msg, cmd, args) => {
     try {
