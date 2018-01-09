@@ -8,6 +8,7 @@
   "main": "yuga.js",
   "dependencies": {
     "bufferutil": "^3.0.2",
+    "db": "file:src/db/db-1.0.0.tgz",
     "discord.js": "hydrabolt/discord.js",
     "dotenv": "4.0.0",
     "erlpack": "discordapp/erlpack",
