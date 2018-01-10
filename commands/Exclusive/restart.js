@@ -1,5 +1,5 @@
 exports.run = (client, msg) => {
-    const { ids } = require('db');
+    const { ids } = require('yugadb');
     const Discord = require('discord.js');
     const error = new Discord.MessageEmbed()
         .setTitle('ACCESS DENIED')

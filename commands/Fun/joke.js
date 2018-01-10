@@ -1,5 +1,5 @@
 exports.run = (client, msg) => {
-    const { jokes } = require('db');
+    const { jokes } = require('yugadb');
     const joke = jokes[Math.floor(Math.random() * jokes.length)];
     JSON.stringify(joke);
     msg.channel.send(joke);

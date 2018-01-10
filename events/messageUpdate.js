@@ -3,7 +3,7 @@ const {
     runCommand,
     cmdLogger,
     checkDm
-} = require('functions');
+} = require('yugafunctions');
 let command = '';
 exports.run = async(client, old, msg) => {
     if (client.user.username == 'Yuga Testing') prefix = 'yt!';

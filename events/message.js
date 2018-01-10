@@ -4,7 +4,7 @@ const {
     runCommand,
     cmdLogger,
     checkDm
-} = require('functions');
+} = require('yugafunctions');
 
 let command = '';
 

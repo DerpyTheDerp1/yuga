@@ -1,5 +1,5 @@
 {
-  "name": "db",
+  "name": "yugadb",
   "version": "1.0.0",
   "description": "Yuga's database",
   "main": "db.js",

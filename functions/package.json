@@ -1,6 +1,6 @@
 {
-  "name": "functions",
-  "version": "1.0.0",
+  "name": "yugafunctions",
+  "version": "1.0.1",
   "description": "Yuga functions",
   "main": "index.js",
   "author": "Striker",

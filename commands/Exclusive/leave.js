@@ -1,6 +1,6 @@
 const {
       ids
-} = require('db');
+} = require('yugadb');
 
 exports.run = (client, msg, args) => {
       if (ids.indexOf(msg.author.id)) {

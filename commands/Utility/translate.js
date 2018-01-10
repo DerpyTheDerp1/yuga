@@ -1,6 +1,6 @@
 const translate = require('google-translate-api');
 const Discord = require('discord.js');
-const { color } = require('db');
+const { color } = require('yugadb');
 
 exports.run = (client, msg, args) => {
     const autohelp = new Discord.MessageEmbed()

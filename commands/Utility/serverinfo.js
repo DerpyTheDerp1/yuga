@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { color } = require('db');
+const { color } = require('yugadb');
 
 exports.run = (client, msg) => {
 

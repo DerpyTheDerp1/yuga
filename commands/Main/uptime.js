@@ -1,7 +1,7 @@
 const moment = require('moment');
 require('moment-duration-format');
 const Discord = require('discord.js');
-const { color } = require('db');
+const { color } = require('yugadb');
 
 exports.run = (client, msg) => {
     const embed = new Discord.MessageEmbed()
