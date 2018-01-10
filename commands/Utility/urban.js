@@ -1,6 +1,6 @@
 const urban = require('urban.js');
 const Discord = require('discord.js');
-const { color } = require('db');
+const { color } = require('../../db/db.js');
 
 exports.run = async (client, msg, args) => {
     const word = args.join(' ');
