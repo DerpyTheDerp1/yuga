@@ -1,10 +1,6 @@
 let prefix = '';
 
-const {
-    runCommand,
-    cmdLogger,
-    checkDm
-} = require('functions');
+const { runCommand, cmdLogger, checkDm } = require('../functions/index.js');
 
 let command = '';
 
