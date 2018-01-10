@@ -1,8 +1,0 @@
-{
-  "name": "db",
-  "version": "1.0.0",
-  "description": "Yuga's database",
-  "main": "db.js",
-  "author": "Striker",
-  "license": "MIT"
-}
