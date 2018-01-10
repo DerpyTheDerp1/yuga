@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const superagent = require('superagent');
-let prefix = ''
+let prefix = '';
 exports.run = async (client, guild) => {
  console.log('Yuga has been added to a new server!');
     console.log('Finding server...');
@@ -56,10 +56,10 @@ exports.run = async (client, guild) => {
     console.log('Messages sent!');
  if (process.env.DBENABLED == 'no') return;
  else {
- superagent.post('https://discordbots.org/api/bots/stats')    
-   .set('Authorization', process.env.DBTOKEN)    
-   .send({ server_count: client.guilds && client.guilds.size ? client.guilds.size : (client.Guilds ? client.Guilds.size : Object.keys(client.Servers).length) })    
+ superagent.post('https://discordbots.org/api/bots/stats')
+   .set('Authorization', process.env.DBTOKEN)
+   .send({ server_count: client.guilds && client.guilds.size ? client.guilds.size : (client.Guilds ? client.Guilds.size : Object.keys(client.Servers).length) })
    .then(() => console.log('Updated discordbots.org stats!'))
-   .catch(err => console.error(`Error updating discordbots.org stats: ${err.body} || ${err}`))
+   .catch(err => console.error(`Error updating discordbots.org stats: ${err.body} || ${err}`));
  }
 };
