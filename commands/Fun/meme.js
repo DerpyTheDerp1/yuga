@@ -1,6 +1,6 @@
 exports.run = (client, msg) => {
     const Discord = require('discord.js');
-    const { memes } = require('db');
+    const { memes } = require('../../db/db.js');
     const meme = memes[Math.floor(Math.random() * memes.length)];
 
     const memeEmbed = new Discord.MessageEmbed()
