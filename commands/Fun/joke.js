@@ -1,5 +1,5 @@
 exports.run = (client, msg) => {
-    const { jokes } = require('db').jokes;
+    const { jokes } = require('db');
     const joke = jokes[Math.floor(Math.random() * jokes.length)];
     JSON.stringify(joke);
     msg.channel.send(joke);

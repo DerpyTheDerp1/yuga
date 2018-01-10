@@ -5,10 +5,10 @@ const { color } = require('db');
 
 const runCommand = (client, msg, cmd, args) => {
     try {
-        const CommandsFolder = fs.readdirSync('./src/commands');
+        const CommandsFolder = fs.readdirSync('./commands');
         for (const group of CommandsFolder) {
             try {
-                const commands = fs.readdirSync('./src/commands/' + group);
+                const commands = fs.readdirSync('./commands/' + group);
                 for (const command of commands) {
                     if (command.slice(0, -3) === cmd) {
                         const commandFile = require('../commands/' + group + '/' + command);
