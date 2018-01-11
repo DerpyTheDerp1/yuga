@@ -7,7 +7,8 @@ let command = '';
 exports.run = async(client, msg) => {
     if (client.user.username == 'Yuga!') prefix == 'y!';
     if (client.user.username == 'Yuga Testing') prefix == 'yt!';
-
+    if (!msg.content.startsWith('y!') && !msg.content.startsWith(`<@${client.user.id}>`) && !msg.content.startsWith('yt!')) return;
+    
     let args = msg.content.split(' ').slice(1);
     command = msg.content.split(' ')[0];
     //Checking if it's a bot speaking & ignores it
@@ -26,7 +27,7 @@ exports.run = async(client, msg) => {
     //Prefix checker #3: Mentions
   else if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
         const content = msg.content.split(' ');
-        command = content[1];
+        command = content[
         const leftovers = content.slice(2);
         args = [];
         for (const i in leftovers) {
