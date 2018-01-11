@@ -5,8 +5,8 @@ const { runCommand, cmdLogger, checkDm } = require('../functions/index.js');
 let command = '';
 
 exports.run = async(client, msg) => {
-    if (client.user.username == 'Yuga!') return prefix == 'y!';
-    if (client.user.username == 'Yuga Testing') return prefix == 'yt!';
+    if (client.user.username == 'Yuga!') prefix == 'y!';
+    if (client.user.username == 'Yuga Testing') prefix == 'yt!';
     if((!msg.content.startsWith('y!')) && (!msg.content.startsWith(`<@${client.user.id}>`)) && (!msg.content.startsWith('yt!'))){
     return;
     }
