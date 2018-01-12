@@ -27,7 +27,8 @@ exports.run = async(client, msg) => {
     //Prefix checker #3: Mentions
   else if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
         const content = msg.content.split(' ');
-        command = content[
+        command = content[1]
+                      
         const leftovers = content.slice(2);
         args = [];
         for (const i in leftovers) {
