@@ -4,7 +4,7 @@ const { runCommand, cmdLogger, checkDm } = require('../functions/index.js');
 
 let command = '';
 
-exports.run = async(client, msg) => {
+exports.run = (client, msg) => {
     if (client.user.username == 'Yuga!') prefix == 'y!';
     if (client.user.username == 'Yuga Testing') prefix == 'yt!';
     if (!msg.content.startsWith('y!') && !msg.content.startsWith(`<@${client.user.id}>`) && !msg.content.startsWith('yt!')) return;
@@ -20,8 +20,8 @@ exports.run = async(client, msg) => {
     //Prefix Checker #1: Command Only
     if (msg.content.startsWith(prefix)) {
         command = command.slice(prefix.length);
-        await cmdLogger(client, msg, '1');
-        await runCommand(client, msg, command, args);
+        cmdLogger(client, msg, '1');
+        runCommand(client, msg, command, args);
     }
 
     //Prefix checker #3: Mentions
@@ -34,8 +34,8 @@ exports.run = async(client, msg) => {
         for (const i in leftovers) {
             args.push(leftovers[i]);
         }
-        await cmdLogger(client, msg, '3');
-        await runCommand(client, msg, command, args);
+        cmdLogger(client, msg, '3');
+        runCommand(client, msg, command, args);
     } else return;
     //Code to do nothing if there is no prefix. All other messages are ignored thus.
 };
