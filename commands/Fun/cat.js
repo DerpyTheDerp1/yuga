@@ -1,12 +1,15 @@
 const Discord = require('discord.js');
 const snekfetch = require('snekfetch');
-exports.run = (client, msg) => {
-    snekfetch.get('http://random.cat/meow').then(res => {
-        const embed = new Discord.MessageEmbed()
-            .setImage(res.body.file);
-        msg.channel.send({
-            embed
-        });
+
+exports.run = async(client, msg) => {
+    let res = await snekfetch.get('http://random.cat/meow');
+    while (res.body.file.includes('.mp4') || res.body.file.includes('.gif')) {
+        res = await snekfetch.get('http://random.dog/meow');
+    }
+    const embed = new Discord.MessageEmbed()
+        .setImage(res.body.file);
+    msg.channel.send({
+        embed
     });
 };
 
