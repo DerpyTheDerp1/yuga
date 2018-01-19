@@ -1,9 +1,5 @@
 let prefix = '';
-const {
-    runCommand,
-    cmdLogger,
-    checkDm
-} = require('yugafunctions');
+const { runCommand, cmdLogger, checkDm } = require('../functions/index.js');
 let command = '';
 exports.run = async(client, old, msg) => {
     if (client.user.username == 'Yuga Testing') prefix = 'yt!';

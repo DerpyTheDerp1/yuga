@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { color } = require('yugadb');
+const { color } = require('../db/db.js');
 
 const runCommand = (client, msg, cmd, args) => {
     try {
@@ -60,6 +60,21 @@ const error = (client, err) => {
     });
 };
 
+<<<<<<< HEAD
+=======
+const eventLoader = (client) => {
+    fs.readdir('./events/', (err, files) => {
+        if (err) return console.error(err);
+        files.forEach(file => {
+            const eventFunction = require(`../events/${file}`);
+            const eventName = file.split('.')[0];
+            client.on(eventName, (...args) => eventFunction.run(client, ...args));
+        });
+    });
+};
+
+exports.test = test;
+>>>>>>> e3a3752137eb423a952d283737e19507a7e69013
 exports.runCommand = runCommand;
 exports.cmdLogger = cmdLogger;
 exports.checkDm = checkDm;
