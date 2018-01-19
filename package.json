@@ -23,8 +23,6 @@
     "urban.js": "2.4.3",
     "uws": "^8.14.1",
     "ytdl-core": "0.18.5",
-    "yugadb": "file:db/yugadb-1.0.0.tgz",
-    "yugafunctions": "file:functions/yugafunctions-1.0.1.tgz",
     "zlib-sync": "0.1.4"
   },
   "devDependencies": {},
