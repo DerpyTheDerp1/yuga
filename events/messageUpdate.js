@@ -39,8 +39,7 @@ const cmdLogger = (client, msg, handlerNo) => {
         .setThumbnail(client.user.avatarURL());
     client.channels.get('308545302615293953').send({
         embed: log
-    });
-    msg.channel.stopTyping(true);
+    }).then(() => msg.channel.stopTyping());
 };
 
 exports.run = async(client, old, msg) => {
