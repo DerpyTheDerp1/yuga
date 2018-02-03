@@ -1,6 +1,8 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { color } = require('../db/db.js');
+const {
+    color
+} = require('../db/db.js');
 let command = '';
 const runCommand = (client, msg, cmd, args) => {
     try {
@@ -42,9 +44,13 @@ const cmdLogger = (client, msg, handlerNo) => {
 
 exports.run = (client, msg) => {
     let prefix = '';
-    if (client.user.username == 'Yuga!') prefix == 'y!';
-    if (client.user.username == 'Yuga Testing') prefix == 'yt!';
-    if (!msg.content.startsWith('y!') && !msg.content.startsWith(`<@${client.user.id}>`) && !msg.content.startsWith('yt!')) return;
+    if (client.user.username == 'Yuga Testing') {
+        prefix = 'yt!';
+    }
+
+    if (client.user.username == 'Yuga!') {
+        prefix = 'y!';
+    }
 
     let args = msg.content.split(' ').slice(1);
     command = msg.content.split(' ')[0];
@@ -57,12 +63,12 @@ exports.run = (client, msg) => {
     //Prefix Checker #1: Command Only
     if (msg.content.startsWith(prefix)) {
         command = command.slice(prefix.length);
-        cmdLogger(client, msg, '1');
         runCommand(client, msg, command, args);
+        cmdLogger(client, msg, '1');
     }
 
     //Prefix checker #3: Mentions
-    else if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
+    if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
         const content = msg.content.split(' ');
         command = content[1];
 
@@ -71,8 +77,8 @@ exports.run = (client, msg) => {
         for (const i in leftovers) {
             args.push(leftovers[i]);
         }
-        cmdLogger(client, msg, '3');
         runCommand(client, msg, command, args);
+        cmdLogger(client, msg, '3');
     } else return;
     //Code to do nothing if there is no prefix. All other messages are ignored thus.
 };
