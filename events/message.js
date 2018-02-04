@@ -41,7 +41,6 @@ const cmdLogger = (client, msg, handlerNo) => {
     }).then(() => msg.channel.stopTyping());
 };
 
-
 exports.run = (client, msg) => {
     let prefix = '';
     if (client.user.username == 'Yuga Testing') {
