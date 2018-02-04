@@ -8,7 +8,7 @@ exports.run = (client, msg, args) => {
     else {
         const suggestionEmbed = new MessageEmbed()
             .setTitle('Suggestion')
-            .setThumbnail(msg.author.displayAvatarURL())
+            .setThumbnail(msg.author.avatarURL())
             .setAuthor(msg.author.tag)
             .addField('Command Name', commandName, true)
             .addField('Description', description, true)
