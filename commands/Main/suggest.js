@@ -18,7 +18,11 @@ exports.run = (client, msg, args) => {
             .setTimestamp()
         client.channels.get('409741553918279700').send('@here Please vote for this command suggestion!', {
             embed: suggestionEmbed
+        }).then(async (m) =>{
+           await m.react('👍')
+           await m.react('👎')
         })
+        msg.reply('Suggested!')
     }
 }
 
