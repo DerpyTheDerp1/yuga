@@ -59,15 +59,6 @@ exports.run = async(client, msg, args) => {
             const voiceChannel = msg.member.voiceChannel;
             voiceChannel.join();
         }
-
-        if (musicCommand == 'search' || musicCommand == 's') {
-            searchTerm = song;
-            youtube.searchVideos(searchTerm, 1)
-                .then(results => {
-                    const video = results[0];
-                    msg.reply(`URL: ${video.url}`)
-                })
-        }
     } else return msg.reply('You must specify the music command you wish to use!');
 };
 
