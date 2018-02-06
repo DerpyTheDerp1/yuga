@@ -17,5 +17,5 @@ exports.run = (client, msg) => {
 
     guild.member(user).roles.add(mutedRole)
     msg.delete()
-    msg.reply(`Muted ${user} successfully.`)
+    msg.channel.send(`Muted ${user} successfully.`)
 }
