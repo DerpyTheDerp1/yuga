@@ -15,7 +15,7 @@ exports.run = (client, msg) => {
         })
     });
 
-    user.member.roles.add(mutedRole.id)
+    guild.member(user.roles.add(mutedRole.id))
     msg.delete()
     msg.reply(`Muted ${user} successfully.`)
 }
