@@ -8,7 +8,7 @@
   "main": "yuga.js",
   "dependencies": {
     "bufferutil": "^3.0.2",
-    "discord.js": "hydrabolt/discord.js",
+    "discord.js": "discordjs/discord.js",
     "erlpack": "discordapp/erlpack",
     "eslint": "^4.6.1",
     "ffmpeg-binaries": "3.2.2-3",
