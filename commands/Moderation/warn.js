@@ -35,7 +35,7 @@ exports.run = (client, msg, args) => {
     const warningchannel = guild.channels.find('name', 'yuga-warnings');
 
     if (msg.member.hasPermission(haskick)) {
-        if (!warningchannel) return guild.createChannel('yuga-warnings');
+        if (!warningchannel) return guild.channels.create('yuga-warnings', 'text');
         const casenum = makeid();
         const warnembed = new Discord.MessageEmbed()
             .setTitle(`CASE ${casenum}`)

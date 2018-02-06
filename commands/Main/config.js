@@ -26,7 +26,7 @@ exports.run = (client, msg, args) => {
     if (configselection == 'welcome messages') {
         channel.startTyping();
         msg.react('✅');
-        guild.createChannel('yuga-welcome', 'text');
+        guild.channels.create('yuga-welcome', 'text');
         msg.reply('Welcome messages configurated!');
         channel.stopTyping();
     }
@@ -34,7 +34,7 @@ exports.run = (client, msg, args) => {
     if (configselection == 'goodbye messages') {
         channel.startTyping();
         msg.react('✅');
-        guild.createChannel('yuga-goodbye', 'text');
+        guild.channels.create('yuga-goodbye', 'text');
         msg.reply('Goodbye messages configurated!');
         channel.stopTyping();
     }
@@ -42,7 +42,7 @@ exports.run = (client, msg, args) => {
     if (configselection == 'warnings') {
         channel.startTyping();
         msg.react('✅');
-        guild.createChannel('yuga-warnings', 'text');
+        guild.channels.create('yuga-warnings', 'text');
         msg.reply('Warnings configurated!');
         channel.stopTyping();
     }
@@ -59,9 +59,9 @@ exports.run = (client, msg, args) => {
     if (configselection == 'ALL') {
         msg.react('✅');
         channel.startTyping();
-        guild.createChannel('yuga-warnings', 'text');
-        guild.createChannel('yuga-goodbye', 'text');
-        guild.createChannel('yuga-welcome', 'text');
+        guild.channels.create('yuga-warnings', 'text');
+        guild.channels.create('yuga-goodbye', 'text');
+        guild.channels.create('yuga-welcome', 'text');
         msg.reply('Everything configurated!');
         channel.stopTyping();
     }
