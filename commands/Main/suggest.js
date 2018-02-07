@@ -28,7 +28,7 @@ exports.help = {
         name: 'Suggest',
         description: 'Suggests a command for Yuga!',
         category: 'Main',
-        usage: 'y!suggest Command Name, description\n\nFor the description, please make it as detailed as possible. Commands returning images of cats are simple to explain, warning commands may not be.',
+        usage: 'y!suggest Command Name | description\n\nFor the description, please make it as detailed as possible. Commands returning images of cats are simple to explain, warning commands may not be.',
         requiredPerms: 'None'
     }
 }
