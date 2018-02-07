@@ -8,7 +8,7 @@ exports.run = async(client, msg, args) => {
       const CommandsFolder = fs.readdirSync('./commands');
       for (const group of CommandsFolder) {
         try {
-          commands = fs.readdirSync('./commands/' + group);
+         const commands = fs.readdirSync('./commands/' + group);
           for (const command of commands) {
             if (command.slice(0, -3) === cmd) {
               return require('../' + group + '/' + command);
@@ -43,7 +43,6 @@ exports.run = async(client, msg, args) => {
       embed: help
     });
   } else {
-    const ExclusiveCommands = fs.readdirSync('./commands/Exclusive').map(file => path.basename(file, path.extname(file)));
     const FunCommands = fs.readdirSync('./commands/Fun').map(file => path.basename(file, path.extname(file)));
     const MainCommands = fs.readdirSync('./commands/Main').map(file => path.basename(file, path.extname(file)));
     const ModerationCommands = fs.readdirSync('./commands/Moderation').map(file => path.basename(file, path.extname(file)));
@@ -56,7 +55,6 @@ exports.run = async(client, msg, args) => {
       .addField('Fun Commands', FunCommands, true)
       .addField('Moderation Commands', ModerationCommands, true)
       .addField('Utility Commands', UtilityCommands, true)
-      .addField('Exclusive Commands', ExclusiveCommands, true)
       .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it.`, true)
       .setThumbnail(client.user.avatarURL())
       .setTimestamp();
