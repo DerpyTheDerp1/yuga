@@ -12,3 +12,6 @@ pfp.png
 
 #Env variables
 .env
+
+#JS Beautify Settings
+.jsbeautifyrc
