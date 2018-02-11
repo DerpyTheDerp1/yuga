@@ -23,7 +23,7 @@ exports.run = async(client, msg, args) => {
                     audioonly: true
                 });
 
-                dispatcher = connection.play(stream);
+                dispatcher = connection.play(stream, {bitrate: 70});
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
@@ -35,7 +35,7 @@ exports.run = async(client, msg, args) => {
                 const stream = yt(song, {
                     audioonly: true
                 });
-                dispatcher = connection.play(stream);
+                dispatcher = connection.play(stream, {bitrate: 70});
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
