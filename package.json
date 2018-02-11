@@ -23,7 +23,7 @@
     "superagent": "3.8.2",
     "urban.js": "2.4.3",
     "uws": "^8.14.1",
-    "ytdl-core": "0.18.5",
+    "ytdl-core": "0.20.1",
     "zlib-sync": "0.1.4"
   },
   "devDependencies": {},
