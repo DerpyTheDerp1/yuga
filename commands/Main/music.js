@@ -19,7 +19,7 @@ exports.run = async(client, msg, args) => {
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
                     audioonly: true,
-                    quality: 'highestaudio'
+                    quality: 'lowest'
                 });
 
                 dispatcher = connection.play(stream, {bitrate: 'auto'});
@@ -33,7 +33,7 @@ exports.run = async(client, msg, args) => {
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
                     audioonly: true,
-                    quality: 'highestaudio'
+                    quality: 'lowest'
                 });
                 dispatcher = connection.play(stream, {bitrate: 'auto'});
                 dispatcher.on('end', () => {
