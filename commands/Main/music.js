@@ -1,6 +1,4 @@
 const yt = require('ytdl-core');
-const YouTube = require('simple-youtube-api');
-const youtube = new YouTube(process.env.YTKEY);
 
 exports.run = async(client, msg, args) => {
     let [musicCommand, song] = args.join(' ').split(', ');
@@ -20,7 +18,8 @@ exports.run = async(client, msg, args) => {
                 voiceChannel.leave();
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
-                    audioonly: true
+                    audioonly: true,
+                    quality: 'highestaudio'
                 });
 
                 dispatcher = connection.play(stream, {bitrate: 'auto'});
@@ -33,7 +32,8 @@ exports.run = async(client, msg, args) => {
             } else {
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
-                    audioonly: true
+                    audioonly: true,
+                    quality: 'highestaudio'
                 });
                 dispatcher = connection.play(stream, {bitrate: 'auto'});
                 dispatcher.on('end', () => {
