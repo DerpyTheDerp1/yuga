@@ -18,10 +18,11 @@ exports.run = async(client, msg, args) => {
                 voiceChannel.leave();
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
-                    audioonly: true
+                    audioonly: true,
+                    quality: 'lowest'
                 });
 
-                dispatcher = connection.playStream(stream);
+                dispatcher = connection.play(stream, {bitrate: 'auto'});
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
@@ -31,9 +32,10 @@ exports.run = async(client, msg, args) => {
             } else {
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
-                    audioonly: true
+                    audioonly: true,
+                    quality: 'lowest'
                 });
-                dispatcher = connection.playStream(stream);
+                dispatcher = connection.play(stream, {bitrate: 'auto'});
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
