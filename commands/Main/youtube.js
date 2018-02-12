@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 const youtube = new yt(process.env.YTKEY);
 
-exports.run = async(client, msg, args) => {
+exports.run = async (client, msg, args) => {
     const searchTerm = args.join(' ');
     if (!searchTerm) return msg.reply('Must specify a search term!');
     else {

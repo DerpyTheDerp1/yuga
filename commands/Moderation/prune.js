@@ -14,7 +14,7 @@ exports.run = async(client, msg) => {
             limit: 100,
         });
         msg.channel.bulkDelete(msgs).catch(error => console.log(error.stack));
-        const prune = await msg.channel.send(`${msg.author} pruned ${amount} messages!`);
+        const prune = await msg.channel.send(`${msg.author} pruned 100 messages!`);
         setTimeout(function () {
             prune.delete();
         }, 5000);

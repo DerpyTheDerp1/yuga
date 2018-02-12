@@ -1,14 +1,12 @@
 const yt = require('ytdl-core');
-const YouTube = require('simple-youtube-api');
-const youtube = new YouTube(process.env.YTKEY);
 
 exports.run = async(client, msg, args) => {
-    let [musicCommand, song] = args.join(' ').split(', ');
+    const [musicCommand, song] = args.join(' ').split(', ');
     if (musicCommand) {
 
         if (musicCommand == 'play' || musicCommand == 'p') {
             if (!song) return msg.reply('Please input a song!');
-            voiceChannel = msg.member.voiceChannel;
+            const voiceChannel = msg.member.voiceChannel;
 
             if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
@@ -45,7 +43,7 @@ exports.run = async(client, msg, args) => {
         }
 
         if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
-            volumeLevel = song;
+           const volumeLevel = song;
             dispatcher.setVolumeLogarithmic(volumeLevel);
         }
 

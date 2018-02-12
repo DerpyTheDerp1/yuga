@@ -10,7 +10,7 @@ exports.run = (client, msg) => {
         .setColor(color)
         .setThumbnail(client.user.avatarURL())
         .setTimestamp();
-        msg.channel.send({
+    msg.channel.send({
         embed
     });
 };

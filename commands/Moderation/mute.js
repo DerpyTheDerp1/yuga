@@ -1,6 +1,4 @@
-const {
-    MessageEmbed
-} = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 exports.run = (client, msg) => {
     const denied = new MessageEmbed()
@@ -27,7 +25,7 @@ exports.run = (client, msg) => {
         guild.channels.filter(c => !c.permissionOverwrites.exists('id', mutedRole.id)).forEach(channels => {
             channels.overwritePermissions(mutedRole.id, {
                 SEND_MESSAGES: false
-            })
+            });
         });
 
         guild.member(user).roles.add(mutedRole)
