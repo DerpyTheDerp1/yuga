@@ -80,3 +80,30 @@ exports.jokes = [
     'Why could the bicycle not stand up by itself?\nIt was two tired.',
     '@Mr.Table#1352\'s bots.'
 ];
+
+exports.gifs = {
+    'hug': [
+        'https://i.imgur.com/fdidmF1.gif',
+        'https://i.imgur.com/aOAHsr9.gif',
+        'https://i.imgur.com/FmmKaR2.gif',
+        'https://i.imgur.com/L9FmXP6.gif',
+        'https://i.imgur.com/AjDIi1f.gif',
+        'https://i.imgur.com/3j6qtEt.gif',
+        'https://i.imgur.com/evAdM5O.gif',
+        'https://i.imgur.com/ZTdmYz8.gif',
+        'https://i.imgur.com/GLQVsWQ.gif',
+        'https://i.imgur.com/EuIljrc.gif'
+    ],
+
+    'slap': [
+
+    ],
+
+    'poke': [
+
+    ],
+
+    'kiss': [
+
+    ]
+}
