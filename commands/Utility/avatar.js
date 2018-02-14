@@ -31,3 +31,13 @@ exports.run = (client, msg, args) => {
     embed: avatarembed
   });
 };
+
+exports.help = {
+  'help': {
+    name: 'Avatar',
+    description: 'Returns the avatar of a specified user',
+    category: 'Utility',
+    usage: 'y!avatar <tag user>',
+    requiredPerms: 'None'
+  }
+}

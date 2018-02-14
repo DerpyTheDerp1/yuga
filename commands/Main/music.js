@@ -1,12 +1,13 @@
 const yt = require('ytdl-core');
 
-exports.run = async(client, msg, args) => {
-    let [musicCommand, song] = args.join(' ').split(', ');
+exports.run = async (client, msg, args) => {
+    const [musicCommand, song] = args.join(' ').split(', ');
     if (musicCommand) {
 
         if (musicCommand == 'play' || musicCommand == 'p') {
+            if (connection.speaking) return msg.reply('Please wait until current song is finished.')
             if (!song) return msg.reply('Please input a song!');
-            voiceChannel = msg.member.voiceChannel;
+            const voiceChannel = msg.member.voiceChannel;
 
             if (!voiceChannel) return msg.reply('Please be in a voice channel first!');
 
@@ -15,14 +16,14 @@ exports.run = async(client, msg, args) => {
             if (voiceChannel.permissionsFor(msg.guild.me).has('SPEAK') == false) return msg.reply('I cannot speak in this voice channel.');
 
             if (voiceChannel) {
-                voiceChannel.leave();
                 const connection = await voiceChannel.join();
+                voiceChannel.leave();
                 const stream = yt(song, {
                     audioonly: true,
                     quality: 'lowest'
                 });
 
-                dispatcher = connection.play(stream, {bitrate: 'auto'});
+                dispatcher = connection.play(stream, { bitrate: 'auto' });
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
@@ -35,7 +36,7 @@ exports.run = async(client, msg, args) => {
                     audioonly: true,
                     quality: 'lowest'
                 });
-                dispatcher = connection.play(stream, {bitrate: 'auto'});
+                dispatcher = connection.play(stream, { bitrate: 'auto' });
                 dispatcher.on('end', () => {
                     voiceChannel.leave();
                 });
@@ -45,7 +46,7 @@ exports.run = async(client, msg, args) => {
         }
 
         if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
-            volumeLevel = song;
+            const volumeLevel = song;
             dispatcher.setVolumeLogarithmic(volumeLevel);
         }
 

@@ -51,3 +51,13 @@ exports.run = (client, msg, args) => {
         });
     }
 };
+
+exports.help = {
+    'help':{
+        name: 'Create Invite',
+        description: 'Creates an invite for a server Yuga is in',
+        category: 'Utility',
+        usage: 'y!createInvite <guild id>',
+        requiredPerms: 'Create Invite'
+    }
+};
