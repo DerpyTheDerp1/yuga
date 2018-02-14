@@ -3,18 +3,20 @@ exports.run = async (client, msg, args) => {
   const striker = '215509157837537280';
   const code = args.join(' ');
   function clean(text) {
-    if (typeof (text) === 'string')
+    if (typeof (text) === 'string') {
       return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
-    else
+    } else {
       return text;
+    }
   }
 
   if (msg.author.id == striker) {
     try {
       let evaled = eval(code);
 
-      if (typeof evaled !== 'string')
+      if (typeof evaled !== 'string') {
         evaled = require('util').inspect(evaled);
+      }
 
       if (evaled.length >= 2000) {
         console.log(clean(evaled));
@@ -33,9 +35,8 @@ exports.run = async (client, msg, args) => {
         .setTimestamp()
         .setThumbnail(client.user.avatarURL());
       msg.channel.send({
-        embed: succembed
+        embed: succembed,
       });
-
     } catch (err) {
       if (!err) return;
       const errembed = new Discord.MessageEmbed()
@@ -46,19 +47,18 @@ exports.run = async (client, msg, args) => {
         .setTimestamp()
         .setThumbnail(client.user.avatarURL());
       msg.channel.send({
-        embed: errembed
+        embed: errembed,
       });
     }
-
   } else return;
 };
 
 exports.help = {
-'help': {
-  name: 'Eval',
-  description: 'Evaluates JavaScript code',
-  category: 'Exclusive',
-  usage: 'y!eval <code>',
-  requiredPerms: 'To be Striker... duh.'
- }
+  'help': {
+    name: 'Eval',
+    description: 'Evaluates JavaScript code',
+    category: 'Exclusive',
+    usage: 'y!eval <code>',
+    requiredPerms: 'To be Striker... duh.',
+  },
 };

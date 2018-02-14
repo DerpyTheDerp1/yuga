@@ -1,5 +1,11 @@
 {
-    "extends": "eslint:recommended",
+    "plugins": [
+        "es-beautifier"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:es-beautifier/standard"
+    ],
     "env": {
         "node": true,
         "es6": true
@@ -10,6 +16,7 @@
     "rules": {
         "comma-spacing": "error",
         "comma-style": "error",
+        "comma-dangle": "off",
         "dot-location": ["error", "property"],
         "handle-callback-err": "off",
         "max-nested-callbacks": ["error", {
@@ -18,6 +25,8 @@
         "max-statements-per-line": ["error", {
             "max": 2
         }],
+        "indent": "off",
+        "eol-last": "off",
         "no-console": "off",
         "no-floating-decimal": "error",
         "no-inline-comments": "error",
@@ -31,7 +40,6 @@
             "allow": ["err", "resolve", "reject"]
         }],
         "no-trailing-spaces": ["error"],
-        "no-var": "error",
         "object-curly-spacing": ["error", "always"],
         "prefer-const": "error",
         "quotes": ["error", "single"],

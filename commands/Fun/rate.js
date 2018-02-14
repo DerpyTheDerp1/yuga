@@ -10,6 +10,6 @@ exports.help = {
     description: 'Rates absolutely anything',
     category: 'Fun',
     usage: 'y!rate <anything>',
-    requiredPerms: 'None'
-  }
+    requiredPerms: 'None',
+  },
 };
