@@ -11,8 +11,10 @@
     "discord.js": "discordjs/discord.js",
     "erlpack": "discordapp/erlpack",
     "eslint": "^4.17.0",
+    "eslint-plugin-es-beautifier": "^1.0.1",
     "ffmpeg-binaries": "3.2.2-3",
     "google-translate-api": "2.3.0",
+    "js-beautify": "^1.7.5",
     "libsodium-wrappers": "^0.5.2",
     "moment": "2.19.4",
     "moment-duration-format": "2.0.1",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "beautify": "eslint --fix .",
     "test": "eslint ./",
     "start": "node main.js"
   },

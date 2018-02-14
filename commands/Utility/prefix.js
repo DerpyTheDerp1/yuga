@@ -4,9 +4,9 @@ const pgPromise = require('pgpromise');
 */
 
 exports.run = (client, msg) => {
-    msg.reply('Command not ready');
+  msg.reply('Command not ready');
 
-    /*
+  /*
     const conString = process.env.DATABSE_URL;
     const db = new pgPromise(pg, conString);
     db.connect().then((conn) => {

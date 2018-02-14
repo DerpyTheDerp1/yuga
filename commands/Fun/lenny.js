@@ -5,6 +5,6 @@ exports.help = {
     description: 'Best meme',
     category: 'Dank memes',
     usage: 'y!lenny',
-    requiredPerms: 'Meme Power 100'
-  }
+    requiredPerms: 'Meme Power 100',
+  },
 };

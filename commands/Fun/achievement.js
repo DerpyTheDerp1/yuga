@@ -17,11 +17,10 @@ exports.run = (client, msg, args) => {
   snekfetch.get(url)
     .then(r => msg.channel.send('', {
       files: [{
-        attachment: r.body
-      }]
+        attachment: r.body,
+      }],
     }));
   msg.delete();
-
 };
 
 exports.help = {
@@ -30,6 +29,6 @@ exports.help = {
     description: 'Creates a Minecraft achievement from input text',
     category: 'Fun',
     usage: 'y!achievement <title> | <text>\ny!achievement <text>',
-    requiredPerms: 'None'
-  }
+    requiredPerms: 'None',
+  },
 };
