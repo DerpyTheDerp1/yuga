@@ -7,7 +7,7 @@ exports.run = (client, msg) => {
     }
 
     const hugGifs = gifs.hug;
-    const hugGif = hugGifs[randomInt(0, 10)];
+    const hugGif = hugGifs[randomInt(0, 13)];
     const author = msg.author.username;
 
     const huggedperson = msg.mentions.users.first();
