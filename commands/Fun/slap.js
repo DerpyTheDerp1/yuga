@@ -10,7 +10,7 @@ exports.run = (client, msg) => {
     }
 
     const slapGifs = gifs.slap;
-    const slapGif = slapGifs[randomInt(0, 10)];
+    const slapGif = slapGifs[randomInt(0, 3)];
     const slapped = new MessageEmbed()
         .setTitle(`${person}, you got slapped by **${author}**!`)
         .setImage(slapGif)
