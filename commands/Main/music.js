@@ -12,34 +12,17 @@ exports.run = async (client, msg, args) => {
       if (voiceChannel.permissionsFor(msg.guild.me).has('CONNECT') == false) return msg.reply('I cannot connect to this voice channel.');
 
       if (voiceChannel.permissionsFor(msg.guild.me).has('SPEAK') == false) return msg.reply('I cannot speak in this voice channel.');
-
-      if (voiceChannel) {
         const connection = await voiceChannel.join();
-        voiceChannel.leave();
         const stream = yt(song, {
           audioonly: true,
           quality: 'lowest',
         });
-
         var dispatcher = connection.play(stream, { bitrate: 'auto' });
         dispatcher.on('end', () => {
           voiceChannel.leave();
         });
         dispatcher.setVolumeLogarithmic(1);
         msg.channel.send(`Now playing: ${song}`);
-      } else {
-        const connection = await voiceChannel.join();
-        const stream = yt(song, {
-          audioonly: true,
-          quality: 'lowest',
-        });
-        dispatcher = connection.play(stream, { bitrate: 'auto' });
-        dispatcher.on('end', () => {
-          voiceChannel.leave();
-        });
-        dispatcher.setVolumeLogarithmic(1);
-        msg.channel.send(`Now playing: ${song}`);
-      }
     }
 
     if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
