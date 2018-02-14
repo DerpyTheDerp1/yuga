@@ -101,8 +101,7 @@ exports.gifs = {
     'slap': [
          'https://imgur.com/HWANakL',
          'https://imgur.com/8roWuKw',
-         'https://imgur.com/MY9vOr7',
-
+         'https://imgur.com/MY9vOr7'
     ],
 
     'poke': [
