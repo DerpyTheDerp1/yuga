@@ -5,7 +5,7 @@ exports.run = async (client, msg, args) => {
     if (musicCommand) {
 
         if (musicCommand == 'play' || musicCommand == 'p') {
-            if (connection.speaking) return msg.reply('Please wait until current song is finished.')
+            if (connection.speaking) return msg.reply('Please wait until current song is finished.');
             if (!song) return msg.reply('Please input a song!');
             const voiceChannel = msg.member.voiceChannel;
 

@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 exports.run = (client, msg) => {
     const denied = new MessageEmbed()
@@ -14,23 +14,23 @@ exports.run = (client, msg) => {
     if (msg.member.hasPermission(haskick)) {
         const user = msg.mentions.users.first();
         const guild = msg.guild;
-        let mutedRole = guild.roles.find('name', 'Muted')
+        let mutedRole = guild.roles.find('name', 'Muted');
         if (!mutedRole) mutedRole = guild.roles.create({
             data: {
                 name: 'Muted',
                 color: 'BLACK',
             },
             reason: 'Muted role non existent',
-        })
+        });
         guild.channels.filter(c => !c.permissionOverwrites.exists('id', mutedRole.id)).forEach(channels => {
             channels.overwritePermissions(mutedRole.id, {
                 SEND_MESSAGES: false
             });
         });
 
-        guild.member(user).roles.add(mutedRole)
-        msg.delete()
-        msg.channel.send(`Muted ${user} successfully.`)
+        guild.member(user).roles.add(mutedRole);
+        msg.delete();
+        msg.channel.send(`Muted ${user} successfully.`);
     } else {
         msg.channel.send({
             embed: denied

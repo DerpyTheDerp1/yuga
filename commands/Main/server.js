@@ -1,14 +1,14 @@
-exports.run = (client, msg, args) => {
-    let server = "308278703283240960"
-    let guild = client.guilds.get(server)
+exports.run = (client, msg) => {
+    const server = '308278703283240960';
+    const guild = client.guilds.get(server);
 
-    let channel = guild.channels.filter(c => c.permissionsFor(guild.me).has('SEND_MESSAGES')).first()
+    const channel = guild.channels.filter(c => c.permissionsFor(guild.me).has('SEND_MESSAGES')).first();
 
 
-    let invite = channel.createInvite({
+    channel.createInvite({
             maxAge: 0
         })
         .then((invite) => {
-            msg.channel.send(`Here is an invite for the official server (Striker's Coding Den) | ${invite}`)
+            msg.channel.send(`Here is an invite for the official server (Striker's Coding Den) | ${invite}`);
         });
-}
+};

@@ -1,7 +1,9 @@
+/*
 const pg = require('pg');
 const pgPromise = require('pgpromise');
+*/
 
-exports.run = (client, msg, args) => {
+exports.run = (client, msg) => {
     msg.reply('Command not ready');
 
     /*

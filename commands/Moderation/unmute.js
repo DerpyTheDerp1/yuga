@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 exports.run = (client, msg) => {
     const denied = new MessageEmbed()
@@ -14,18 +14,18 @@ exports.run = (client, msg) => {
     if (msg.member.hasPermission(haskick)) {
         const user = msg.mentions.users.first();
         const guild = msg.guild;
-        const mutedRole = guild.roles.find('name', 'Muted')
+        const mutedRole = guild.roles.find('name', 'Muted');
         if (!mutedRole) return;
         if (!guild.member(user).roles.exists('name', 'Muted')) return msg.reply('They cannot be unmuted, they were never muted.');
-        guild.member(user).roles.remove(mutedRole)
+        guild.member(user).roles.remove(mutedRole);
         msg.delete;
-        msg.channel.send(`Unmuted ${user} successfully!`)
+        msg.channel.send(`Unmuted ${user} successfully!`);
     } else {
         msg.channel.send({
             embed: denied
         });
     }
-}
+};
 exports.help = {
     'help': {
         name: 'Unmute',
