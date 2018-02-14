@@ -1,26 +1,32 @@
+const { MessageEmbed } = require('discord.js');
+const { gifs } = require('../../db/db.js');
 exports.run = (client, msg) => {
-  const Discord = require('discord.js');
-  const slap = 'http://striker.demoted.me/6502.gif';
-  const author = msg.author.username;
-  const slappedperson = msg.mentions.users.first();
-  const person = slappedperson.username;
+    const author = msg.author.username;
+    const slappedperson = msg.mentions.users.first();
+    const person = slappedperson.username;
 
-  const slapped = new Discord.MessageEmbed()
-    .setTitle(`${person}, you got slapped by **${author}**!`)
-    .setImage(slap)
-    .setColor('#ff0000');
+    function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
 
-  msg.channel.send({
-    embed: slapped
-  });
+    const slapGifs = gifs.slap;
+    const slapGif = slapGifs[randomInt(0, 10)];
+    const slapped = new MessageEmbed()
+        .setTitle(`${person}, you got slapped by **${author}**!`)
+        .setImage(slapGif)
+        .setColor('#ff0000');
+
+    msg.channel.send({
+        embed: slapped
+    });
 };
 
 exports.help = {
-  'help': {
-    name: 'Slap',
-    description: 'Slap anyone!',
-    category: 'Fun',
-    usage: 'y!slap <tag user>',
-    requiredPerms: 'None'
-  }
+    'help': {
+        name: 'Slap',
+        description: 'Slap anyone!',
+        category: 'Fun',
+        usage: 'y!slap <tag user>',
+        requiredPerms: 'None'
+    }
 };
