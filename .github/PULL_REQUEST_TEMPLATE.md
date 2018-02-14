@@ -10,4 +10,6 @@
     -[ ] This PR adds resources to the database
   - [ ] This PR changes the package.json explictely 
 
+- [ ] This PR does not affect the bot whatsoever, and only affects visible github stuff
+
 **Do you agree that your PR can be changed as needed, when needed?**
