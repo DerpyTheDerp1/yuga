@@ -28,7 +28,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node main.js",
+    "test": "eslint ./",
     "start": "node main.js"
   },
   "repository": {
