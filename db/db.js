@@ -92,14 +92,22 @@ exports.gifs = {
         'https://i.imgur.com/evAdM5O.gif',
         'https://i.imgur.com/ZTdmYz8.gif',
         'https://i.imgur.com/GLQVsWQ.gif',
-        'https://i.imgur.com/EuIljrc.gif'
+        'https://i.imgur.com/EuIljrc.gif',
+        'https://imgur.com/Svb2Rs5',
+        'https://imgur.com/Mu3PmjX',
+        'https://imgur.com/Mu3PmjX'
     ],
 
     'slap': [
-
+         'https://imgur.com/HWANakL',
+         'https://imgur.com/8roWuKw',
+         'https://imgur.com/MY9vOr7'
     ],
 
     'poke': [
+         'https://imgur.com/3d2Z2WI',
+         'https://imgur.com/znvZlfQ',
+         'https://imgur.com/5Jm6GNO'
 
     ],
 
