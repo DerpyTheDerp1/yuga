@@ -1,13 +1,13 @@
 const Discord = require('discord.js');
 const { gifs } = require('../../db/db.js');
 
-exports.run = (client, msg, args) => {
+exports.run = (client, msg) => {
     function randomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
     const hugGifs = gifs.hug;
-    const hugGif = hugGifs[randomInt(0, 10)]
+    const hugGif = hugGifs[randomInt(0, 13)];
     const author = msg.author.username;
 
     const huggedperson = msg.mentions.users.first();

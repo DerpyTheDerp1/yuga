@@ -10,7 +10,7 @@
     "bufferutil": "^3.0.2",
     "discord.js": "discordjs/discord.js",
     "erlpack": "discordapp/erlpack",
-    "eslint": "^4.6.1",
+    "eslint": "^4.17.0",
     "ffmpeg-binaries": "3.2.2-3",
     "google-translate-api": "2.3.0",
     "libsodium-wrappers": "^0.5.2",
