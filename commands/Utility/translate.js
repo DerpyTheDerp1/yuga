@@ -13,7 +13,9 @@ exports.run = (client, msg, args) => {
         .addField('NOTE', 'Find out the prefixes from Google, or use the language name.')
         .setThumbnail(client.user.avatarURL())
         .setTimestamp();
-    let [text, lang] = args.join(' ').split(', ');
+    const arguments = args.join(' ');
+    const text = arguments.split(', ');
+    let lang = arguments.split(', ');
     if (!lang) lang = 'English';
     if (!text && lang) {
         msg.channel.send({
