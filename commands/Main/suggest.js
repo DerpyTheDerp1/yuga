@@ -12,7 +12,7 @@ exports.run = (client, msg, args) => {
       .addField('Command Name', commandName, true)
       .addField('Description', description, true)
       .setTimestamp();
-    client.channels.get('409741553918279700').send('@here Please vote for this command suggestion!', {
+    client.channels.get('409741553918279700').send('Please vote for this command suggestion!', {
       embed: suggestionEmbed,
     }).then(async (m) => {
       await m.react('👍');
