@@ -30,7 +30,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "beautify": "eslint --fix .",
     "test": "eslint ./",
     "start": "node main.js"
   },
