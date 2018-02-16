@@ -73,10 +73,29 @@ exports.memes = {
   ],
 
   'monikaMemes': [
+      'https://cdn.discordapp.com/attachments/414146151487373312/414154207277481984/h3qihjg3ja401.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414154268958916608/ewtwuzndbdvz.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414154397111812097/maxresdefault.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414154626603024385/26155992_924647594352511_5953907652554653696_n.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414154856798879754/54e.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414154969361416203/f43.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414155851167694848/5ba.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414156073252159488/tumblr_p009n6Pq4r1wgoi3do1_1280.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414156170069147650/DResVizUIAASgWk.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414156240034463745/5a623308a4244.png'
+      'https://cdn.discordapp.com/attachments/414146151487373312/414156669442981889/883a7b2b273ec56ef0b2736af0b26e08.png'
 
   ],
 
   'discordMemes': [
+      'https://cdn.weeb.sh/images/rkDQ-DVs-.png'
+      'https://cdn.weeb.sh/images/SJbeZPVj-.jpeg'
+      'https://cdn.weeb.sh/images/HywVbPNib.png'
+      'https://cdn.weeb.sh/images/HyliMPViZ.jpeg'
+      'https://cdn.weeb.sh/images/r1SMR5r7G.gif'
+      'https://cdn.weeb.sh/images/S1l78CFa-.png'
+      'https://cdn.weeb.sh/images/HyyLZwEob.png'
+      'https://cdn.weeb.sh/images/BJ3V-PEob.png'
 
   ],
 
