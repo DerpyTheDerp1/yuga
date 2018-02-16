@@ -9,10 +9,10 @@ exports.run = (client, msg, args) => {
     const discordMemes = memes.discordMemes;
     const antiMemes = memes.antiMemes;
 
-    if (!memeType) return meme = generalMemes[Math.floor(Math.random() * generalMemes.length)];
-    if (memeType == 'monika') return meme = monikaMemes[Math.floor(Math.random() * monikaMemes.length)];
-    if (memeType == 'discord') return meme = discordMemes[Math.floor(Math.random() * discordMemes.length)];
-    if (memeType == 'antimeme') return meme = antiMemes[Math.floor(Math.random() * antiMemes.length)];
+    if (!memeType) meme = generalMemes[Math.floor(Math.random() * generalMemes.length)];
+    if (memeType == 'monika') meme = monikaMemes[Math.floor(Math.random() * monikaMemes.length)];
+    if (memeType == 'discord') meme = discordMemes[Math.floor(Math.random() * discordMemes.length)];
+    if (memeType == 'antimeme') meme = antiMemes[Math.floor(Math.random() * antiMemes.length)];
 
     const memeEmbed = new MessageEmbed()
         .setImage(meme);
