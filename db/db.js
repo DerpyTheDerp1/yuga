@@ -24,7 +24,8 @@ exports.ids = [
 
 exports.color = '#DE55A8';
 
-exports.memes = [
+exports.memes = {
+  'generalMemes': [
   'https://i.imgur.com/0sKEDrk.jpg',
   'https://i.imgur.com/S5nBIs3.jpg',
   'https://i.imgur.com/rlGKxDm.jpg',
@@ -69,7 +70,20 @@ exports.memes = [
   'https://i.imgur.com/m9t1wTI.jpg',
   'https://i.imgur.com/b8ToO7J.jpg',
   'https://i.imgur.com/co5CQzB.png',
-];
+  ],
+
+  'monikaMemes': [
+
+  ],
+
+  'discordMemes': [
+
+  ],
+
+  'antiMemes': [
+
+  ]
+},
 
 exports.jokes = [
   'Stephen Hawking had a heart attack earlier this year\nThey took him to PC world for repairs.',
