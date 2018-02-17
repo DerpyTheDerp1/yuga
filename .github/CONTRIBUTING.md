@@ -6,7 +6,7 @@ A simple guide on how to contribute to Yuga and earn that contributor role on Di
 You can do this by either directly forking it, or finding a file you wish to edit (package.json for example), and then it immediately forks it for you.
 
 2) Make your changes
-You can do this from the online editor, or use an IDE of choice (clone the reporistory first before even doing this)
+You can do this from the online editor, or use an IDE of choice (we highly suggest you go for this option, go to [this](https://github.com/Strikerrr/yuga/blob/master/.github/USING_AN_IDE_OF_CHOICE.md) guide to find out more about this route. We encourage this so you can have good code, and lint your code and even beautify it before commiting, and your PR would be approved quicker)
 
 3) Commit your changes
 

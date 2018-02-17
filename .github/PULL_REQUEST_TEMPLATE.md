@@ -1,4 +1,4 @@
-# Please describe the changes this PR makes and why it should be merged
+# Please describe the changes this PR makes and why it should be merged (if it is a "I'm updating my repo" PR then just say)
 
 ## Changes description (put an x in boxes where applicable)
 
