@@ -80,7 +80,6 @@ exports.memes = {
       'https://i.imgur.com/wvzKxJS.jpg',
       'https://i.imgur.com/VMZvsrI.jpg',
       'https://i.imgur.com/astdVGR.jpg'
-
   ],
 
   'discordMemes': [
