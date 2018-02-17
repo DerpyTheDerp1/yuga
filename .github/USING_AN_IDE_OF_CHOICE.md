@@ -24,7 +24,7 @@ This bit can cause problems, but just follow with us. First in the terminal, run
 Just download and install NodeJS, just go [here](https://nodejs.org/en/download/) and make sure with the installer you have NPM also enabled to install. To install ESLint, open up in your VSCode whilst in the yuga folder and type in terminal "npm install eslint". That's it.
 
 6) Edit files and commit them then sync to your repo
-Edit the files you wish to, and satisfy ESLint since you now have it installed. When done, click on the 3rd icon to the left and type in a commit message (doesn't have to be anything fancy) and then click the tick. When it's done, click the refresh button to sync your changes and bam, you just used an IDE to commit to your own repo.
+Edit the files you wish to, and satisfy ESLint since you now have it installed. Make sure you've beautified the files, and when done, click on the 3rd icon to the left and type in a commit message (doesn't have to be anything fancy) and then click the tick. When it's done, click the refresh button to sync your changes and bam, you just used an IDE to commit to your own repo.
 
 Sure, this guide is long. But damn it's detailed
 
