@@ -69,17 +69,17 @@ exports.memes = {
   ],
 
   'monikaMemes': [
-      'https://cdn.discordapp.com/attachments/414146151487373312/414154207277481984/h3qihjg3ja401.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414154268958916608/ewtwuzndbdvz.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414154397111812097/maxresdefault.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414154626603024385/26155992_924647594352511_5953907652554653696_n.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414154856798879754/54e.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414154969361416203/f43.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414155851167694848/5ba.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414156073252159488/tumblr_p009n6Pq4r1wgoi3do1_1280.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414156170069147650/DResVizUIAASgWk.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414156240034463745/5a623308a4244.png',
-      'https://cdn.discordapp.com/attachments/414146151487373312/414156669442981889/883a7b2b273ec56ef0b2736af0b26e08.png'
+      'https://i.imgur.com/j86FQAY.jpg',
+      'https://i.imgur.com/ulfM0uj.jpg',
+      'https://i.imgur.com/NslwNKx.jpg',
+      'https://i.imgur.com/1fMAxq9.jpg',
+      'https://i.imgur.com/WnvhI57.jpg',
+      'https://i.imgur.com/yqEmGF6.jpg',
+      'https://i.imgur.com/ih03xCw.jpg',
+      'https://i.imgur.com/wXuY2ba.jpg',
+      'https://i.imgur.com/wvzKxJS.jpg',
+      'https://i.imgur.com/VMZvsrI.jpg',
+      'https://i.imgur.com/astdVGR.jpg'
 
   ],
 
