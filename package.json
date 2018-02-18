@@ -1,6 +1,6 @@
 {
   "name": "yuga",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "engines": {
     "node": "8.9.3"
   },
@@ -30,7 +30,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "beautify": "eslint --fix .",
     "test": "eslint ./",
     "start": "node main.js"
   },
