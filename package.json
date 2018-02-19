@@ -7,6 +7,7 @@
   "description": "A general discord bot made in discord.js",
   "main": "yuga.js",
   "dependencies": {
+    "ajv": "^6.1.1",
     "bufferutil": "^3.0.2",
     "common-tags": "^1.7.2",
     "discord.js": "discordjs/discord.js",
@@ -16,6 +17,7 @@
     "ffmpeg-binaries": "3.2.2-3",
     "google-translate-api": "2.3.0",
     "js-beautify": "^1.7.5",
+    "kaori": "^1.1.4",
     "libsodium-wrappers": "^0.5.2",
     "moment": "2.19.4",
     "moment-duration-format": "2.0.1",
