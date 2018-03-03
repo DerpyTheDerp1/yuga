@@ -1,4 +1,6 @@
 const yt = require('ytdl-core');
+const YT = require('simple-youtube-api')
+const youtube = new YT(process.env.YTKEY); 
 
 exports.run = async (client, msg, args) => {
   const [musicCommand, song] = args.join(' ').split(', ');
@@ -29,7 +31,20 @@ exports.run = async (client, msg, args) => {
       const volumeLevel = song;
       dispatcher.setVolumeLogarithmic(volumeLevel);
     }
-
+    
+    if (musicCommand == 'search' || musicCommand == 's') {
+      const searchTerm = song;
+      if (!searchTerm) return msg.reply('Must specify a search term!');
+      else {
+       youtube.searchVideos(searchTerm, 1)
+        .then((results) => {
+          const video = results[0];
+          msg.channel.send(video.url)
+        .catch((err) => {
+        msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
+        });
+      }
+     }
     if (musicCommand == 'stop' || musicCommand == 'leave') {
       const voiceChannel = msg.member.voiceChannel;
       voiceChannel.leave();
