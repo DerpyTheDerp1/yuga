@@ -38,7 +38,7 @@ exports.run = async (client, msg, args) => {
        youtube.searchVideos(searchTerm, 1)
         .then((results) => {
           const video = results[0];
-          msg.channel.send(video.url)
+          msg.channel.send(video.url);
          }).catch((err) => {
              msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
          });
