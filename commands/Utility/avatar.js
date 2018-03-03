@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 exports.run = (client, msg) => {
     let user = msg.mentions.users.first();
-    if (user) user = msg.author;
+    if (!user) user = msg.author;
     const avatar = user.avatarURL({
         size: 2048,
     });
