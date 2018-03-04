@@ -65,8 +65,26 @@ exports.run = async (client, msg, args) => {
       if (musicCommand == 'join' || musicCommand == 'summon') {
           const voiceChannel = msg.member.voiceChannel;
           voiceChannel.join();
-      }
-    } else return msg.reply('You must specify the music command you wish to use!');
+    }
+
+    if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
+      const volumeLevel = song;
+      dispatcher.setVolumeLogarithmic(volumeLevel);
+    }
+    if (musicCommand == 'search' || musicCommand == 's') {
+      const searchTerm = song;
+      if (!searchTerm) return msg.reply('Must specify a search term!');
+      else {
+       youtube.searchVideos(searchTerm, 1)
+        .then((results) => {
+          const video = results[0];
+          msg.channel.send(video.url);
+         }).catch((err) => {
+             msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
+         });
+        }
+       }
+  } else return msg.reply('You must specify the music command you wish to use!');
 };
 
 exports.help = {
