@@ -52,39 +52,35 @@ exports.run = async (client, msg, args) => {
             }
         }
         if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
-          const volumeLevel = song;
-          dispatcher.setVolumeLogarithmic(volumeLevel);
-      }
-
-      if (musicCommand == 'stop' || musicCommand == 'leave') {
-          const voiceChannel = msg.member.voiceChannel;
-          voiceChannel.leave();
-          msg.channel.send('Ended playing.');
-      }
-
-      if (musicCommand == 'join' || musicCommand == 'summon') {
-          const voiceChannel = msg.member.voiceChannel;
-          voiceChannel.join();
-    }
-
-    if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
-      const volumeLevel = song;
-      dispatcher.setVolumeLogarithmic(volumeLevel);
-    }
-    if (musicCommand == 'search' || musicCommand == 's') {
-      const searchTerm = song;
-      if (!searchTerm) return msg.reply('Must specify a search term!');
-      else {
-       youtube.searchVideos(searchTerm, 1)
-        .then((results) => {
-          const video = results[0];
-          msg.channel.send(video.url);
-         }).catch((err) => {
-             msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
-         });
+            const volumeLevel = song;
+            dispatcher.setVolumeLogarithmic(volumeLevel);
         }
-       }
-  } else return msg.reply('You must specify the music command you wish to use!');
+
+        if (musicCommand == 'stop' || musicCommand == 'leave') {
+            const voiceChannel = msg.member.voiceChannel;
+            voiceChannel.leave();
+            msg.channel.send('Ended playing.');
+        }
+
+        if (musicCommand == 'join' || musicCommand == 'summon') {
+            const voiceChannel = msg.member.voiceChannel;
+            voiceChannel.join();
+        }
+
+        if (musicCommand == 'search' || musicCommand == 's') {
+            const searchTerm = song;
+            if (!searchTerm) return msg.reply('Must specify a search term!');
+            else {
+                youtube.searchVideos(searchTerm, 1)
+                    .then((results) => {
+                        const video = results[0];
+                        msg.channel.send(video.url);
+                    }).catch((err) => {
+                        msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
+                    });
+            }
+        }
+    } else return msg.reply('You must specify the music command you wish to use!');
 };
 
 exports.help = {
@@ -92,7 +88,7 @@ exports.help = {
         name: 'Music',
         description: 'Music shoved into one command =D',
         category: 'Main',
-        usage: 'y!music play OR p, <url>\ny!music setVolume OR volume OR v, <volume level*>\ny!music stop OR leave\ny!music join OR summon\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9\n\nNOTE: Music is very laggy and experimental as of now',
+        usage: 'y!music play OR p, <url or search term>\ny!music setVolume OR volume OR v, <volume level*>\ny!music stop OR leave\ny!music join OR summon\ny!music search OR s, <search term>\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9\n\nNOTE: Music is very laggy and experimental as of now',
         requiredPerms: 'Connect to voice channel',
     },
 };
