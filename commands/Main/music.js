@@ -51,22 +51,21 @@ exports.run = async (client, msg, args) => {
                     });
             }
         }
-    }
+        if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
+          const volumeLevel = song;
+          dispatcher.setVolumeLogarithmic(volumeLevel);
+      }
 
-    if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
-        const volumeLevel = song;
-        dispatcher.setVolumeLogarithmic(volumeLevel);
-    }
+      if (musicCommand == 'stop' || musicCommand == 'leave') {
+          const voiceChannel = msg.member.voiceChannel;
+          voiceChannel.leave();
+          msg.channel.send('Ended playing.');
+      }
 
-    if (musicCommand == 'stop' || musicCommand == 'leave') {
-        const voiceChannel = msg.member.voiceChannel;
-        voiceChannel.leave();
-        msg.channel.send('Ended playing.');
-    }
-
-    if (musicCommand == 'join' || musicCommand == 'summon') {
-        const voiceChannel = msg.member.voiceChannel;
-        voiceChannel.join();
+      if (musicCommand == 'join' || musicCommand == 'summon') {
+          const voiceChannel = msg.member.voiceChannel;
+          voiceChannel.join();
+      }
     } else return msg.reply('You must specify the music command you wish to use!');
 };
 
