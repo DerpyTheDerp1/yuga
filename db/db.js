@@ -111,6 +111,12 @@ exports.jokes = [
   '@Mr.Table#1352\'s bots.',
 ];
 
+exports.funFacts = [
+   'Fun fact goes here',
+   'Another goes here',
+   'Same as above'
+]
+
 exports.gifs = {
   'hug': [
     'https://i.imgur.com/fdidmF1.gif',
