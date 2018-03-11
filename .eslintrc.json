@@ -1,10 +1,6 @@
 {
-    "plugins": [
-        "es-beautifier"
-    ],
     "extends": [
-        "eslint:recommended",
-        "plugin:es-beautifier/standard"
+        "eslint:recommended"
     ],
     "env": {
         "node": true,
