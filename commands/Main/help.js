@@ -47,6 +47,7 @@ exports.run = async (client, msg, args) => {
     const MainCommands = fs.readdirSync('./commands/Main').map(file => path.basename(file, path.extname(file)));
     const ModerationCommands = fs.readdirSync('./commands/Moderation').map(file => path.basename(file, path.extname(file)));
     const UtilityCommands = fs.readdirSync('./commands/Utility').map(file => path.basename(file, path.extname(file)));
+    const NSFWCommands = fs.readdirSync('./commands/NSFW').map(file => path.basename(file, path.extname(file)));
     const embed = new Discord.MessageEmbed()
       .setTitle('Help Command')
       .setAuthor(client.user.username)
@@ -55,7 +56,8 @@ exports.run = async (client, msg, args) => {
       .addField('Fun Commands', FunCommands, true)
       .addField('Moderation Commands', ModerationCommands, true)
       .addField('Utility Commands', UtilityCommands, true)
-      .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it.`, true)
+      .addField('NSFW Commands', NSFWCommands, true)
+      .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it.\nNSFW commands can only be used in NSFW Labelled channels.`, true)
       .setThumbnail(client.user.avatarURL())
       .setTimestamp();
 
