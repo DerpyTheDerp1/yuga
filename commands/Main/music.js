@@ -16,47 +16,39 @@ exports.run = async (client, msg, args) => {
             if (voiceChannel.permissionsFor(msg.guild.me).has('SPEAK') == false) return msg.reply('I cannot speak in this voice channel.');
 
             if (song.includes('https:///www.') || song.includes('http://www.')) {
-                if (msg.guild.me.voiceChannel.connection) {
-                    if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
-                } else {
-                    const connection = await voiceChannel.join();
-                    const stream = yt(song, {
-                        audioonly: true,
-                        quality: 'lowest'
-                    });
-                    var dispatcher = connection.play(stream, { bitrate: 'auto' });
-                    dispatcher.on('end', () => {
-                        voiceChannel.leave();
-                    });
-                    dispatcher.setVolumeLogarithmic(1);
-                    msg.channel.send(`Now playing: ${song}`);
-                }
+                const connection = await voiceChannel.join();
+                const stream = yt(song, {
+                    audioonly: true,
+                    quality: 'lowest'
+                });
+                var dispatcher = connection.play(stream, { bitrate: 'auto' });
+                dispatcher.on('end', () => {
+                    voiceChannel.leave();
+                });
+                dispatcher.setVolumeLogarithmic(1);
+                msg.channel.send(`Now playing: ${song}`);
             } else {
-                if (msg.guild.me.voiceChannel.connection) {
-                    if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
-                } else {
-                    const searchTerm = song;
-                    youtube.searchVideos(searchTerm, 1)
-                        .then(async (results) => {
-                            const video = results[0];
-                            const songURL = video.url;
-                            const connection = await voiceChannel.join();
-                            const stream = yt(songURL, {
-                                audioonly: true,
-                                quality: 'lowest'
-                            });
-                            var dispatcher = connection.play(stream, {
-                                bitrate: 'auto'
-                            });
-                            dispatcher.on('end', () => {
-                                voiceChannel.leave();
-                                dispatcher.setVolumeLogarithmic(1);
-                            });
-                            msg.channel.send(`Now playing ${songURL}`);
-                        }).catch((err) => {
-                            msg.reply(`An error occured!\n\`\`\`${err}\`\`\``);
+                const searchTerm = song;
+                youtube.searchVideos(searchTerm, 1)
+                    .then(async (results) => {
+                        const video = results[0];
+                        const songURL = video.url;
+                        const connection = await voiceChannel.join();
+                        const stream = yt(songURL, {
+                            audioonly: true,
+                            quality: 'lowest'
                         });
-                }
+                        var dispatcher = connection.play(stream, {
+                            bitrate: 'auto'
+                        });
+                        dispatcher.on('end', () => {
+                            voiceChannel.leave();
+                            dispatcher.setVolumeLogarithmic(1);
+                        });
+                        msg.channel.send(`Now playing ${songURL}`);
+                    }).catch((err) => {
+                        msg.reply(`An error occured!\n\`\`\`${err}\`\`\``);
+                    });
             }
         }
         if (musicCommand == 'setVolume' || musicCommand == 'volume' || musicCommand == 'v') {
@@ -94,7 +86,7 @@ exports.run = async (client, msg, args) => {
 exports.help = {
     'help': {
         name: 'Music',
-        description: 'Music shoved into one command =D',
+        description: 'Music shoved into one command =D\n\nDo note, there is no queue system so any song will immediately overwrite the current playing one.',
         category: 'Main',
         usage: 'y!music play OR p, <url or search term>\ny!music setVolume OR volume OR v, <volume level*>\ny!music stop OR leave\ny!music join OR summon\ny!music search OR s, <search term>\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9\n\nNOTE: Music is very laggy and experimental as of now',
         requiredPerms: 'Connect to voice channel',
