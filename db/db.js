@@ -112,10 +112,10 @@ exports.jokes = [
 ];
 
 exports.funFacts = [
-   'Fun fact goes here',
-   'Another goes here',
-   'Same as above'
-]
+   'Fun fact: These facts are supposed to be fun',
+   'Fun fact: The Earth is round',
+   'Fun fact: I ran out of fun facts :('
+];
 
 exports.gifs = {
   'hug': [
