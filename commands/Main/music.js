@@ -17,7 +17,6 @@ exports.run = async (client, msg, args) => {
 
             if (song.includes('https:///www.') || song.includes('http://www.')) {
                 const connection = await voiceChannel.join();
-                if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
                 const stream = yt(song, {
                     audioonly: true,
                     quality: 'lowest'
@@ -35,7 +34,6 @@ exports.run = async (client, msg, args) => {
                         const video = results[0];
                         const songURL = video.url;
                         const connection = voiceChannel.join();
-                        if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
                         const stream = yt(songURL, {
                             audioonly: true,
                             quality: 'lowest'
