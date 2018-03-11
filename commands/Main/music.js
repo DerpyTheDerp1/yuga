@@ -6,7 +6,6 @@ exports.run = async (client, msg, args) => {
     const [musicCommand, song] = args.join(' ').split(', ');
     if (musicCommand) {
         if (musicCommand == 'play' || musicCommand == 'p') {
-            if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
             if (!song) return msg.reply('Please input a song!');
             const voiceChannel = msg.member.voiceChannel;
 
@@ -18,6 +17,7 @@ exports.run = async (client, msg, args) => {
 
             if (song.includes('https:///www.') || song.includes('http://www.')) {
                 const connection = await voiceChannel.join();
+                if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
                 const stream = yt(song, {
                     audioonly: true,
                     quality: 'lowest'
@@ -34,7 +34,8 @@ exports.run = async (client, msg, args) => {
                     .then(async (results) => {
                         const video = results[0];
                         const songURL = video.url;
-                        const connection = await voiceChannel.join();
+                        const connection = voiceChannel.join();
+                        if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
                         const stream = yt(songURL, {
                             audioonly: true,
                             quality: 'lowest'
