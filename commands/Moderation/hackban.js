@@ -32,10 +32,10 @@ exports.run = async (client, msg) => {
 
 exports.help = {
     'help': {
-        name: 'Ban',
-        description: 'Bans a member',
+        name: 'Hack Ban',
+        description: 'Bans a member, deleting all their messages from the last 7 days, then unbans.',
         category: 'Moderation',
-        usage: 'y!ban <tag member>',
+        usage: 'y!hackban <tag member>',
         requiredPerms: 'Ban Members',
     },
 };
