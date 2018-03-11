@@ -33,7 +33,7 @@ exports.run = async (client, msg, args) => {
                     .then(async (results) => {
                         const video = results[0];
                         const songURL = video.url;
-                        const connection = voiceChannel.join();
+                        const connection = await voiceChannel.join();
                         const stream = yt(songURL, {
                             audioonly: true,
                             quality: 'lowest'
