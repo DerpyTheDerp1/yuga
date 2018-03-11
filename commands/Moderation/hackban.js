@@ -16,7 +16,7 @@ exports.run = async (client, msg) => {
     const hasban = 'BAN_MEMBERS';
     if (msg.member.hasPermission(hasban)) {
         const banMessage = await msg.channel.send('Banning user...');
-        guild.member(user).ban();
+        guild.member(user).ban({ days: 7 });
         await banMessage.edit('Banned and messages deleted (past 7 days)\nUnbannning');
         await banMessage.edit('Banned and messages deleted (past 7 days)\nUnbannning.');
         await banMessage.edit('Banned and messages deleted (past 7 days)\nUnbannning..');
