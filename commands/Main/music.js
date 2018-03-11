@@ -47,7 +47,7 @@ exports.run = async (client, msg, args) => {
                         });
                         msg.channel.send(`Now playing ${songURL}`);
                     }).catch((err) => {
-                        msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
+                        msg.reply(`An error occured!\n\`\`\`${err}\`\`\``);
                     });
             }
         }
