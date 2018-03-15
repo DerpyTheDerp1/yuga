@@ -1,8 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const {
-  color,
-} = require('../db/db.js');
+const { color } = require('../db/db.js');
 let command = '';
 const runCommand = (client, msg, cmd, args) => {
   try {
@@ -38,7 +36,7 @@ const cmdLogger = (client, msg, handlerNo) => {
     .setThumbnail(client.user.avatarURL());
   client.channels.get('308545302615293953').send({
     embed: log,
-  }).then(() => msg.channel.stopTyping());
+  }).then(() => msg.channel.stopTyping(true));
 };
 
 exports.run = (client, msg) => {
