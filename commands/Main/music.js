@@ -6,7 +6,6 @@ exports.run = async (client, msg, args) => {
     const [musicCommand, song] = args.join(' ').split(', ');
     if (musicCommand) {
         if (musicCommand == 'play' || musicCommand == 'p') {
-            if (msg.guild.me.voiceChannel.connection.speaking) return msg.reply('Please wait until the current song is finished before playing this!');
             if (!song) return msg.reply('Please input a song!');
             const voiceChannel = msg.member.voiceChannel;
 
@@ -48,7 +47,7 @@ exports.run = async (client, msg, args) => {
                         });
                         msg.channel.send(`Now playing ${songURL}`);
                     }).catch((err) => {
-                        msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\``);
+                        msg.reply(`An error occured!\n\`\`\`${err}\`\`\``);
                     });
             }
         }
@@ -87,7 +86,7 @@ exports.run = async (client, msg, args) => {
 exports.help = {
     'help': {
         name: 'Music',
-        description: 'Music shoved into one command =D',
+        description: 'Music shoved into one command =D\n\nDo note, there is no queue system so any song will immediately overwrite the current playing one.',
         category: 'Main',
         usage: 'y!music play OR p, <url or search term>\ny!music setVolume OR volume OR v, <volume level*>\ny!music stop OR leave\ny!music join OR summon\ny!music search OR s, <search term>\n\n*Volume level refers to how loud it should be.\n0 is quiet, 1 is louder.\nDecimals are supported such as .1 - .9\n\nNOTE: Music is very laggy and experimental as of now',
         requiredPerms: 'Connect to voice channel',
