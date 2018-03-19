@@ -1,3 +1,5 @@
+const quickGist = require('quick-gist');
+
 exports.run = async (client, msg, args) => {
   const Discord = require('discord.js');
   const striker = '215509157837537280';
@@ -19,13 +21,21 @@ exports.run = async (client, msg, args) => {
       }
 
       if (evaled.length >= 2000) {
-        console.log(clean(evaled));
-        evaled = 'Cannot define, too big.\nLogged in the console!';
+        quickGist({
+         content: evaled,
+         }, (err, resp, data) => {
+          msg.channel.send(data.url);
+       });
+        evaled = 'Output large, sent to gist.';
       }
 
       if (evaled.length >= 1024) {
-        msg.channel.send(`\`\`\`xl\n${clean(evaled)}\n\`\`\``);
-        evaled = 'Cannot define, sent to channel.';
+        quickGist({
+         content: evaled,
+         }, (err, resp, data) => {
+          msg.channel.send(data.url);
+       });
+        evaled = 'Output large, sent to gist.';
       }
 
       const succembed = new Discord.MessageEmbed()
