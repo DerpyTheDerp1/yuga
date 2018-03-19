@@ -20,18 +20,18 @@ exports.run = async (client, msg, args) => {
         evaled = require('util').inspect(evaled);
       }
 
-      if (evaled.length >= 2000) {
+       if (evaled.length >= 1024) {
         quickGist({
-         content: evaled,
+         content: clean(evaled),
          }, (err, resp, data) => {
           msg.channel.send(data.url);
        });
         evaled = 'Output large, sent to gist.';
       }
 
-      if (evaled.length >= 1024) {
+      if (evaled.length >= 2000) {
         quickGist({
-         content: evaled,
+         content: clean(evaled),
          }, (err, resp, data) => {
           msg.channel.send(data.url);
        });
