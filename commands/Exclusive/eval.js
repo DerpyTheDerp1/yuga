@@ -1,5 +1,5 @@
-const quickGist = require('quick-gist');
-
+const createGist = require('create-gist'); 
+const fs = require('fs');
 exports.run = async (client, msg, args) => {
   const Discord = require('discord.js');
   const striker = '215509157837537280';
@@ -20,21 +20,33 @@ exports.run = async (client, msg, args) => {
         evaled = require('util').inspect(evaled);
       }
 
-      if (evaled.length >= 2000) {
-        quickGist({
-         content: evaled,
-         }, (err, resp, data) => {
-          msg.channel.send(data.url);
+       if (evaled.length >= 1024) {
+        const url = await createGist({
+         description: 'Large Output',
+         public: false,
+         files: [
+         {
+            name: 'gist.txt',
+            source: clean(evaled)
+         }
+        ]
        });
+        msg.channel.send(url);
         evaled = 'Output large, sent to gist.';
       }
 
-      if (evaled.length >= 1024) {
-        quickGist({
-         content: evaled,
-         }, (err, resp, data) => {
-          msg.channel.send(data.url);
+      if (evaled.length >= 2000) {
+        const url = await createGist({
+         description: 'Large Output',
+         public: false,
+         files: [
+         {
+            name: 'gist.txt',
+            source: clean(evaled)
+         }
+        ]
        });
+        msg.channel.send(url);
         evaled = 'Output large, sent to gist.';
       }
 
