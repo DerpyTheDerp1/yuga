@@ -1,5 +1,5 @@
-const quickGist = require('quick-gist');
-
+const createGist = require('create-gist'); 
+const fs = require('fs');
 exports.run = async (client, msg, args) => {
   const Discord = require('discord.js');
   const striker = '215509157837537280';
@@ -21,21 +21,41 @@ exports.run = async (client, msg, args) => {
       }
 
        if (evaled.length >= 1024) {
-        quickGist({
-         content: clean(evaled),
-         }, (err, resp, data) => {
-          msg.channel.send(data.url);
+        fs.appendFile('gistcontent.txt', clean(evaled),(err) => {
+         if (err) throw err;
+        });
+        const url = await createGist({
+         description: 'My lovely gist',
+         public: false,
+         files: [
+         {
+            name: 'gist.txt',
+            source: '../../gistcontent.txt'
+         }
+        ]
        });
+        msg.channel.send(url)
         evaled = 'Output large, sent to gist.';
+        fs.unlink('../../gistcontent.txt', (err) => if (err) throw err;)
       }
 
       if (evaled.length >= 2000) {
-        quickGist({
-         content: clean(evaled),
-         }, (err, resp, data) => {
-          msg.channel.send(data.url);
+        fs.appendFile('gistcontent.txt', clean(evaled),(err) => {
+         if (err) throw err;
+        });
+        const url = await createGist({
+         description: 'My lovely gist',
+         public: false,
+         files: [
+         {
+            name: 'gist.txt',
+            source: '../../gistcontent.txt'
+         }
+        ]
        });
+        msg.channel.send(url)
         evaled = 'Output large, sent to gist.';
+        fs.unlink('../../gistcontent.txt', (err) => if (err) throw err;)
       }
 
       const succembed = new Discord.MessageEmbed()
