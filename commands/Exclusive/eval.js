@@ -36,7 +36,9 @@ exports.run = async (client, msg, args) => {
        });
         msg.channel.send(url)
         evaled = 'Output large, sent to gist.';
-        fs.unlink('../../gistcontent.txt', (err) => if (err) throw err;)
+        fs.unlink('../../gistcontent.txt', (err) => {
+                  if (err) throw err;
+        });
       }
 
       if (evaled.length >= 2000) {
@@ -55,7 +57,9 @@ exports.run = async (client, msg, args) => {
        });
         msg.channel.send(url)
         evaled = 'Output large, sent to gist.';
-        fs.unlink('../../gistcontent.txt', (err) => if (err) throw err;)
+        fs.unlink('../../gistcontent.txt', (err) => {
+                  if (err) throw err;
+        });
       }
 
       const succembed = new Discord.MessageEmbed()
