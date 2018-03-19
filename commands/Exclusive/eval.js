@@ -21,45 +21,33 @@ exports.run = async (client, msg, args) => {
       }
 
        if (evaled.length >= 1024) {
-        fs.appendFile('gistcontent.txt', clean(evaled),(err) => {
-         if (err) throw err;
-        });
         const url = await createGist({
-         description: 'My lovely gist',
+         description: 'Large Output',
          public: false,
          files: [
          {
             name: 'gist.txt',
-            source: '../../gistcontent.txt'
+            source: clean(evaled)
          }
         ]
        });
-        msg.channel.send(url)
+        msg.channel.send(url);
         evaled = 'Output large, sent to gist.';
-        fs.unlink('../../gistcontent.txt', (err) => {
-                  if (err) throw err;
-        });
       }
 
       if (evaled.length >= 2000) {
-        fs.appendFile('gistcontent.txt', clean(evaled),(err) => {
-         if (err) throw err;
-        });
         const url = await createGist({
-         description: 'My lovely gist',
+         description: 'Large Output',
          public: false,
          files: [
          {
             name: 'gist.txt',
-            source: '../../gistcontent.txt'
+            source: clean(evaled)
          }
         ]
        });
-        msg.channel.send(url)
+        msg.channel.send(url);
         evaled = 'Output large, sent to gist.';
-        fs.unlink('../../gistcontent.txt', (err) => {
-                  if (err) throw err;
-        });
       }
 
       const succembed = new Discord.MessageEmbed()
