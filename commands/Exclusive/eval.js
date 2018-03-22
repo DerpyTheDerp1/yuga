@@ -33,7 +33,7 @@ exports.run = async (client, msg, args) => {
                     .fail(function(err) {
                         console.log(err);
                     });
-                evaled = 'Output large, sent to gist.';
+                evaled = 'Output large, sent to pastebin.';
             }
 
             if (evaled.length >= 2000) {
@@ -45,8 +45,7 @@ exports.run = async (client, msg, args) => {
                     .fail(function(err) {
                         console.log(err);
                     });
-                evaled = 'Output large, sent to gist.';
-                evaled = 'Output large, sent to gist.';
+                evaled = 'Output large, sent to pastebin.';
             }
 
             const succembed = new Discord.MessageEmbed()
