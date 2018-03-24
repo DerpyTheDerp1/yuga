@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 
-exports.run = (client, msg) => {
+exports.run = async (client, msg) => {
     const denied = new MessageEmbed()
         .setTitle('ACCESS DENIED')
         .setAuthor(msg.author.tag)
@@ -29,7 +29,10 @@ exports.run = (client, msg) => {
                 SEND_MESSAGES: false,
             });
         });
-        guild.member(user).roles.add(mutedRole);
+        for (const role in guild.member(user).roles.values()) {
+            await guild.member(user).roles.remove(role);
+        }
+        await guild.member(user).roles.add(mutedRole);
 
         msg.delete();
         msg.channel.send(`Muted ${user} successfully.`);
