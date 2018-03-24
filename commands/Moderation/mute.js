@@ -29,7 +29,9 @@ exports.run = (client, msg) => {
         SEND_MESSAGES: false,
       });
     });
-
+    guild.member(user).roles.forEach(role => {
+      guild.member(user).roles.remove(role);
+    });
     guild.member(user).roles.add(mutedRole);
     msg.delete();
     msg.channel.send(`Muted ${user} successfully.`);
