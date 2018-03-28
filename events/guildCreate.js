@@ -41,7 +41,7 @@ exports.run = async (client, guild) => {
   });
   console.log('Game set!');
   console.log('Sending messages...');
-  client.channels.get('308649578318528513').send({
+  client.channels.get('428587986683297822').send({
     embed: serveradded,
   });
   server.owner.send({

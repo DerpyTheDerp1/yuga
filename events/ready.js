@@ -10,7 +10,7 @@ exports.run = async (client) => {
     type: 'WATCHING',
   });
   console.log(`${client.user.username} is connected to the Discord WebSocket`);
-  const channel = client.channels.get('396346743157030952');
+  const channel = client.channels.get('428587939958882304');
   if (channel) channel.send(`${client.user.username} is now online!`);
   if (process.env.DBENABLED == 'no') return;
   else {

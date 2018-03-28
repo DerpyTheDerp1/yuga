@@ -34,7 +34,7 @@ const cmdLogger = (client, msg, handlerNo) => {
     .addField('Server', `${msg.guild.name} ID: ${msg.guild.id}`)
     .setTimestamp()
     .setThumbnail(client.user.avatarURL());
-  client.channels.get('308545302615293953').send({
+  client.channels.get('428587939958882304').send({
     embed: log,
   })
   msg.channel.stopTyping(true);
