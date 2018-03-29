@@ -10,7 +10,7 @@ Seriosly, how hard is it?
 
 4) Be patient when your PR takes 1 day to approve
 
-5) If you need help, ask me @ Striker#7250 on Discord or in the PR comments.
+5) If you need help, ask me @ Striker#1337 on Discord or in the PR comments.
 
 Have fun, and please keep all this in mind when contributing!
 

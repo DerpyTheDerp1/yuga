@@ -3,7 +3,7 @@ const { color } = require('../../db/db.js');
 
 exports.run = (client, msg) => {
   const info = new Discord.MessageEmbed()
-    .setAuthor('Yuga was made by Striker#7250!', client.users.get('215509157837537280').displayAvatarURL())
+    .setAuthor('Yuga was made by Striker#1337!', client.users.get('215509157837537280').displayAvatarURL())
     .addField('When was Yuga made?', 'Yuga was made in March 2017, and is still actively being developed.')
     .addField('What is Yuga\'s prefix?', 'Yuga\'s prefix is y!, but we also will support mentions very soon.\nMentions will work like `@Yuga help`')
     .addField('What commands does Yuga have?', 'Yuga has many commands.\nYou can see all our commands by using `y!help` to find out more!')

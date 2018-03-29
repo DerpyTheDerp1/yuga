@@ -22,7 +22,7 @@ const runCommand = (client, msg, cmd, args) => {
       }
     }
   } catch (err) {
-    msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#7250!`);
+    msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#1337!`);
   }
 };
 

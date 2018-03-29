@@ -19,7 +19,7 @@ const runCommand = (client, msg, cmd, args) => {
       }
     }
   } catch (err) {
-    msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#7250!`);
+    msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#1337!`);
   }
 };
 
@@ -36,7 +36,7 @@ const cmdLogger = (client, msg, handlerNo) => {
     .setThumbnail(client.user.avatarURL());
   client.channels.get('428587939958882304').send({
     embed: log,
-  })
+  });
   msg.channel.stopTyping(true);
 };
 
