@@ -15,11 +15,11 @@ exports.run = async (client, msg, args) => {
             }
           }
         } catch (err) {
-          msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#1337!`);
+          console.error(err);
         }
       }
     } catch (err) {
-      console.error(err);
+      msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#1337!`);
     }
   };
 
