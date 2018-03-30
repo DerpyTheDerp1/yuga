@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 exports.run = async (client, msg, args) => {
-  function findCommand(cmd) {
+  const findCommand = (cmd) => {
     try {
       const CommandsFolder = fs.readdirSync('./commands');
       for (const group of CommandsFolder) {
@@ -15,13 +15,13 @@ exports.run = async (client, msg, args) => {
             }
           }
         } catch (err) {
-          console.error(err);
+          msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#1337!`);
         }
       }
     } catch (err) {
-      msg.reply(`An error occured!\n\`\`\`${err.message}\`\`\`\nPlease check spelling of command, otherwise contact Striker#1337!`);
+      console.error(err);
     }
-  }
+  };
 
   let prefix = '';
   if (client.user.username == 'Yuga!') prefix = 'y!';
