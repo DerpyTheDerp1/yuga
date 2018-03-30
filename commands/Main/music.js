@@ -15,7 +15,7 @@ exports.run = async (client, msg, args) => {
 
             if (voiceChannel.permissionsFor(msg.guild.me).has('SPEAK') == false) return msg.reply('I cannot speak in this voice channel.');
 
-            if (song.includes('https:///www.') || song.includes('http://www.')) {
+            if (song.includes('https:///') || song.includes('http://')) {
                 const connection = await voiceChannel.join();
                 const stream = yt(song, {
                     audioonly: true,
