@@ -1,9 +1,5 @@
-const translate = require('google-translate-api');
-const Discord = require('discord.js');
-const { color } = require('../../db/db.js');
-
-exports.run = (client, msg, args) => {
-    const things = args.join(' ');
+exports.run = (client, msg) => {
+    /*const things = args.join(' ');
     const text = things.split(', ');
     let lang = things.split(', ');
     if (!lang) lang = 'English';
@@ -22,5 +18,7 @@ exports.run = (client, msg, args) => {
         });
     }).catch((err) => {
         console.error(err);
-    });
+    });*/
+    msg.reply('Command is broken at the moment!');
 };
+
