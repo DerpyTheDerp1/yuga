@@ -6,3 +6,6 @@ pfp.png
 
 #Env variables
 .env
+
+#Vscode settings
+.vscode
