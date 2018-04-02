@@ -10,8 +10,8 @@ exports.run = async (client, msg) => {
 
   const managemsgs = 'MANAGE_MESSAGES';
 
-
   if (msg.member.hasPermission(managemsgs)) {
+    msg.delete();
     const user = msg.mentions.users.first();
     const amount = !parseInt(msg.content.split(' ')[1]) ? parseInt(msg.content.split(' ')[2]) : parseInt(msg.content.split(' ')[1]);
     if (!amount) return msg.reply('Must specify an amount to delete!');
