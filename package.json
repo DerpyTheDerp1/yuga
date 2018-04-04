@@ -8,7 +8,7 @@
   "main": "yuga.js",
   "dependencies": {
     "ajv": "^6.1.1",
-    "animals-api": "^1.0.2",
+    "animals-api": "^1.0.3",
     "common-tags": "^1.7.2",
     "discord.js": "github:discordjs/discord.js",
     "eslint": "^4.17.0",
