@@ -41,6 +41,7 @@ const cmdLogger = (client, msg, handlerNo) => {
 };
 
 exports.run = (client, msg) => {
+    if (msg.channel.id == '264445053596991498') return;
     let prefix = '';
     if (client.user.username == 'Yuga Testing') {
         prefix = 'yt!';
