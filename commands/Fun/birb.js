@@ -6,6 +6,7 @@ exports.run = async (client, msg) => {
     try {
         const url = await getBirb(['jpg', 'png', 'gif']);
         birbEmbed.setImage(url);
+        msg.channel.send({ embed: birbEmbed });
     } catch (e) {
         msg.reply(`An error occured! \`${e}\``);
     }
