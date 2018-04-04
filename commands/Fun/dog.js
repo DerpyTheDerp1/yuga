@@ -1,24 +1,22 @@
-const Discord = require('discord.js');
-const snekfetch = require('snekfetch');
+const { getDog } = require('animals-api');
+const { MessageEmbed } = require('discord.js');
 
 exports.run = async (client, msg) => {
-  let res = await snekfetch.get('http://random.dog/woof.json');
-  while (res.body.url.includes('.mp4') || res.body.url.includes('.gif')) {
-    res = await snekfetch.get('http://random.dog/woof.json');
+  const dogEmbed = new MessageEmbed();
+  try {
+    const url = await getDog(['jpg', 'png', 'gif']);
+    dogEmbed.setImage(url);
+  } catch (e) {
+    msg.reply(`An error occured! \`${e}\``);
   }
-  const embed = new Discord.MessageEmbed()
-    .setImage(res.body.url);
-  msg.channel.send({
-    embed,
-  });
 };
 
 exports.help = {
-  'help': {
-    name: 'Dog',
-    description: 'Returns a randomized image of a dog =D',
-    category: 'Fun',
-    usage: 'y!dog',
-    requiredPerms: 'None',
-  },
+    'help': {
+        name: 'Dog',
+        description: 'Returns a randomized image of a dog =D',
+        category: 'Fun',
+        usage: 'y!dog',
+        requiredPerms: 'None',
+    },
 };
