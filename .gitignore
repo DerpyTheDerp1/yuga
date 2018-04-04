@@ -8,3 +8,5 @@ pfp.png
 .env
 
 .vscode
+
+yarn-error.log
