@@ -11,6 +11,7 @@ const runCommand = (client, msg, cmd, args) => {
                 for (const comman of commands) {
                     if (comman.slice(0, -3) === cmd) {
                         const commandFile = require(`../commands/${group}/${comman}`);
+                        if (!commandFile) return msg.reply('Command not found.');
                         return commandFile.run(client, msg, args);
                     }
                 }
