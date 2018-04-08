@@ -3,8 +3,9 @@ exports.run = (client, msg) => {
     const member = msg.guild.member(msg.mentions.users.first());
     const hasban = 'BAN_MEMBERS';
     if (msg.member.hasPermission(hasban)) {
-        if (msg.member.roles.highest.position < member.roles.highest.position) return msg.reply('You cannot kick this user, they have a higher role than you!');
-        if (msg.member.roles.highest.position == member.roles.highest.position) return msg.reply('You cannot kick this user, they the same role than you!');
+        if (msg.member.roles.highest.position < member.roles.highest.position) return msg.reply('You cannot ban this user, they have a higher role than you!');
+        if (msg.member.roles.highest.position == member.roles.highest.position) return msg.reply('You cannot ban this user, they have the same role as you!');
+        if (member == msg.member) return msg.reply('Why are you trying to ban yourself ;-;');
         member.ban();
         msg.channel.send(`The ban hammer :hammer: has struck on **${msg.mentions.users.first().username}**!`);
     } else {

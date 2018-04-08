@@ -4,7 +4,8 @@ exports.run = (client, msg) => {
   if (!msg.mentions.users.first()) return msg.reply('Must specify a user!');
   if (msg.member.hasPermission(haskick)) {
     if (msg.member.roles.highest.position < member.roles.highest.position) return msg.reply('You cannot kick this user, they have a higher role than you!');
-    if (msg.member.roles.highest.position == member.roles.highest.position) return msg.reply('You cannot kick this user, they the same role than you!');
+    if (msg.member.roles.highest.position == member.roles.highest.position) return msg.reply('You cannot kick this user, they have the same role as you!');
+    if (member == msg.member) return msg.reply('Why are you trying to kick yourself ;-;');
     member.kick();
     msg.channel.send(`User **${msg.mentions.users.first().username}** kicked!`);
   } else {
