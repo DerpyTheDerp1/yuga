@@ -67,7 +67,7 @@ exports.run = (client, msg) => {
         cmdLogger(client, msg, '1');
         client.setTimeout(() => {
             spamTimeout += 1000;
-            msg.reply(`Please wait ${spamTimeout * 100} seconds before using that command again.`);
+            msg.reply(`Please wait ${spamTimeout / 100} seconds before using that command again.`);
         });
     }
 
@@ -86,7 +86,7 @@ exports.run = (client, msg) => {
         cmdLogger(client, msg, '3');
         client.setTimeout(() => {
             spamTimeout += 1000;
-            msg.reply(`Please wait ${spamTimeout * 100} seconds before using that command again.`);
+            msg.reply(`Please wait ${spamTimeout / 100} seconds before using that command again.`);
         });
     } else return;
     // Code to do nothing if there is no prefix. All other messages are ignored thus.
