@@ -61,13 +61,19 @@ exports.run = (client, msg) => {
 
     // Prefix Checker #1: Command Only
     if (msg.content.startsWith(prefix)) {
+        let spamTimeout = 3000;
         command = command.slice(prefix.length);
         runCommand(client, msg, command, args);
         cmdLogger(client, msg, '1');
+        client.setTimeout(() => {
+            spamTimeout += 1000;
+            msg.reply(`Please wait ${spamTimeout * 100} seconds before using that command again.`);
+        });
     }
 
     // Prefix checker #3: Mentions
     if (msg.content.startsWith(`<@${client.user.id}>`) && msg.mentions.everyone == false) {
+        let spamTimeout = 3000;
         const content = msg.content.split(' ');
         command = content[1];
 
@@ -78,6 +84,10 @@ exports.run = (client, msg) => {
         }
         runCommand(client, msg, command, args);
         cmdLogger(client, msg, '3');
+        client.setTimeout(() => {
+            spamTimeout += 1000;
+            msg.reply(`Please wait ${spamTimeout * 100} seconds before using that command again.`);
+        });
     } else return;
     // Code to do nothing if there is no prefix. All other messages are ignored thus.
 };
