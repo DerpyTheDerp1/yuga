@@ -10,6 +10,7 @@
     "ajv": "^6.1.1",
     "animals-api": "^1.0.3",
     "common-tags": "^1.7.2",
+    "discord-akairo": "github:1computer1/discord-akairo",
     "discord.js": "github:discordjs/discord.js",
     "eslint": "^4.17.0",
     "ffmpeg-binaries": "3.2.2-3",
