@@ -11,7 +11,6 @@ class PingCommand extends Command {
     }
 
     async exec(msg) {
-        const author = msg.author.tag;
         console.log('Pinging!');
         const startTime = Date.now();
         const message = await msg.channel.send('Pinging');
@@ -24,7 +23,7 @@ class PingCommand extends Command {
             .setTimestamp()
             .setThumbnail(client.user.avatarURL())
             .setColor(`${color}`);
-        console.log(`Pinged by ${author}`);
+        console.log(`Pinged by ${msg.author.tag}`);
         return message.edit({
             embed: pingembed,
         });
