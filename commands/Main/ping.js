@@ -6,7 +6,7 @@ class PingCommand extends Command {
     constructor() {
         super('ping', {
             category: 'Main',
-            aliases: ['pong']
+            aliases: ['ping', 'pong']
         });
     }
 
