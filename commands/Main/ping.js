@@ -1,6 +1,5 @@
 const { color } = require('../../db/db.js');
 const { Command } = require('discord-akairo');
-const { client } = require('../../main.js');
 
 class PingCommand extends Command {
     constructor() {
@@ -17,10 +16,10 @@ class PingCommand extends Command {
             endTime = Date.now(),
             ping = Math.round(endTime - startTime),
             roundedPing = ping / 1000,
-            pingEmbed = client.util.embed()
+            pingEmbed = this.client.util.embed()
             .addField('PING', `**${ping}** milliseconds\n**${roundedPing}** seconds`)
             .setTimestamp()
-            .setThumbnail(client.user.avatarURL())
+            .setThumbnail(this.client.user.avatarURL())
             .setColor(`${color}`);
         console.log(`Pinged by ${msg.author.tag}`);
         return message.edit({

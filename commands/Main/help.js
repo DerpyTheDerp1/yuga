@@ -1,5 +1,4 @@
 const { Command } = require('discord-akairo');
-const { client } = require('../../main');
 const path = require('path');
 const fs = require('fs');
 
@@ -36,16 +35,16 @@ class HelpCommand extends Command {
         };
 
         let prefix = '';
-        if (client.user.username == 'Yuga!') prefix = 'y!';
-        if (client.user.username == 'Yuga Testing') prefix == 'yt!';
+        if (this.client.user.username == 'Yuga!') prefix = 'y!';
+        if (this.client.user.username == 'Yuga Testing') prefix == 'yt!';
         const cmdName = args.cmdName;
         if (cmdName) {
             const cmdHelp = findCommand(cmdName).help['help'];
-            const help = client.util.embed()
-                .setAuthor(client.user.username)
+            const help = this.client.util.embed()
+                .setAuthor(this.client.user.username)
                 .setTitle(`__Help for ${cmdHelp.name}__`)
                 .setColor('#32CD32')
-                .setThumbnail(client.user.avatarURL())
+                .setThumbnail(this.client.user.avatarURL())
                 .setTimestamp()
                 .addField('Description', cmdHelp.description)
                 .addField('Category', cmdHelp.category)
@@ -60,9 +59,9 @@ class HelpCommand extends Command {
             const ModerationCommands = fs.readdirSync('./commands/Moderation').map(file => path.basename(file, path.extname(file)));
             const UtilityCommands = fs.readdirSync('./commands/Utility').map(file => path.basename(file, path.extname(file)));
             const NSFWCommands = fs.readdirSync('./commands/NSFW').map(file => path.basename(file, path.extname(file)));
-            const embed = client.util.embed()
+            const embed = this.client.util.embed()
                 .setTitle('Help Command')
-                .setAuthor(client.user.username)
+                .setAuthor(this.client.user.username)
                 .setColor('#32CD32')
                 .addField('Main Commands', MainCommands, true)
                 .addField('Fun Commands', FunCommands, true)
@@ -70,7 +69,7 @@ class HelpCommand extends Command {
                 .addField('Utility Commands', UtilityCommands, true)
                 .addField('NSFW Commands', NSFWCommands, true)
                 .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it.\nNSFW commands can only be used in NSFW Labelled channels.`, true)
-                .setThumbnail(client.user.avatarURL())
+                .setThumbnail(this.client.user.avatarURL())
                 .setTimestamp();
 
             msg.reply('I have sent it to your DMs!');

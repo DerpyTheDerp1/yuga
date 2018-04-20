@@ -1,6 +1,5 @@
 const { getBirb } = require('animals-api');
 const { Command } = require('discord-akairo');
-const { client } = require('../../main');
 
 class BirbCommand extends Command {
     constructor() {
@@ -10,7 +9,7 @@ class BirbCommand extends Command {
     }
 
     async exec(msg) {
-        const birbEmbed = client.util.embed();
+        const birbEmbed = this.client.util.embed();
         try {
             const url = await getBirb(['jpg', 'png', 'gif']);
             birbEmbed.setImage(url);

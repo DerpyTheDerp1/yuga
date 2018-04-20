@@ -4,7 +4,8 @@ const client = new AkairoClient({
     automateCategories: true,
     ownerID: '215509157837537280',
     prefix: 'y!',
-    commandDirectory: './commands/'
+    commandDirectory: './commands/',
+    listenerDirectory: './listeners/'
 }, {
     disableEveryone: true
 });
