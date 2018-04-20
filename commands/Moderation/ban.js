@@ -3,14 +3,24 @@ const { Command } = require('discord-akairo');
 class BanCommand extends Command {
     constructor() {
         super('ban', {
-            userPermissions: ['BAN_MEMBERS'],
-            clientPermissions: ['BAN_MEMBERS'],
-            args: [
-            {
-                id: 'member',
-                type: 'member'
-            }]
-        });
+                userPermissions: ['BAN_MEMBERS'],
+                clientPermissions: ['BAN_MEMBERS'],
+                args: [
+                {
+                    id: 'member',
+                    type: 'member'
+                }]
+            }),
+
+            this.help = {
+                'help': {
+                    name: 'Ban',
+                    description: 'Bans a member',
+                    category: 'Moderation',
+                    usage: 'y!ban <tag member>',
+                    requiredPerms: 'Ban Members'
+                },
+            };
     }
 
     exec(msg, args) {
@@ -24,15 +34,4 @@ class BanCommand extends Command {
     }
 }
 
-module.exports = {
-    BanCommand: BanCommand,
-    help: {
-        'help': {
-            name: 'Ban',
-            description: 'Bans a member',
-            category: 'Moderation',
-            usage: 'y!ban <tag member>',
-            requiredPerms: 'Ban Members'
-        },
-    }
-};
+module.exports = BanCommand;

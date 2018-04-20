@@ -4,8 +4,18 @@ const { Command } = require('discord-akairo');
 class BirbCommand extends Command {
     constructor() {
         super('birb', {
-            category: 'Fun'
-        });
+                category: 'Fun'
+            }),
+
+            this.help = {
+                'help': {
+                    name: 'Birb',
+                    description: 'Returns a randomized image of a birb =D',
+                    category: 'Fun',
+                    usage: 'y!birb',
+                    requiredPerms: 'None'
+                }
+            };
     }
 
     async exec(msg) {
@@ -20,15 +30,4 @@ class BirbCommand extends Command {
     }
 }
 
-module.exports = {
-    BirbCommand: BirbCommand,
-    help: {
-        'help': {
-            name: 'Birb',
-            description: 'Returns a randomized image of a birb =D',
-            category: 'Fun',
-            usage: 'y!birb',
-            requiredPerms: 'None'
-        }
-    }
-};
+module.exports = BirbCommand;

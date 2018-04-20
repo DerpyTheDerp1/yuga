@@ -4,9 +4,19 @@ const { Command } = require('discord-akairo');
 class PingCommand extends Command {
     constructor() {
         super('ping', {
-            category: 'Main',
-            aliases: ['ping', 'pong']
-        });
+                category: 'Main',
+                aliases: ['ping', 'pong']
+            }),
+
+            this.help = {
+                'help': {
+                    name: 'Ping',
+                    description: 'Checks the response time of the bot',
+                    category: 'Main',
+                    usage: 'y!ping',
+                    requiredPerms: 'None',
+                }
+            };
     }
 
     async exec(msg) {
@@ -28,15 +38,4 @@ class PingCommand extends Command {
     }
 }
 
-module.exports = {
-    PingCommand: PingCommand,
-    help: {
-        'help': {
-            name: 'Ping',
-            description: 'Checks the response time of the bot',
-            category: 'Main',
-            usage: 'y!ping',
-            requiredPerms: 'None',
-        }
-    }
-};
+module.exports = PingCommand;

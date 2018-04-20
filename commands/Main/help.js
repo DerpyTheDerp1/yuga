@@ -39,7 +39,7 @@ class HelpCommand extends Command {
         if (this.client.user.username == 'Yuga Testing') prefix == 'yt!';
         const cmdName = args.cmdName;
         if (cmdName) {
-            const cmdHelp = findCommand(cmdName).help['help'];
+            const cmdHelp = findCommand(cmdName).prototype.help['help'];
             const help = this.client.util.embed()
                 .setAuthor(this.client.user.username)
                 .setTitle(`__Help for ${cmdHelp.name}__`)
