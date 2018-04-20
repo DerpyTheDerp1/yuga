@@ -9,4 +9,5 @@ const client = new AkairoClient({
     disableEveryone: true
 });
 
+module.exports = client;
 client.login(process.env.TOKEN);
