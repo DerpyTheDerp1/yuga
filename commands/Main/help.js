@@ -39,7 +39,7 @@ class HelpCommand extends Command {
         if (this.client.user.username == 'Yuga Testing') prefix == 'yt!';
         const cmdName = args.cmdName;
         if (cmdName) {
-            const cmdHelp = findCommand(cmdName).prototype.help['help'];
+            const cmdHelp = findCommand(cmdName).prototype.help;
             const help = this.client.util.embed()
                 .setAuthor(this.client.user.username)
                 .setTitle(`__Help for ${cmdHelp.name}__`)
@@ -54,28 +54,17 @@ class HelpCommand extends Command {
                 embed: help,
             });
         } else {
-            const FunCommands = fs.readdirSync('./commands/Fun').map(file => path.basename(file, path.extname(file)));
+            const FunCommands = fs.readdirSync('./commands/Fun').map(file => path.basename(file, path.extname(file))).toString().split('').join(', ');
             const MainCommands = fs.readdirSync('./commands/Main').map(file => path.basename(file, path.extname(file)));
             const ModerationCommands = fs.readdirSync('./commands/Moderation').map(file => path.basename(file, path.extname(file)));
             const UtilCommands = fs.readdirSync('./commands/Util').map(file => path.basename(file, path.extname(file)));
             const NSFWCommands = fs.readdirSync('./commands/NSFW').map(file => path.basename(file, path.extname(file)));
-            const embed = this.client.util.embed()
-                .setTitle('Help Command')
-                .setAuthor(this.client.user.username)
-                .setColor('#32CD32')
-                .addField('Main Commands', MainCommands, true)
-                .addField('Fun Commands', FunCommands, true)
-                .addField('Moderation Commands', ModerationCommands, true)
-                .addField('Util Commands', UtilCommands, true)
-                .addField('NSFW Commands', NSFWCommands, true)
-                .addField('More info', `To find out extensive usage per command, use ${prefix}help <command name>.\nThis will tell you the command description, usage, and what perms you need to run it.\nNSFW commands can only be used in NSFW Labelled channels.`, true)
-                .setThumbnail(this.client.user.avatarURL())
-                .setTimestamp();
 
-            msg.reply('I have sent it to your DMs!');
-            await msg.author.send({
-                embed,
-            });
+            await msg.author.send(`
+            \`\`\`=== Fun Commands ===\n
+            ${FunCommands}
+            `);
+            return msg.reply('I have sent it to your DMs!');
         }
     }
 }
