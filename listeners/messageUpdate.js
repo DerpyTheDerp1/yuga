@@ -1,5 +1,5 @@
 const { Listener } = require('discord-akairo');
-const { color } = require('../../db/db.js');
+const { color } = require('../db/db.js');
 
 class messageUpdateListener extends Listener {
     constructor() {
