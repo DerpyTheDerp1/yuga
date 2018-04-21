@@ -10,7 +10,9 @@ class BanCommand extends Command {
                 {
                     id: 'member',
                     type: 'member'
-                }]
+                }],
+                channel: 'guild',
+                typing: true
             }),
 
             this.help = {

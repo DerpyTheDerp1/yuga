@@ -5,7 +5,9 @@ class BirbCommand extends Command {
     constructor() {
         super('birb', {
                 aliases: ['birb'],
-                category: 'Fun'
+                category: 'Fun',
+                typing: true
+
             }),
 
             this.help = {

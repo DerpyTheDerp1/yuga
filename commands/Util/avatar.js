@@ -9,7 +9,8 @@ class AvatarCommand extends Command {
                 {
                     id: 'member',
                     type: 'member'
-                }]
+                }],
+                typing: true
             }),
 
             this.help = {

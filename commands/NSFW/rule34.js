@@ -13,7 +13,8 @@ class rule34Command extends Command {
                 {
                     id: 'tag',
                     type: 'string'
-                }]
+                }],
+            typing: true
             }),
 
             this.help = {

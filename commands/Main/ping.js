@@ -5,7 +5,8 @@ class PingCommand extends Command {
     constructor() {
         super('ping', {
                 category: 'Main',
-                aliases: ['ping', 'pong']
+                aliases: ['ping', 'pong'],
+                typing: true
             }),
 
             this.help = {

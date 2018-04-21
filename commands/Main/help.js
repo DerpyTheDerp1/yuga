@@ -10,7 +10,8 @@ class HelpCommand extends Command {
             {
                 id: 'cmdName',
                 type: 'string'
-            }]
+            }],
+            typing: true
         });
     }
     async exec(msg, args) {
@@ -39,19 +40,25 @@ class HelpCommand extends Command {
         const cmdName = args.cmdName;
         if (cmdName) {
             const cmdHelp = findCommand(cmdName).help['help'];
-            const help = this.client.util.embed()
-                .setAuthor(this.client.user.username)
-                .setTitle(`__Help for ${cmdHelp.name}__`)
-                .setColor('#32CD32')
-                .setThumbnail(this.client.user.avatarURL())
-                .setTimestamp()
-                .addField('Description', cmdHelp.description)
-                .addField('Category', cmdHelp.category)
-                .addField('Usage', cmdHelp.usage)
-                .addField('Required Perms', cmdHelp.requiredPerms);
-            return msg.channel.send({
-                embed: help,
-            });
+            if (cmdHelp) {
+                const help = this.client.util.embed()
+                    .setAuthor(this.client.user.username)
+                    .setTitle(`__Help for ${cmdHelp.name}__`)
+                    .setColor('#32CD32')
+                    .setThumbnail(this.client.user.avatarURL())
+                    .setTimestamp()
+                    .addField('Description', cmdHelp.description)
+                    .addField('Category', cmdHelp.category)
+                    .addField('Usage', cmdHelp.usage)
+                    .addField('Aliases', cmdHelp.aliases)
+                    .addField('Can be used in DMs?', cmdHelp.DMs)
+                    .addField('Required Perms', cmdHelp.requiredPerms);
+                return msg.channel.send({
+                    embed: help,
+                });
+            } else {
+                return msg.reply('Sorry, that command doesn\'t exist');
+            }
         } else {
             const FunCommands = fs.readdirSync('./commands/Fun').map(file => path.basename(file, path.extname(file)));
             const MainCommands = fs.readdirSync('./commands/Main').map(file => path.basename(file, path.extname(file)));
