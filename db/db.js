@@ -8,6 +8,7 @@ exports.Names = [
   'Slime',
   'Swag',
   'Doggo',
+  'Aided'
 ];
 
 exports.ids = [
@@ -20,6 +21,7 @@ exports.ids = [
   '229019714981068802',
   '193430316440879105',
   '265546442637049856',
+  '271467855814328320'
 ];
 
 exports.color = '#DE55A8';
