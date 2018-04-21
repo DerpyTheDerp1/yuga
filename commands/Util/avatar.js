@@ -24,7 +24,7 @@ class AvatarCommand extends Command {
     }
 
     exec(msg, args) {
-        let user = args.member;
+        let user = args.member.user;
         if (!user) user = msg.author;
         const avatar = user.avatarURL({
             size: 2048,
