@@ -3,6 +3,7 @@ const { Command } = require('discord-akairo');
 class BanCommand extends Command {
     constructor() {
         super('ban', {
+                aliases: ['ban'],
                 userPermissions: ['BAN_MEMBERS'],
                 clientPermissions: ['BAN_MEMBERS'],
                 args: [
@@ -13,13 +14,12 @@ class BanCommand extends Command {
             }),
 
             this.help = {
-                'help': {
-                    name: 'Ban',
-                    description: 'Bans a member',
-                    category: 'Moderation',
-                    usage: 'y!ban <tag member>',
-                    requiredPerms: 'Ban Members'
-                },
+                name: 'Ban',
+                description: 'Bans a member',
+                category: 'Moderation',
+                usage: 'y!ban <tag member>',
+                requiredPerms: 'Ban Members'
+
             };
     }
 
@@ -30,7 +30,7 @@ class BanCommand extends Command {
         if (msg.member.roles.highest.position < member.roles.highest.position) return msg.reply('You cannot ban this user, they have a higher role than you!');
         if (msg.member.roles.highest.position == member.roles.highest.position) return msg.reply('You cannot ban this user, they have the same role as you!');
         member.ban();
-        msg.channel.send(`The ban hammer :hammer: has struck on **${member.user.username}**`);
+        return msg.channel.send(`The ban hammer :hammer: has struck on **${member.user.username}**`);
     }
 }
 
