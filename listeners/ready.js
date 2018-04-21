@@ -5,7 +5,7 @@ class ReadyListener extends Listener {
     constructor() {
         super('ready', {
             emitter: 'client',
-            eventName: 'ready'
+            event: 'ready'
         });
     }
 
