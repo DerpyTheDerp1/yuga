@@ -4,17 +4,16 @@ const { Command } = require('discord-akairo');
 class BirbCommand extends Command {
     constructor() {
         super('birb', {
+                aliases: ['birb'],
                 category: 'Fun'
             }),
 
             this.help = {
-                'help': {
-                    name: 'Birb',
-                    description: 'Returns a randomized image of a birb =D',
-                    category: 'Fun',
-                    usage: 'y!birb',
-                    requiredPerms: 'None'
-                }
+                name: 'Birb',
+                description: 'Returns a randomized image of a birb =D',
+                category: 'Fun',
+                usage: 'y!birb',
+                requiredPerms: 'None'
             };
     }
 
@@ -23,9 +22,9 @@ class BirbCommand extends Command {
         try {
             const url = await getBirb(['jpg', 'png', 'gif']);
             birbEmbed.setImage(url);
-            msg.channel.send({ embed: birbEmbed });
+            return msg.channel.send({ embed: birbEmbed });
         } catch (e) {
-            msg.reply(`An error occured! \`${e}\``);
+            return msg.reply(`An error occured! \`${e}\``);
         }
     }
 }
