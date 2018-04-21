@@ -59,32 +59,11 @@ class HelpCommand extends Command {
             const ModerationCommands = fs.readdirSync('./commands/Moderation').map(file => path.basename(file, path.extname(file)));
             const UtilCommands = fs.readdirSync('./commands/Util').map(file => path.basename(file, path.extname(file)));
             const NSFWCommands = fs.readdirSync('./commands/NSFW').map(file => path.basename(file, path.extname(file)));
-
-            await msg.author.send(`
-            \`\`\`=== Main Commands ===\n
-            ${MainCommands}
-            \`\`\`
-            `);
-            await msg.author.send(`
-            \`\`\`=== Moderation Commands ===\n
-            ${ModerationCommands}
-            \`\`\`
-            `);
-            await msg.author.send(`
-            \`\`\`=== Fun Commands ===\n
-            ${FunCommands}
-            \`\`\`
-            `);
-            await msg.author.send(`
-            \`\`\`=== Util Commands ===\n
-            ${UtilCommands}
-            \`\`\`
-            `);
-            await msg.author.send(`
-            \`\`\`=== NSFW Commands ===\n
-            ${NSFWCommands}
-            \`\`\`
-            `);
+            await msg.author.send(`\`\`\`=== Main Commands ===\n${MainCommands}\`\`\``);
+            await msg.author.send(`\`\`\`=== Moderation Commands ===\n${ModerationCommands}\`\`\``);
+            await msg.author.send(`\`\`\`=== Fun Commands ===\n${FunCommands}\`\`\``);
+            await msg.author.send(`\`\`\`=== Util Commands ===\n${UtilCommands}\`\`\``);
+            await msg.author.send(`\`\`\`=== NSFW Commands ===\n${NSFWCommands}\`\`\``);
             return msg.reply('I have sent it to your DMs!');
         }
     }
