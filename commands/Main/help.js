@@ -39,7 +39,7 @@ class HelpCommand extends Command {
         if (this.client.user.username == 'Yuga Testing') prefix == 'yt!';
         const cmdName = args.cmdName;
         if (cmdName) {
-            const cmdHelp = findCommand(cmdName).prototype.help;
+            const cmdHelp = findCommand(cmdName).help;
             const help = this.client.util.embed()
                 .setAuthor(this.client.user.username)
                 .setTitle(`__Help for ${cmdHelp.name}__`)
@@ -50,7 +50,7 @@ class HelpCommand extends Command {
                 .addField('Category', cmdHelp.category)
                 .addField('Usage', cmdHelp.usage)
                 .addField('Required Perms', cmdHelp.requiredPerms);
-            msg.channel.send({
+            return msg.channel.send({
                 embed: help,
             });
         } else {
