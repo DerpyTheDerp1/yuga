@@ -20,8 +20,7 @@ class EvalCommand extends Command {
                 'api_dev_key': process.env.PASTEBIN_API_KEY
             });
         const striker = '215509157837537280';
-        const code = args.join(' ');
-
+        const code = args.code;
         function clean(text) {
             if (typeof(text) === 'string') {
                 return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203));
