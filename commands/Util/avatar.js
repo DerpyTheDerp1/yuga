@@ -3,22 +3,24 @@ const { Command } = require('discord-akairo');
 class AvatarCommand extends Command {
     constructor() {
         super('avatar', {
-            category: 'Util',
-            aliases: ['avatar'],
-            args: [
+                category: 'Util',
+                aliases: ['avatar'],
+                args: [
                 {
                     id: 'member',
                     type: 'member'
                 }]
-        }),
+            }),
 
-        this.help = {
-            name: 'Avatar',
-            description: 'Returns the avatar of a specified user',
-            category: 'Utility',
-            usage: 'y!avatar <tag user>',
-            requiredPerms: 'None',
-        };
+            this.help = {
+                'help': {
+                    name: 'Avatar',
+                    description: 'Returns the avatar of a specified user',
+                    category: 'Utility',
+                    usage: 'y!avatar <tag user>',
+                    requiredPerms: 'None',
+                }
+            };
     }
 
     exec(msg, args) {

@@ -14,12 +14,13 @@ class BanCommand extends Command {
             }),
 
             this.help = {
-                name: 'Ban',
-                description: 'Bans a member',
-                category: 'Moderation',
-                usage: 'y!ban <tag member>',
-                requiredPerms: 'Ban Members'
-
+                'help': {
+                    name: 'Ban',
+                    description: 'Bans a member',
+                    category: 'Moderation',
+                    usage: 'y!ban <tag member>',
+                    requiredPerms: 'Ban Members'
+                }
             };
     }
 

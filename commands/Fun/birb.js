@@ -9,11 +9,13 @@ class BirbCommand extends Command {
             }),
 
             this.help = {
-                name: 'Birb',
-                description: 'Returns a randomized image of a birb =D',
-                category: 'Fun',
-                usage: 'y!birb',
-                requiredPerms: 'None'
+                'help': {
+                    name: 'Birb',
+                    description: 'Returns a randomized image of a birb =D',
+                    category: 'Fun',
+                    usage: 'y!birb',
+                    requiredPerms: 'None'
+                }
             };
     }
 

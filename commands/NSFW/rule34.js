@@ -17,11 +17,13 @@ class rule34Command extends Command {
             }),
 
             this.help = {
-                name: 'rule34',
-                description: 'Returns a naughty naughty image',
-                category: 'NSFW',
-                usage: 'y!rule34 <search term>',
-                requiredPerms: 'None, Channel must be NSFW',
+                'help': {
+                    name: 'rule34',
+                    description: 'Returns a naughty naughty image',
+                    category: 'NSFW',
+                    usage: 'y!rule34 <search term>',
+                    requiredPerms: 'None, Channel must be NSFW',
+                }
             };
     }
 
