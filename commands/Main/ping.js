@@ -9,13 +9,11 @@ class PingCommand extends Command {
             }),
 
             this.help = {
-                'help': {
-                    name: 'Ping',
-                    description: 'Checks the response time of the bot',
-                    category: 'Main',
-                    usage: 'y!ping',
-                    requiredPerms: 'None',
-                }
+                name: 'Ping',
+                description: 'Checks the response time of the bot',
+                category: 'Main',
+                usage: 'y!ping',
+                requiredPerms: 'None',
             };
     }
 
