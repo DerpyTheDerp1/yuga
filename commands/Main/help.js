@@ -36,9 +36,6 @@ class HelpCommand extends Command {
             }
         };
 
-        let prefix = '';
-        if (this.client.user.username == 'Yuga!') prefix = 'y!';
-        if (this.client.user.username == 'Yuga Testing') prefix == 'yt!';
         const cmdName = args.cmdName;
         if (cmdName) {
             const cmdHelp = findCommand(cmdName).help['help'];
