@@ -10,7 +10,7 @@ class EightballCommand extends Command {
           type: 'string'
         }
       ]
-    }
+    }),
           
     this.help = {
       'help': {
@@ -20,7 +20,7 @@ class EightballCommand extends Command {
           usage: 'y!8ball <question>',
           requiredPerms: 'None'
       }
-    }
+    };
   }
   
   exec(msg, args) {
