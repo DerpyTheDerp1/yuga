@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo')
 
-class 8ball extends Command {
+class EightballCommand extends Command {
   constructor() {
     super('8ball', {
       aliases: ['8ball', '8b', 'ask'],
@@ -10,6 +10,16 @@ class 8ball extends Command {
           type: 'string'
         }
       ]
+    }
+          
+    this.help = {
+      'help': {
+          name: '8ball',
+          description: 'Answers the world\'s biggest questions',
+          category: 'Fun',
+          usage: 'y!8ball <question>',
+          requiredPerms: 'None'
+      }
     }
   }
   
@@ -28,6 +38,9 @@ class 8ball extends Command {
       'That is for you to decide'  
     ];
     
-    const answer = answers
+    const answer = answers[Math.floor(Math.random() * answers.length)];
+    msg.channel.send(`**QUESTION**: ${question}\n**ANSWER**: ${answer}`);
   }
 }
+  
+module.exports = EightballCommand;
