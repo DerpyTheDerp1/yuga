@@ -35,18 +35,15 @@ class AchievementCommand extends Command {
             contents = args.contents;
         !contents ? [title, contents] = ['Achievement Get!', args.title] : title = args.title, contents = args.contents;
 
-        let rnd = Math.floor((Math.random() * 39) + 1);
-        contents.toLowerCase().includes('burn') ? rnd = 38 : rnd = Math.floor((Math.random() * 39) + 1);
-        contents.toLowerCase().includes('cookie') ? rnd = 21 : rnd = Math.floor((Math.random() * 39) + 1);
-        contents.toLowerCase().includes('cake') ? rnd = 10 : rnd = Math.floor((Math.random() * 39) + 1);
+        const rnd = Math.floor((Math.random() * 39) + 1);
 
         if (title.length > 22 || contents.length > 22) return msg.reply('Sorry, the max length is 22 characters long.');
-            get(`https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`)
-                .then(r => msg.channel.send('', {
-                    files: [{
-                        attachment: r.body,
-                    }],
-                }));
+        get(`https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`)
+            .then(r => msg.channel.send('', {
+                files: [{
+                    attachment: r.body,
+                }],
+            }));
         msg.delete();
     }
 }
