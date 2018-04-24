@@ -26,18 +26,18 @@ class PingCommand extends Command {
     async exec(msg) {
         console.log('Pinging!');
         const startTime = Date.now(),
-            message = msg.content == 'y!ping' ? await msg.channel.send('Pinging') : await msg.channel.send('Ponging'),
+            message = msg.content == 'y!ping' ? await msg.channel.send('Ponging') : await msg.channel.send('Pinging'),
             endTime = Date.now(),
             ping = Math.round(endTime - startTime),
             roundedPing = ping / 1000;
-        let Os = 'o',
+        const Os = 'o',
             Is = 'i';
-        for (let x; x<Math.round((roundedPing/2)/2);x++) msg.content == 'y!ping' ? Is+='i' : Os+='o';
+        for (let x; x < Math.round((roundedPing / 2) / 2); x++) msg.content == 'y!ping' ? Os + 'o' : Is + 'i' ;
         const pingEmbed = this.client.util.embed()
             .setTimestamp()
             .setThumbnail(this.client.user.avatarURL())
             .setColor(`${color}`);
-        msg.content == 'y!ping' ? pingEmbed.addField(`P${Is}ng`, `${ping} ms`) : pingEmbed.addFied(`P${Os}ng`, `${ping} ms`);
+        msg.content == 'y!ping' ? pingEmbed.addField(`P${Os}ng`, `${ping} ms`) : pingEmbed.addField(`P${Is}ng`, `${ping} ms`);
         console.log(`Pinged by ${msg.author.tag}`);
         return message.edit({
             embed: pingEmbed,
