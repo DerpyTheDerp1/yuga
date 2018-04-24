@@ -30,14 +30,16 @@ class PingCommand extends Command {
             endTime = Date.now(),
             ping = Math.round(endTime - startTime),
             roundedPing = ping / 1000;
-        const Os = 'o',
-            Is = 'i';
-        for (let x; x < Math.round((roundedPing / 2) / 2); x++) msg.content == 'y!ping' ? Os + 'o' : Is + 'i' ;
+        const Os = ['o'],
+            Is = ['i'];
+        for (let x; x < Math.round((roundedPing / 2) / 2); x++) msg.content == 'y!ping' ? Os.push('o') : Is.push('i');
+        Is.join('');
+        Os.join('');
         const pingEmbed = this.client.util.embed()
             .setTimestamp()
             .setThumbnail(this.client.user.avatarURL())
             .setColor(`${color}`);
-        msg.content == 'y!ping' ? pingEmbed.addField(`P${Os}ng`, `${ping} ms`) : pingEmbed.addField(`P${Is}ng`, `${ping} ms`);
+        msg.content == 'y!ping' ? pingEmbed.addField(`P${Os}ng!`, `${ping} ms`) : pingEmbed.addField(`P${Is}ng!`, `${ping} ms`);
         console.log(`Pinged by ${msg.author.tag}`);
         return message.edit({
             embed: pingEmbed,
