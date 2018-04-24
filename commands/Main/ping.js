@@ -32,7 +32,7 @@ class PingCommand extends Command {
             roundedPing = ping / 1000;
         let Os = 'o',
             Is = 'i';
-        for (let x=0; x < Math.round((roundedPing / 2) / 2);) {
+        for (let x=0; x < Math.round((roundedPing / 2) / 2); x++) {
             Os+='o';
             Is+='i';
         }
