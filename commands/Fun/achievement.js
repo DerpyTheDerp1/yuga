@@ -33,7 +33,7 @@ class AchievementCommand extends Command {
     exec(msg, args) {
         let title = args.title,
             contents = args.contents;
-        !contents ? [title, contents] = ['Achievement Get!', title] : title = args.title, contents = args.contents;
+        !contents ? [title, contents] = ['Achievement Get!', args.title] : title = args.title, contents = args.contents;
 
         let rnd = Math.floor((Math.random() * 39) + 1);
         contents.toLowerCase().includes('burn') ? rnd = 38 : rnd = Math.floor((Math.random() * 39) + 1);
