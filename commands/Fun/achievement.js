@@ -9,6 +9,7 @@ class AchievementCommand extends Command {
                 {
                     id: 'title',
                     type: 'string',
+                    prefix: '-',
                     default: 'Achievement Get!'
                 },
 
