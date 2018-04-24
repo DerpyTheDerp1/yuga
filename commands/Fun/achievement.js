@@ -7,15 +7,15 @@ class AchievementCommand extends Command {
             aliases: ['achievement'],
             args: [
                 {
+                    id: 'contents',
+                    type: 'string'
+                },
+
+                {
                     id: 'title',
                     type: 'string',
                     prefix: '-',
                     default: 'Achievement Get!'
-                },
-
-                {
-                    id: 'contents',
-                    type: 'string'
                 },
             ],
             split: ' | '
@@ -26,7 +26,7 @@ class AchievementCommand extends Command {
                 name: 'Achievement',
                 description: 'Creates a Minecraft achievement from input text',
                 category: 'Fun',
-                usage: 'y!achievement <contents>\n\nYou can just do y!achievement <optional title> | <contents>',
+                usage: 'y!achievement <contents>\n\nYou can just do y!achievement <contents> | <optional title>',
                 requiredPerms: 'None'
             }
         };
