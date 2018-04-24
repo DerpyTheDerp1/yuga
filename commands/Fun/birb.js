@@ -16,7 +16,10 @@ class BirbCommand extends Command {
                     description: 'Returns a randomized image of a birb =D',
                     category: 'Fun',
                     usage: 'y!birb',
-                    requiredPerms: 'None'
+                    aliases: 'None',
+                    DMs: 'Yes',
+                    UserPerms: 'None',
+                    YugaPerms: 'Send Messages'
                 }
             };
     }

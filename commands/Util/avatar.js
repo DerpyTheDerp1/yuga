@@ -19,7 +19,9 @@ class AvatarCommand extends Command {
                     description: 'Returns the avatar of a specified user',
                     category: 'Utility',
                     usage: 'y!avatar <tag user>',
-                    requiredPerms: 'None',
+                    aliases: 'None',
+                    UserPerms: 'None',
+                    YugaPerms: 'Send Messages'
                 }
             };
     }

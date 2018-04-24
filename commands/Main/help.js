@@ -52,7 +52,8 @@ class HelpCommand extends Command {
                     .addField('Usage', cmdHelp.usage)
                     .addField('Aliases', cmdHelp.aliases)
                     .addField('Can be used in DMs?', cmdHelp.DMs)
-                    .addField('Required Perms', cmdHelp.requiredPerms);
+                    .addField('User Required Perms', cmdHelp.UserPerms)
+                    .addField('Yuga Required Perms', cmdHelp.YugaPerms);
                 return msg.channel.send({
                     embed: help,
                 });

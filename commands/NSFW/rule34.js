@@ -14,7 +14,8 @@ class rule34Command extends Command {
                     id: 'tag',
                     type: 'string'
                 }],
-            typing: true
+                typing: true,
+                channel: 'guild'
             }),
 
             this.help = {
@@ -23,7 +24,10 @@ class rule34Command extends Command {
                     description: 'Returns a naughty naughty image',
                     category: 'NSFW',
                     usage: 'y!rule34 <search term>',
-                    requiredPerms: 'None, Channel must be NSFW',
+                    aliases: 'y!r34',
+                    DMs: 'No',
+                    UserPerms: 'None',
+                    YugaPerms: 'Send Messages',
                 }
             };
     }

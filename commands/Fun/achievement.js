@@ -26,8 +26,11 @@ class AchievementCommand extends Command {
                 name: 'Achievement',
                 description: 'Creates a Minecraft achievement from input text',
                 category: 'Fun',
-                usage: 'y!achievement <contents>\n\nYou can just do y!achievement <contents> | <optional title>',
-                requiredPerms: 'None'
+                usage: 'y!achievement <contents>\ny!achievement <contents> | <optional title>',
+                aliases: 'None',
+                DMs: 'Yes',
+                UserPerms: 'None',
+                YugaPerms: 'Send Messages, Attach Files'
             }
         };
     }

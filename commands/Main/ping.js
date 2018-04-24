@@ -15,7 +15,10 @@ class PingCommand extends Command {
                     description: 'Checks the response time of the bot',
                     category: 'Main',
                     usage: 'y!ping',
-                    requiredPerms: 'None',
+                    aliases: 'y!pong',
+                    DMs: 'Yes',
+                    UserPerms: 'None',
+                    YugaPerms: 'Send Messages'
                 }
             };
     }
@@ -23,15 +26,18 @@ class PingCommand extends Command {
     async exec(msg) {
         console.log('Pinging!');
         const startTime = Date.now(),
-            message = await msg.channel.send('Pinging'),
+            message = msg.content == 'y!ping' ? await msg.channel.send('Pinging') : await msg.channel.send('Ponging'),
             endTime = Date.now(),
             ping = Math.round(endTime - startTime),
-            roundedPing = ping / 1000,
-            pingEmbed = this.client.util.embed()
-            .addField('PING', `**${ping}** milliseconds\n**${roundedPing}** seconds`)
+            roundedPing = ping / 1000;
+        let Os = 'o',
+            Is = 'i';
+        for (let x; x<Math.round((roundedPing/2)/2);x++) msg.content == 'y!ping' ? Is+='i' : Os+='o';
+        const pingEmbed = this.client.util.embed()
             .setTimestamp()
             .setThumbnail(this.client.user.avatarURL())
             .setColor(`${color}`);
+        msg.content == 'y!ping' ? pingEmbed.addField(`P${Is}ng`, `${ping} ms`) : pingEmbed.addFied(`P${Os}ng`, `${ping} ms`);
         console.log(`Pinged by ${msg.author.tag}`);
         return message.edit({
             embed: pingEmbed,
