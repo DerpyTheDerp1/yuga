@@ -1,4 +1,5 @@
 const { Command } = require('discord-akairo');
+const { banGifs } = require('../../db/db');
 
 class BanCommand extends Command {
     constructor() {
@@ -21,19 +22,26 @@ class BanCommand extends Command {
                     description: 'Bans a member',
                     category: 'Moderation',
                     usage: 'y!ban <tag member>',
-                    requiredPerms: 'Ban Members'
+                    aliases: 'None',
+                    UserPerms: 'Ban Members',
+                    YugaPerms: 'Ban Members'
                 }
             };
     }
 
     exec(msg, args) {
+        const banGif = banGifs[Math.floor(Math.random() * banGifs.length)];
         if (!args.member) return msg.reply('Must specify a user!');
         const member = args.member;
         if (member == msg.member) return msg.reply('Why are you trying to ban yourself ;-;');
         if (msg.member.roles.highest.position < member.roles.highest.position) return msg.reply('You cannot ban this user, they have a higher role than you!');
         if (msg.member.roles.highest.position == member.roles.highest.position) return msg.reply('You cannot ban this user, they have the same role as you!');
         member.ban();
-        return msg.channel.send(`The ban hammer :hammer: has struck on **${member.user.username}**`);
+        return msg.channel.send(`**${member.user.username}** got the ban hammer!`, {
+            files: [{
+                attachment: banGif,
+            }]
+        });
     }
 }
 
