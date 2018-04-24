@@ -36,9 +36,9 @@ class AchievementCommand extends Command {
         !contents ? [title, contents] = ['Achievement Get!', title] : title = args.title, contents = args.contents;
 
         let rnd = Math.floor((Math.random() * 39) + 1);
-        if (args.join(' ').toLowerCase().includes('burn')) rnd = 38;
-        if (args.join(' ').toLowerCase().includes('cookie')) rnd = 21;
-        if (args.join(' ').toLowerCase().includes('cake')) rnd = 10;
+        contents.toLowerCase().includes('burn') || title.toLowerCase().includes('burn') ? rnd = 38 : rnd = Math.floor((Math.random() * 39) + 1);
+        contents.toLowerCase().includes('cookie') || title.toLowerCase().includes('cookie') ? rnd = 21 : rnd = Math.floor((Math.random() * 39) + 1);
+        contents.toLowerCase().includes('cake') || title.toLowerCase().includes('cake') ? rnd = 10 : rnd = Math.floor((Math.random() * 39) + 1);
 
         if (title.length > 22 || contents.length > 22) return msg.reply('Sorry, the max length is 22 characters long.');
             get(`https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`)

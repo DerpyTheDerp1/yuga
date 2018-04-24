@@ -7,7 +7,8 @@ class EightballCommand extends Command {
       args: [
         {
           id: 'question',
-          type: 'string'
+          type: 'string',
+          match: 'content'
         }
       ]
     }),
