@@ -7,16 +7,15 @@ class AchievementCommand extends Command {
             aliases: ['achievement'],
             args: [
                 {
-                    id: 'contents',
-                    type: 'string'
+                    id: 'title',
+                    type: 'string',
+                    default: 'Achievement Get!'
                 },
 
                 {
-                    id: 'title',
-                    type: 'string',
-                    prefix: '-',
-                    default: 'Achievement Get!'
-                }
+                    id: 'contents',
+                    type: 'string'
+                },
             ],
             split: ' | '
         });
@@ -26,7 +25,7 @@ class AchievementCommand extends Command {
                 name: 'Achievement',
                 description: 'Creates a Minecraft achievement from input text',
                 category: 'Fun',
-                usage: 'y!achievement <contents> | -<optional title>\n\nYou can just do y!achievement <contents>\nYou can also do y!achivement -<title> | <contents> (if you want)',
+                usage: 'y!achievement <contents>\n\nYou can just do y!achievement <optional title> | <contents>',
                 requiredPerms: 'None'
             }
         };
@@ -35,7 +34,6 @@ class AchievementCommand extends Command {
     exec(msg, args) {
         const [title, contents] = [args.title, args.contents];
         const rnd = Math.floor((Math.random() * 39) + 1);
-        console.log(title, contents)
         if (title.length > 22 || contents.length > 22) return msg.reply('Sorry, the max length is 22 characters long.');
         get(`https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`)
             .then(r => msg.channel.send('', {
