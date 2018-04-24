@@ -28,8 +28,7 @@ class PingCommand extends Command {
         const startTime = Date.now(),
             message = msg.content == 'y!ping' ? await msg.channel.send('Ponging') : await msg.channel.send('Pinging'),
             endTime = Date.now(),
-            ping = Math.round(endTime - startTime),
-            roundedPing = ping / 1000;
+            ping = Math.round(endTime - startTime);
         let Os = 'o',
             Is = 'i';
         for (let x=0; x < ping /4; x++) {
