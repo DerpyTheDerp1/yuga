@@ -30,11 +30,12 @@ class PingCommand extends Command {
             endTime = Date.now(),
             ping = Math.round(endTime - startTime),
             roundedPing = ping / 1000;
-        const Os = ['o'],
-            Is = ['i'];
-        for (let x; x < Math.round((roundedPing / 2) / 2); x++) msg.content == 'y!ping' ? Os.push('o') : Is.push('i');
-        Is.join('');
-        Os.join('');
+        let Os = 'o',
+            Is = 'i';
+        for (let x; x < Math.round((roundedPing / 2) / 2);) {
+            Os+='o';
+            Is+='i';
+        }
         const pingEmbed = this.client.util.embed()
             .setTimestamp()
             .setThumbnail(this.client.user.avatarURL())
