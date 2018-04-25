@@ -7,7 +7,7 @@
   "description": "A general discord bot made in discord.js",
   "main": "yuga.js",
   "dependencies": {
-    "ajv": "^6.1.1",
+    "ajv": "^6.4.0",
     "animals-api": "^1.0.3",
     "common-tags": "^1.7.2",
     "discord.js": "github:discordjs/discord.js",
