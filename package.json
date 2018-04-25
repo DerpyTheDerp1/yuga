@@ -11,7 +11,7 @@
     "animals-api": "^1.0.3",
     "common-tags": "^1.7.2",
     "discord.js": "github:discordjs/discord.js",
-    "eslint": "^4.17.0",
+    "eslint": "^4.19.1",
     "ffmpeg-binaries": "3.2.2-3",
     "kaori": "^1.1.4",
     "moment": "2.19.4",
